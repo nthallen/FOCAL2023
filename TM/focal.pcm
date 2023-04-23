@@ -1,0 +1,44 @@
+
+--------Frame Statistics-----------
+Major Frame: 2 minor frames, 1 Hz
+Minor Frame: 36 bytes, 2 Hz
+Effective Frame Dimensions:
+  2 Rows 36 Columns
+  2 rows/sec
+  576 bits/sec
+  Data:  504 bits/sec  88 %
+  Synch: 64 bits/sec  11 %
+  Empty: 8 bits/sec  1 %
+-------End of Frame Statistics-----
+
+
+--------PCM Definition-------------
+2/1 Hz 2 bytes Datum MFCtr (1,0,0,2)
+2/1 Hz 2 bytes Datum Synch (1,0,34,2)
+1/1 Hz 24 bytes Group SSP_C_amp_grp (2,0,2,24)
+1/1 Hz 4 bytes Member SSP_C_noise_pct1 (2,0,2,4)
+1/1 Hz 4 bytes Member SSP_C_noise_pct0 (2,0,6,4)
+1/1 Hz 4 bytes Member SSP_C_noise1 (2,0,10,4)
+1/1 Hz 4 bytes Member SSP_C_noise0 (2,0,14,4)
+1/1 Hz 4 bytes Member SSP_C_amp1 (2,0,18,4)
+1/1 Hz 4 bytes Member SSP_C_amp0 (2,0,22,4)
+1/1 Hz 4 bytes Group QCLI_C_grp (2,0,26,4)
+1/1 Hz 2 bytes Member QCLI_C_s (2,0,26,2)
+1/1 Hz 2 bytes Member QCLI_C_Wave (2,0,28,2)
+1/1 Hz 4 bytes Datum SysTDrift (2,0,30,4)
+1/1 Hz 18 bytes Group SSP_C_grp (2,1,2,18)
+1/1 Hz 2 bytes Member SSP_C_T_HtSink (2,1,2,2)
+1/1 Hz 2 bytes Member SSP_C_T_FPGA (2,1,4,2)
+1/1 Hz 2 bytes Member SSP_C_Flags (2,1,6,2)
+1/1 Hz 4 bytes Member SSP_C_TS (2,1,8,4)
+1/1 Hz 4 bytes Member SSP_C_SN (2,1,12,4)
+1/1 Hz 4 bytes Member SSP_C_Num (2,1,16,4)
+1/1 Hz 2 bytes Datum CPU_Pct (2,1,20,2)
+1/1 Hz 2 bytes Datum Disk (2,1,22,2)
+1/1 Hz 2 bytes Datum memused (2,1,24,2)
+1/1 Hz 2 bytes Datum QCLI_C_CS (2,1,26,2)
+1/1 Hz 2 bytes Datum QCLI_C_Stale (2,1,28,2)
+1/1 Hz 2 bytes Datum SSP_C_Stale (2,1,30,2)
+1/1 Hz 1 bytes Datum SSP_C_Status (2,1,32,1)
+-------End of PCM Definition-------
+

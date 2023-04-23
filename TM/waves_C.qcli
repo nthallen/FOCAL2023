@@ -1,0 +1,35 @@
+# QCLI_C.qcli
+# Generic Waveforms for QCLI_C
+#QCLIConfig FastRampx25;
+QCLIConfig StandardxP33;
+Digitizer SSP;
+Prefix QCLI_C;
+
+ICOS Waveform C2Cd_800Hz {
+  SampleRate = 100 MHz/56;
+  Ncoadd = 799;
+  Tz = 10%;
+  Ramp from 700 mA to 850 mA in 1 msec;
+}
+
+ICOS Waveform C2Cd_800Hz10Hz {
+  SampleRate = 100 MHz/56;
+  Ncoadd = 80;
+  Tz = 10%;
+  Ramp from 700 mA to 850 mA in 1 msec;
+}
+
+ICOS Waveform C1Dd_800Hz {
+  SampleRate = 50 MHz/28;
+  Ncoadd = 900;
+  Tz = 10%;
+  Ramp from 800 mA to 950 mA in 1 msec;
+}
+
+ICOS Waveform QCLI_C_ConstantI {
+  Tz = 10 msec;
+  Iz = 850 mA;
+  SampleRate = 10 MHz/28;
+  dI/dt = 0 A/sec;
+}
+
