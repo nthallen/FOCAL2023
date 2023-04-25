@@ -3,11 +3,6 @@ Input "QCLI_C.tbl";
 Input "TMbase.tbl";
 Input "Bay.tbl";
 
-Col2 {
-  [Bay];
-  [TMbaseB];
-}
-
-{ HBox { |+; [QCLISSP_C]; |+; [Col2]; |+ };
+{ HBox { |+; [QCLISSP_C]; |+; [TMbaseB]; |+ };
   -
 }
