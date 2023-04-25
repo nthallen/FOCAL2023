@@ -1,7 +1,13 @@
 # focal.tbl
 Input "QCLI_C.tbl";
 Input "TMbase.tbl";
+Input "Bay.tbl";
 
-{ HBox { |+; [QCLISSP_C]; |+; [TMbaseB]; |+ };
+Col2 {
+  [Bay];
+  [TMbaseB];
+}
+
+{ HBox { |+; [QCLISSP_C]; |+; [Col2]; |+ };
   -
 }
