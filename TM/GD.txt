@@ -1,0 +1,6 @@
+# GD Gas Deck Flow Controllers
+Name GD
+Rate 1 Hz
+Port /dev/ttyS1
+Digital LoCal 1 MFC 5000 ccm 5000 nccm 1050 mbar "MFC Low Cal"
+Digital HiCal 2 MFC 2000 ccm 2000 nccm 1050 mbar "MFC High Cal"

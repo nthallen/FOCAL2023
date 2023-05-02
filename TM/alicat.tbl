@@ -1,0 +1,19 @@
+Input "GD.tbl";
+Input "CPC.tbl";
+
+# { HBox {
+    # |+;
+    # { [CPC_Ps];
+      # [GD_flows]
+    # }; |+; {
+      # [CPC_Phk];
+      # [GD_hk]
+    # }; |+
+  # };
+  # -
+# }
+
+{ HBox { |+; [CPC_Ps]; |+; [CPC_Phk]; |+ };
+  HBox { |+; [GD_flows]; |+; [GD_hk]; |+ };
+  -;
+}

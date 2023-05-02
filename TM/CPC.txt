@@ -1,0 +1,6 @@
+# CPC CO2 Pressure Controllers
+Name CPC
+Rate 1 Hz
+Port /dev/ttyS1
+Digital C_AbsP 1 PC3 1000 Torr "CO2 Absolute Pressure"
+Digital C_DiffP 2 PC  100 Torr "CO2 Differential Pressure"
