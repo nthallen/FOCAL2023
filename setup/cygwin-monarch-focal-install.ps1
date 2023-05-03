@@ -289,17 +289,36 @@ if [ $machine = Cygwin ]; then
   fi
 else
   # other operating systems (where we have sudo, among other things)
-  nl_error "setup for non-Cygwin is not yet complete"
   # Check if flight user exists and add if necessary
   if grep -q "^flight:" /etc/passwd; then
     echo "monarch_install.sh: flight user already exists"
   else
+    echo "monarch-focal-install.sh: Need to create user flight and group flight"
     $sudo addgroup flight
+    echo "monarch-focal-install.sh: flight group created"
     $sudo adduser --disabled-password --gecos "flight user" --no-create-home --ingroup flight flight
-    echo "monarch_setup.sh: flight user created"
+    echo "monarch-focal-install.sh: flight user created"
   fi
   $sudo adduser $myuser flight
 fi
+id -Gn | grep -q '\bflight\b' || {
+  echo "monarch-focal-install.sh: user '$myuser' does not appear to be a member"
+  echo "of group 'flight'. If this script just created group flight,"
+  echo "you will need to close your terminal session, open another, and"
+  echo "rerun this script in order to complete the installation"
+  echo
+  echo -n "Hit Enter to terminate:"
+  read j
+  exit 1
+}
+
+umask 02
+echo "monarch-focal-install.sh: checking permissions on /usr/local/src"
+[ -d /usr/local/src ] || sudo mkdir -p -m 02775 /usr/local/src
+uls_g=`stat --format '%G' /usr/local/src`
+[ "$uls_g" = "flight" ] || sudo chgrp flight /usr/local/src
+uls_a=`stat --format '%a' /usr/local/src`
+[ "$uls_a" = "2775" ] || sudo chmod 02775 /usr/local/src
 
 if [ $installagent = yes ]; then
   if [ $machine = Cygwin ]; then
