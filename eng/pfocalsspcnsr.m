@@ -1,5 +1,5 @@
-function pengsspcnsr(varargin);
-% pengsspcnsr( [...] );
+function pfocalsspcnsr(varargin);
+% pfocalsspcnsr( [...] );
 % SSP C NSR
 h = timeplot({'SSP_C_noise_pct0','SSP_C_noise_pct1'}, ...
       'SSP C NSR', ...

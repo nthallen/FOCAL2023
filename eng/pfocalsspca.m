@@ -1,5 +1,5 @@
-function pengsspca(varargin);
-% pengsspca( [...] );
+function pfocalsspca(varargin);
+% pfocalsspca( [...] );
 % SSP C Amp
 h = timeplot({'SSP_C_amp0','SSP_C_amp1','SSP_C_noise0','SSP_C_noise1'}, ...
       'SSP C Amp', ...

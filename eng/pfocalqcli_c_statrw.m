@@ -1,5 +1,5 @@
-function pengqcli_c_statrw(varargin);
-% pengqcli_c_statrw( [...] );
+function pfocalqcli_c_statrw(varargin);
+% pfocalqcli_c_statrw( [...] );
 % QCLI C stat rw
 h = timeplot({'QCLI_C_rw'}, ...
       'QCLI C stat rw', ...

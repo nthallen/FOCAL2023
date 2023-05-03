@@ -1,5 +1,5 @@
-function pengqcli_c_staterr(varargin);
-% pengqcli_c_staterr( [...] );
+function pfocalqcli_c_staterr(varargin);
+% pfocalqcli_c_staterr( [...] );
 % QCLI C stat err
 h = timeplot({'QCLI_C_err'}, ...
       'QCLI C stat err', ...

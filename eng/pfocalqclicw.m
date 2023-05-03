@@ -1,5 +1,5 @@
-function pengqclicw(varargin);
-% pengqclicw( [...] );
+function pfocalqclicw(varargin);
+% pfocalqclicw( [...] );
 % QCLI C Wave
 h = timeplot({'QCLI_C_Wave'}, ...
       'QCLI C Wave', ...

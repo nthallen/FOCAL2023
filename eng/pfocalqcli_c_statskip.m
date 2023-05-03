@@ -1,5 +1,5 @@
-function pengqcli_c_statskip(varargin);
-% pengqcli_c_statskip( [...] );
+function pfocalqcli_c_statskip(varargin);
+% pfocalqcli_c_statskip( [...] );
 % QCLI C stat Skip
 h = timeplot({'SSP_C_TS'}, ...
       'QCLI C stat Skip', ...

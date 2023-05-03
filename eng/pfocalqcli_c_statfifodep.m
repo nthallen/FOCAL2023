@@ -1,5 +1,5 @@
-function pengqcli_c_statfifodep(varargin);
-% pengqcli_c_statfifodep( [...] );
+function pfocalqcli_c_statfifodep(varargin);
+% pfocalqcli_c_statfifodep( [...] );
 % QCLI C stat fifodep
 h = timeplot({'QCLI_C_fifodep'}, ...
       'QCLI C stat fifodep', ...
