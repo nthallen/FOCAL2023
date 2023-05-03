@@ -77,11 +77,20 @@ fi
 myuser=`id -un`
 if [ $machine = Cygwin ]; then
    # Verify that the flight group flight exists and user is a member
-  id -Gn | grep -q '\bflight\b' || {
-    echo "monarch_install: user '$myuser' does not appear to be a member"
-    echo "of group 'flight'. If you have not run cygwin-monarch-focal-install.ps1,"
-    echo "do so now. Otherwise try restarting the system and then rerun"
-    echo "cygwin-monarch-focal-install.ps1."
+  id | grep -q '(flight)' || {
+    if id | grep -q "(`hostname`+flight)"; then
+      echo "monarch-focal-install.sh: The flight group 'flight' has been created,"
+      echo "but it is manifested under Cygwin here as '`hostname`+flight'."
+      echo "This requires a somewhat complex workaround involving mkgroup"
+      echo "and a change to /etc/nsswitch.conf. Once those changes have"
+      echo "been made, you can rerun this script (monarch-focal-install.sh)"
+      echo "from within a new Cygwin terminal session."
+    else
+      echo "monarch-focal-install.sh: user '$myuser' does not appear to be a member"
+      echo "of group 'flight'. If you have not run cygwin-monarch-focal-install.ps1,"
+      echo "do so now. Otherwise try restarting the system and then rerun"
+      echo "cygwin-monarch-focal-install.ps1."
+    fi
     echo
     echo -n "Hit Enter to terminate:"
     read j
@@ -147,11 +156,11 @@ id -Gn | grep -q '\bflight\b' || {
 
 umask 02
 echo "monarch-focal-install.sh: checking permissions on /usr/local/src"
-[ -d /usr/local/src ] || sudo mkdir -p -m 02775 /usr/local/src
+[ -d /usr/local/src ] || $sudo mkdir -p -m 02775 /usr/local/src
 uls_g=`stat --format '%G' /usr/local/src`
-[ "$uls_g" = "flight" ] || sudo chgrp flight /usr/local/src
+[ "$uls_g" = "flight" ] || $sudo chgrp flight /usr/local/src
 uls_a=`stat --format '%a' /usr/local/src`
-[ "$uls_a" = "2775" ] || sudo chmod 02775 /usr/local/src
+[ "$uls_a" = "2775" ] || $sudo chmod 02775 /usr/local/src
 
 if [ $installagent = yes ]; then
   if [ $machine = Cygwin ]; then
