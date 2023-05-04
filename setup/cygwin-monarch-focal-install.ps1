@@ -270,8 +270,9 @@ if [ $machine = Cygwin ]; then
         mkgroup -l -g flight | sed -e "s/^`hostname`+//" > /etc/group
         echo "A workaround has been applied, but you need to exit this terminal"
         echo "session, open a new one and re-execute this script"
-        echo "\$0 is '$0'"
       fi
+      echo "This script was executed as '$0'"
+      echo "from the directory '$PWD'"
     else
       echo "monarch-focal-install.sh: user '$myuser' does not appear to be a member"
       echo "of group 'flight'. If you have not run cygwin-monarch-focal-install.ps1,"
