@@ -267,7 +267,7 @@ if [ $machine = Cygwin ]; then
         echo "and rerunning this script. If that doesn't work, seek help from"
         echo "the developer."
       else
-        mkgroup -l -g @FLTGRP | sed -e "s/^`hostname`+//" > /etc/group
+        mkgroup -l -g flight | sed -e "s/^`hostname`+//" > /etc/group
         echo "A workaround has been applied, but you need to exit this terminal"
         echo "session, open a new one and re-execute this script"
         echo "\$0 is '$0'"
