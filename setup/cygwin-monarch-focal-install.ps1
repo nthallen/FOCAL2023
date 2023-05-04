@@ -243,15 +243,24 @@ fi
 
 myuser=`id -un`
 if [ $machine = Cygwin ]; then
-   # Verify that the flight group flight exists and user is a member
+  # Apply vi annoyance fix if it isn't already present
+  [ -f ~/.exrc ] || touch ~/.exrc
+  # Verify that the monarch group flight exists and user is a member
   id | grep -q '(flight)' || {
     if id | grep -q "(`hostname`+flight)"; then
       echo "monarch-focal-install.sh: The flight group 'flight' has been created,"
       echo "but it is manifested under Cygwin here as '`hostname`+flight'."
-      echo "This requires a somewhat complex workaround involving mkgroup"
-      echo "and a change to /etc/nsswitch.conf. Once those changes have"
-      echo "been made, you can rerun this script (monarch-focal-install.sh)"
-      echo "from within a new Cygwin terminal session."
+      if [ -f /etc/group ]; then
+        echo "It looks like you may already have a mitigation in place in"
+        echo "/etc/group. Try closing this terminal session, opening another,"
+        echo "and rerunning this script. If that doesn't work, seek help from"
+        echo "the developer."
+      else
+        mkgroup -l -g @FLTGRP | sed -e "s/^`hostname`+//" > /etc/group
+        echo "A workaround has been applied, but you need to exit this terminal"
+        echo "session, open a new one and re-execute this script"
+        echo "\$0 is '$0'"
+      fi
     else
       echo "monarch-focal-install.sh: user '$myuser' does not appear to be a member"
       echo "of group 'flight'. If you have not run cygwin-monarch-focal-install.ps1,"
