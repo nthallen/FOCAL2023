@@ -1,5 +1,5 @@
-function pengqcli_c_statmode(varargin);
-% pengqcli_c_statmode( [...] );
+function pfocalqcli_c_statmode(varargin);
+% pfocalqcli_c_statmode( [...] );
 % QCLI C stat mode
 h = timeplot({'QCLI_C_mode'}, ...
       'QCLI C stat mode', ...

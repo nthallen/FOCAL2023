@@ -1,5 +1,5 @@
-function pengtsspc(varargin);
-% pengtsspc( [...] );
+function pfocaltsspc(varargin);
+% pfocaltsspc( [...] );
 % Temps SSP C
 h = timeplot({'SSP_C_T_FPGA','SSP_C_T_HtSink'}, ...
       'Temps SSP C', ...

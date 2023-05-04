@@ -1,5 +1,5 @@
-function pengqclico(varargin);
-% pengqclico( [...] );
+function pfocalqclico(varargin);
+% pfocalqclico( [...] );
 % QCLI C Overflow
 h = ne_dstat({
   'CAOVF1_C', 'SSP_C_Flags', 0; ...

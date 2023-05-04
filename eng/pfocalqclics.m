@@ -1,5 +1,5 @@
-function pengqclics(varargin);
-% pengqclics( [...] );
+function pfocalqclics(varargin);
+% pfocalqclics( [...] );
 % QCLI C Scan
 h = timeplot({'SSP_C_Num'}, ...
       'QCLI C Scan', ...

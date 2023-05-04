@@ -1,6 +1,7 @@
 # focal.spec
 TGTDIR = /home/focal
 tmcbase = focal.tmc
+genuibase = focal.genui
 
 Module TMbase mode=ignore
 Module QCLI mode=noiseignore SUFFIX=_C RESET=# SSPRATE=1

@@ -1,5 +1,5 @@
-function pengqcli_c_stats(varargin);
-% pengqcli_c_stats( [...] );
+function pfocalqcli_c_stats(varargin);
+% pfocalqcli_c_stats( [...] );
 % QCLI C stat Stale
 h = timeplot({'QCLI_C_Stale','SSP_C_Stale'}, ...
       'QCLI C stat Stale', ...

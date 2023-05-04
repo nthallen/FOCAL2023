@@ -1,5 +1,5 @@
-function pengqcli_c_statstatus(varargin);
-% pengqcli_c_statstatus( [...] );
+function pfocalqcli_c_statstatus(varargin);
+% pfocalqcli_c_statstatus( [...] );
 % QCLI C stat status
 h = ne_dstat({
   'QCLI_C_present', 'QCLI_C_CS', 11; ...

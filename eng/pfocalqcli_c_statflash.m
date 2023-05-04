@@ -1,5 +1,5 @@
-function pengqcli_c_statflash(varargin);
-% pengqcli_c_statflash( [...] );
+function pfocalqcli_c_statflash(varargin);
+% pfocalqcli_c_statflash( [...] );
 % QCLI C stat flash
 h = timeplot({'QCLI_C_flash'}, ...
       'QCLI C stat flash', ...
