@@ -243,6 +243,14 @@ fi
 
 myuser=`id -un`
 if [ $machine = Cygwin ]; then
+  # Check and fix permissions on start menu
+  cygdir='/cygdrive/c/ProgramData/Microsoft/Windows/Start Menu/Programs/Cygwin'
+  cyglnk="$cygdir/Cygwin64 Terminal.lnk"
+  if [ -e "$cyglnk" ]; then
+    cygperm=`stat --format='%a' $cyglnk`
+    [ "$cygperm" = "775" ] || chmod 0775 "$cyglnk"
+    echo "monarch-focal-install.sh: Permission fix applied for Cygwin Start Menu Link"
+  fi
   # Apply vi annoyance fix if it isn't already present
   [ -f ~/.exrc ] || touch ~/.exrc
   # Verify that the monarch group flight exists and user is a member
