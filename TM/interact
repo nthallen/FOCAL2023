@@ -11,6 +11,7 @@
 # Bay Meerstetter FTDI RS485 (1 drive) $ME_Bay_port
 # Bay FBay Feather CDC/ACM $FOE_Bay_port
 # GD  GDS Feather CDC/ACM $GDS_port
+# GD  Alicat $Alicat_GD_port
 # DACS FTDI $DACS_port
 # BAT $BAT_port
 # SPAN $SPAN_port
@@ -51,6 +52,11 @@
   Launch      -        meerstetter -n CO2_ME -p $CO2_ME_port -a 1:QCL,2:OE_C,3:Gas
   [ -n "$ME_CH4_port" ]
   Launch      -        meerstetter -n ME_CH4 -p $ME_CH4_port -a 1:QCL,2:OE_C
-  Launch      -        alicat -a 1:C_AbsP,2:C_DiffP -p $RS485
+  [ -n "$ME_Bay_port" ]
+  Launch      -        meerstetter -n ME_Bay -p $ME_Bay_port -a 1:Bay
+  [ -n "$Alicat_CPC_port" ]
+  Launch      -        alicat -n CPC -a 1:C_AbsP,2:C_DiffP -p $Alicat_CPC_port
+  [ -n "$Alicat_GD_port" ]
+  Launch      -        alicat -n GD -a 1:MFC -p $Alicat_GD_port
 
   Launch      -TMC-    focalalgo -v
