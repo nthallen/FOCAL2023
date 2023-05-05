@@ -312,6 +312,30 @@ echo
 echo "Continuing:"
 echo
 
+if [ $machine = Linux ]; then
+  release=`cat /etc/issue`
+  case "$release" in
+    Ubuntu*) distro=Ubuntu;;
+    *) distro=Unclear;;
+  esac
+  if [ $distro = Ubuntu ]; then
+    echo "monarch-focal-install.sh: Checking prerequisites"
+    sudo apt install cmake gdb gcc g++ bison flex libncurses-dev screen
+  else
+    echo "monarch-focal-install.sh: Not specifically configured for release '$release'."
+    echo "Need to determine how to add packages to meet build prerequisites."
+    echo "The following tools are required:"
+    echo "  cmake git gdb gcc g++ bison flex libncurses-dev screen"
+    echo "Note: In addition, doxygen and graphviz are required to generate the"
+    echo "monarch documentation, but that is not required on all systems."
+    echo
+    echo "You can make these updates now in another terminal and then continue."
+    echo
+    echo -n "Hit Enter to continue: "
+    read j
+  fi
+fi
+
 if [ -d /usr/local/src/monarch/git ]; then
   echo
   echo "Skipping Monarch clone (already cloned)"
@@ -324,7 +348,7 @@ else
   $sudo mkdir -p /usr/local/src/monarch
   [ -d /usr/local/src/monarch ] || nl_error "Unable to create /usr/local/src/monarch"
   $sudo chgrp flight /usr/local/src/monarch
-  chmod g+ws /usr/local/src/monarch
+  $sudo chmod g+ws /usr/local/src/monarch
   cd /usr/local/src/monarch
   git clone git@github.com:nthallen/monarch.git git ||
     nl_error "git returned an error"
