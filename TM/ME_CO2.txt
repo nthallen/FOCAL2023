@@ -1,5 +1,5 @@
 # ME_CO2.txt
-Name CO2
+Name ME_CO2
 Port /dev/ser1
 Data CO2_QCL  1 "Meerstetter CO2 QCL TEC"
 Data CO2_OE   2 "Meerstetter CO2 OE Heat"

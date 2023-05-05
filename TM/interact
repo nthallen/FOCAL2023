@@ -1,0 +1,56 @@
+# Device buses we need to identify:
+# CO2 Enclosure:
+#   CO2 uDACS FTDI $uDACS_CO2_port
+#   CO2 Alicat FTDI RS485 (2 drives) $Alicat_CPC_port
+#   CO2 FOE Feather CDC/ACM $FOE_CO2_port
+# CO2 Meerstetter FTDI RS485 (3 drives) $CO2_ME_port
+# CH4 Enclosure:
+#   CH4 uDACS FTDI $uDACS_CH4_port
+#   CH4 FOE Feather CDC/ACM $FOE_CH4_port
+# CH4 Meerstetter FTDI RS485 (2 drives) $ME_CH4_port
+# Bay Meerstetter FTDI RS485 (1 drive) $ME_Bay_port
+# Bay FBay Feather CDC/ACM $FOE_Bay_port
+# GD  GDS Feather CDC/ACM $GDS_port
+# DACS FTDI $DACS_port
+# BAT $BAT_port
+# SPAN $SPAN_port
+
+  Launch      memo     memo -o $Experiment.log -l4
+              [ -z "$launch_err" ] &&
+                msg -nflight "Running script interact"
+  Launch      tm_bfr   bfr -H bfr: -S:
+
+
+  [ -n "$DACS_port" ] &&
+  Launch      DACS       subbusd_serusb -q -p $DACS_port -s subbus -n DACS
+
+  [ -n "$uDACS_CO2_port" ] &&
+  Launch      uDACS_CO2  subbusd_serusb -q -p $uDACS_CO2_port -s uDACS_CO2 -n uDACS_CO2
+
+  [ -n "$uDACS_CH4_port" ] &&
+  Launch      uDACS_CH4  subbusd_serusb -q -p $uDACS_CH4_port -s uDACS_CH4 -n uDACS_CH4
+
+  [ -n "$FOE_CO2_port" ] &&
+  Launch      FOE_CO2  subbusd_serusb -q -p $FOE_CO2_port -s FOE_CO2 -n FOE_CO2
+
+  [ -n "$FOE_CH4_port" ] &&
+  Launch      FOE_CH4  subbusd_serusb -q -p $FOE_CH4_port -s FOE_CH4 -n FOE_CH4
+
+  [ -n "$FOE_Bay_port" ] &&
+  Launch      FOE_Bay  subbusd_serusb -q -p $FOE_Bay_port -s FOE_Bay -n FOE_Bay
+
+  [ -n "$GDS_port" ] &&
+  Launch      GDS  subbusd_serusb -q -p $GDS_port -s GDS -n GDS
+
+
+  Launch      tm_gen   focalcol
+  Launch      cmd      focalsrvr -H srvr: -S:
+  Launch      -        tmdf
+
+  [ -n "$CO2_ME_port" ]
+  Launch      -        meerstetter -n CO2_ME -p $CO2_ME_port -a 1:QCL,2:OE_C,3:Gas
+  [ -n "$ME_CH4_port" ]
+  Launch      -        meerstetter -n ME_CH4 -p $ME_CH4_port -a 1:QCL,2:OE_C
+  Launch      -        alicat -a 1:C_AbsP,2:C_DiffP -p $RS485
+
+  Launch      -TMC-    focalalgo -v

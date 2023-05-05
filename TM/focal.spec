@@ -6,14 +6,17 @@ genuibase = focal.genui
 Module TMbase mode=ignore
 Module QCLI mode=noiseignore SUFFIX=_C RESET=# SSPRATE=1
 # Module QCLI mode=noise SUFFIX=_M RESET= SSPRATE=1
-Module Meerstetter mode=ignore name=Bay src=Bay_ME.txt
-Module Meerstetter mode=ignore name=CO2 src=CO2_ME.txt
-Module Meerstetter mode=ignore name=CH4 src=CH4_ME.txt
+Module Meerstetter mode=ignore name=ME_Bay src=ME_Bay.txt
+Module Meerstetter mode=ignore name=ME_CO2 src=ME_CO2.txt
+Module Meerstetter mode=ignore name=ME_CH4 src=ME_CH4.txt
 
 Module alicat mode=ignore name=CPC src=CPC.txt
 Module alicat mode=ignore name=GD  src=GD.txt
 
 IGNORE = Makefile "*.o" "*.exe" "*.stackdump"
+DISTRIB = services interact runfile.flight
+IDISTRIB = doit
 
-focaldisp : QCLI_C_conv.tmc focal.tbl me.tbl alicat.tbl
+focaldisp : QCLI_C_conv.tmc focal.tbl ME.tbl alicat.tbl
 focalalgo : focal.tma
+doit : focal.doit

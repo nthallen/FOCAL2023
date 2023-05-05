@@ -1,5 +1,5 @@
 # ME_CH4.txt
-Name CH4
+Name ME_CH4
 Port /dev/ser3
 Data CH4_QCL  1 "Meerstetter CH4 QCL TEC"
 Data CH4_OE   2 "Meerstetter CH4 OE Heat"

@@ -1,13 +1,13 @@
 # ME.tbl
-Input "Bay.tbl";
-Input "CO2.tbl";
-Input "CH4.tbl";
+Input "ME_Bay.tbl";
+Input "ME_CO2.tbl";
+Input "ME_CH4.tbl";
 Input "TMbase.tbl";
 
 { HBox { |+; {
-    [Bay];
-    [CO2];
-    [CH4];
+    [ME_Bay];
+    [ME_CO2];
+    [ME_CH4];
     +-+;
     [TMbase_htimes];
     }; |+;
