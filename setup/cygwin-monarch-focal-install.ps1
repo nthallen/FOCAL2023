@@ -331,7 +331,8 @@ else
     $sudo adduser --disabled-password --gecos "flight user" --no-create-home --ingroup flight flight
     echo "monarch-focal-install.sh: flight user created"
   fi
-  $sudo adduser $myuser flight
+  id -Gn | grep -q '\bflight\b' ||
+    $sudo adduser $myuser flight
 fi
 id -Gn | grep -q '\bflight\b' || {
   echo "monarch-focal-install.sh: user '$myuser' does not appear to be a member"
