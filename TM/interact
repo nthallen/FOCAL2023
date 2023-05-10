@@ -20,6 +20,7 @@
               [ -z "$launch_err" ] &&
                 msg -nflight "Running script interact"
   Launch      tm_bfr   bfr -H bfr: -S:
+  Launch      -TMC-    lgr -N `mlf_find LOG` -n lgr
 
 
   [ -n "$DACS_port" ] &&
