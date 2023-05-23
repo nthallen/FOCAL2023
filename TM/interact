@@ -12,7 +12,7 @@
 # Bay FBay Feather CDC/ACM $FOE_Bay_port
 # GD  GDS Feather CDC/ACM $GDS_port
 # GD  Alicat $Alicat_GD_port
-# DACS FTDI $DACS_port
+# QCLI $QCLI_port
 # BAT $BAT_port
 # SPAN $SPAN_port
 
@@ -21,10 +21,12 @@
                 msg -nflight "Running script interact"
   Launch      tm_bfr   bfr -H bfr: -S:
   Launch      -TMC-    lgr -N `mlf_find LOG` -n lgr
+  Launch      tm_gen   focalcol
+  Launch      cmd      focalsrvr -H srvr: -S:
 
-
-  [ -n "$DACS_port" ] &&
-  Launch      DACS       subbusd_serusb -q -p $DACS_port -s subbus -n DACS
+  [ -n "$QCLI_port" ] &&
+  Launch      -          qclisd -p $QCLI_port -n QCLI_C
+	Launch      -          sspdrv -H SSP:10.0.0.200 -H UDP:10.0.0.1 -n SSP_C -N `mlf_find SSP_C`
 
   [ -n "$uDACS_CO2_port" ] &&
   Launch      uDACS_CO2  subbusd_serusb -q -p $uDACS_CO2_port -s uDACS_CO2 -n uDACS_CO2
@@ -45,8 +47,6 @@
   Launch      GDS  subbusd_serusb -q -p $GDS_port -s GDS -n GDS
 
 
-  Launch      tm_gen   focalcol
-  Launch      cmd      focalsrvr -H srvr: -S:
   Launch      -        tmdf
 
   [ -n "$CO2_ME_port" ] &&

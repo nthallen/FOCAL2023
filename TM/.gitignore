@@ -1,7 +1,6 @@
 freemem.tmc
 TMbase.genui
 TMbase.tbl
-DACS_col.tmc
 waves_C.cmd
 waves_C.out
 waves_C.tmc
@@ -84,7 +83,6 @@ alicattblnc.tmc.dep
 freemem.tmc
 TMbase.genui
 TMbase.tbl
-DACS_col.tmc
 qcli_types.tmc
 waves_C.tmc
 QCLI_C.tmc
