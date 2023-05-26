@@ -1,3 +1,16 @@
 HEADER FOCAL
 MNEMONIC focal
 HOMEDIR FOCAL_DATA_DIR
+
+# 1 InverterArm_DS:DS84A:0 HK Status %.0lf
+# 1 Circuit3_DS:DS84A:2 HK Status %.0lf
+  1 BAT_Pwr_DS:DS84A:4 HK Status %.0lf
+  1 BAT_Purge_DS:DS848:5 HK Status %.0lf
+  1 QCLI_C_Reset_DS:DS84C:1 HK Status %.0lf
+  1 QCLI_M_Reset_DS:DS868:1 HK Status %.0lf
+# 1 InverterArm_S:DS873:0 HK Status %.0lf
+# 1 Circuit3_S:DS873:2 HK Status %.0lf
+  1 BAT_Pwr_S:DS873:4 HK Status %.0lf
+  1 SW0:IOSwS:0 HK Status %.0lf
+  1 SW1:IOSwS:1 HK Status %.0lf
+  1 FltMd:IOSwS:2 HK Status %.0lf

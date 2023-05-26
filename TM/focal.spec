@@ -1,6 +1,8 @@
 # focal.spec
 TGTDIR = /home/focal
 tmcbase = focal.tmc
+tmcbase = digio.tmc
+cmdbase = dccc.cmd
 genuibase = focal.genui
 
 Module TMbase mode=ignore
@@ -15,8 +17,9 @@ Module alicat mode=ignore name=GD  src=GD.txt
 
 IGNORE = Makefile "*.o" "*.exe" "*.stackdump"
 DISTRIB = services interact runfile.flight
+DISTRIB = dccc.dccc
 IDISTRIB = doit
 
-focaldisp : QCLI_C_conv.tmc focal.tbl ME.tbl alicat.tbl
+focaldisp : digio_conv.tmc QCLI_C_conv.tmc focal.tbl ME.tbl alicat.tbl
 focalalgo : focal.tma
 doit : focal.doit
