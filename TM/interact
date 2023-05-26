@@ -16,6 +16,8 @@
 # BAT $BAT_port
 # SPAN $SPAN_port
 
+DACS_port=/dev/ttyUSB1
+
   Launch      memo     memo -o $Experiment.log -l4
               [ -z "$launch_err" ] &&
                 msg -nflight "Running script interact"
@@ -23,25 +25,30 @@
   Launch      -TMC-    lgr -N `mlf_find LOG` -n lgr
   Launch      dccc     dccc -f dccc.dccc
 
-  [ -n "$DACS_port" ] &&
+  if [ -e "$DACS_port" ]; then
   Launch      DACS       subbusd_serusb -q -p $DACS_port -s subbus -n DACS
+  Launch      -          qclidacsd -n QCLI_C -d1
+# Launch      -          qclidacsd -n QCLI_M -d0
+  fi
 
-  [ -n "$uDACS_CO2_port" ] &&
+  Launch      -          sspdrv -H SSP:10.0.0.200 -H UDP:10.0.0.1 -n SSP_C -N `mlf_find SSP_C`
+
+  [ -e "$uDACS_CO2_port" ] &&
   Launch      uDACS_CO2  subbusd_serusb -q -p $uDACS_CO2_port -s uDACS_CO2 -n uDACS_CO2
 
-  [ -n "$uDACS_CH4_port" ] &&
+  [ -e "$uDACS_CH4_port" ] &&
   Launch      uDACS_CH4  subbusd_serusb -q -p $uDACS_CH4_port -s uDACS_CH4 -n uDACS_CH4
 
-  [ -n "$FOE_CO2_port" ] &&
+  [ -e "$FOE_CO2_port" ] &&
   Launch      FOE_CO2  subbusd_serusb -q -p $FOE_CO2_port -s FOE_CO2 -n FOE_CO2
 
-  [ -n "$FOE_CH4_port" ] &&
+  [ -e "$FOE_CH4_port" ] &&
   Launch      FOE_CH4  subbusd_serusb -q -p $FOE_CH4_port -s FOE_CH4 -n FOE_CH4
 
-  [ -n "$FOE_Bay_port" ] &&
+  [ -e "$FOE_Bay_port" ] &&
   Launch      FOE_Bay  subbusd_serusb -q -p $FOE_Bay_port -s FOE_Bay -n FOE_Bay
 
-  [ -n "$GDS_port" ] &&
+  [ -e "$GDS_port" ] &&
   Launch      GDS  subbusd_serusb -q -p $GDS_port -s GDS -n GDS
 
 
@@ -49,15 +56,15 @@
   Launch      cmd      focalsrvr -H srvr: -S:
   Launch      -        tmdf
 
-  [ -n "$CO2_ME_port" ] &&
+  [ -e "$CO2_ME_port" ] &&
   Launch      -        meerstetter -n CO2_ME -p $CO2_ME_port -a 1:QCL,2:OE_C,3:Gas
-  [ -n "$ME_CH4_port" ] &&
+  [ -e "$ME_CH4_port" ] &&
   Launch      -        meerstetter -n ME_CH4 -p $ME_CH4_port -a 1:QCL,2:OE_C
-  [ -n "$ME_Bay_port" ] &&
+  [ -e "$ME_Bay_port" ] &&
   Launch      -        meerstetter -n ME_Bay -p $ME_Bay_port -a 1:Bay
-  [ -n "$Alicat_CPC_port" ] &&
+  [ -e "$Alicat_CPC_port" ] &&
   Launch      -        alicat -n CPC -a 1:C_AbsP,2:C_DiffP -p $Alicat_CPC_port
-  [ -n "$Alicat_GD_port" ] &&
+  [ -e "$Alicat_GD_port" ] &&
   Launch      -        alicat -n GD -a 1:MFC -p $Alicat_GD_port
 
   Launch      -TMC-    focalalgo -v
