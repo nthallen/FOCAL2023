@@ -21,17 +21,16 @@ DACS_port=/dev/ttyUSB1
   Launch      memo     memo -o $Experiment.log -l4
               [ -z "$launch_err" ] &&
                 msg -nflight "Running script interact"
-  Launch      tm_bfr   bfr -H bfr: -S:
-  Launch      -TMC-    lgr -N `mlf_find LOG` -n lgr
-  Launch      dccc     dccc -f dccc.dccc
+  Launch      tm_bfr     bfr -H bfr: -S:
+  Launch      -TMC-      lgr -N `mlf_find LOG` -n lgr
+  Launch      -          tmdf
 
   if [ -e "$DACS_port" ]; then
-  Launch      DACS       subbusd_serusb -q -p $DACS_port -s subbus -n DACS
+  Launch      subbus     subbusd_serusb -q -p $DACS_port -s subbus -n DACS
+  Launch      dccc       dccc -f $TMBINDIR/dccc.dccc
   Launch      -          qclidacsd -n QCLI_C -d1
 # Launch      -          qclidacsd -n QCLI_M -d0
   fi
-
-  Launch      -          sspdrv -H SSP:10.0.0.200 -H UDP:10.0.0.1 -n SSP_C -N `mlf_find SSP_C`
 
   [ -e "$uDACS_CO2_port" ] &&
   Launch      uDACS_CO2  subbusd_serusb -q -p $uDACS_CO2_port -s uDACS_CO2 -n uDACS_CO2
@@ -54,7 +53,8 @@ DACS_port=/dev/ttyUSB1
 
   Launch      tm_gen   focalcol
   Launch      cmd      focalsrvr -H srvr: -S:
-  Launch      -        tmdf
+
+  Launch      -          sspdrv -H SSP:10.0.0.200 -H UDP:10.0.0.1 -n SSP_C -N `mlf_find SSP_C`
 
   [ -e "$CO2_ME_port" ] &&
   Launch      -        meerstetter -n CO2_ME -p $CO2_ME_port -a 1:QCL,2:OE_C,3:Gas
