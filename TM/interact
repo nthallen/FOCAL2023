@@ -23,7 +23,6 @@ DACS_port=/dev/ttyUSB1
                 msg -nflight "Running script interact"
   Launch      tm_bfr     bfr -H bfr: -S:
   Launch      -TMC-      lgr -N `mlf_find LOG` -n lgr
-  Launch      -          tmdf
 
   if [ -e "$DACS_port" ]; then
   Launch      subbus     subbusd_serusb -q -p $DACS_port -s subbus -n DACS
@@ -50,21 +49,22 @@ DACS_port=/dev/ttyUSB1
   [ -e "$GDS_port" ] &&
   Launch      GDS  subbusd_serusb -q -p $GDS_port -s GDS -n GDS
 
+  Launch      tm_gen     focalcol
+  Launch      -          tmdf
 
-  Launch      tm_gen   focalcol
-  Launch      cmd      focalsrvr -H srvr: -S:
+  Launch      cmd        focalsrvr -H srvr: -S:
 
   Launch      -          sspdrv -H SSP:10.0.0.200 -H UDP:10.0.0.1 -n SSP_C -N `mlf_find SSP_C`
 
   [ -e "$CO2_ME_port" ] &&
-  Launch      -        meerstetter -n CO2_ME -p $CO2_ME_port -a 1:QCL,2:OE_C,3:Gas
+  Launch      -          meerstetter -n CO2_ME -p $CO2_ME_port -a 1:QCL,2:OE_C,3:Gas
   [ -e "$ME_CH4_port" ] &&
-  Launch      -        meerstetter -n ME_CH4 -p $ME_CH4_port -a 1:QCL,2:OE_C
+  Launch      -          meerstetter -n ME_CH4 -p $ME_CH4_port -a 1:QCL,2:OE_C
   [ -e "$ME_Bay_port" ] &&
-  Launch      -        meerstetter -n ME_Bay -p $ME_Bay_port -a 1:Bay
+  Launch      -          meerstetter -n ME_Bay -p $ME_Bay_port -a 1:Bay
   [ -e "$Alicat_CPC_port" ] &&
-  Launch      -        alicat -n CPC -a 1:C_AbsP,2:C_DiffP -p $Alicat_CPC_port
+  Launch      -          alicat -n CPC -a 1:C_AbsP,2:C_DiffP -p $Alicat_CPC_port
   [ -e "$Alicat_GD_port" ] &&
-  Launch      -        alicat -n GD -a 1:MFC -p $Alicat_GD_port
+  Launch      -          alicat -n GD -a 1:MFC -p $Alicat_GD_port
 
-  Launch      -TMC-    focalalgo -v
+  Launch      -TMC-      focalalgo -v
