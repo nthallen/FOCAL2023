@@ -53,7 +53,7 @@ DACS_port=/dev/ttyUSB1
   Launch      cmd        focalsrvr -H srvr: -S:
   Launch      -          tmdf
 
-  Launch      -          sspdrv -H SSP:10.0.0.211 -H UDP:10.0.0.1 -n SSP_C -N `mlf_find SSP_C`
+  Launch      -          sspdrv -H SSP:10.0.0.211 -H UDP:10.0.0.100 -n SSP_C -N `mlf_find SSP_C`
 
   [ -e "$CO2_ME_port" ] &&
   Launch      -          meerstetter -n CO2_ME -p $CO2_ME_port -a 1:QCL,2:OE_C,3:Gas
