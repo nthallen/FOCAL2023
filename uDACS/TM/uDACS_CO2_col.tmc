@@ -1,0 +1,35 @@
+%{
+  // #define tick_sic() uDCO2.SB->tick_sic()
+  #define tick_sic()
+
+  /*
+    Addresses Category Offsets
+    61:1:64   MS5607        0-3
+    81:1:84   LH P/T        4-7
+    10:1:13   VSet          8-11
+              AD7770
+    26        generrs       12
+    14        Status        13
+    15:1:24   AIN[0-7]      14-29** Aligned for 32-bit values
+    25        Poll Count    30
+    Total of 31 words
+    
+    Unused:
+    40:1:43   RTC
+    Could eliminate Vout0,2,3
+    
+    (Addresses are all hex, Offsets are decimal)
+  */  
+  uDACS_mreq uDCO2;
+  uint16_t uDCO2_rvals[31];
+  
+  void uDCO2_init() {
+    uDACS_init(uDCO2, "uDCO2");
+    if (uDCO2.present) {
+      uDCO2.mreq = uDCO2.SB->pack_mread_request(31,
+        "61:1:64,81:1:84,10:1:13,26,14:1:25");
+      uDCO2.rvals = uDCO2_rvals;
+    }
+  }
+%}
+TM INITFUNC uDCO2_init();

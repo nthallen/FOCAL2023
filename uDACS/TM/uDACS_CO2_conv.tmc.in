@@ -1,0 +1,72 @@
+uDACS_Baratron_100Torr_t CO2_CellP; Invalidate CO2_CellP;
+{ CO2_CellP = (uDCO2_Raw0 & 0xFFFFFF) |
+    ((uDCO2_Raw0 & 0x800000) ? 0xFF000000 : 0);
+  Validate CO2_CellP;
+}
+uDACS_AD7770_AI_stat_t uDCO2_stat0; Invalidate uDCO2_stat0;
+{ uDCO2_stat0 = (uDCO2_Raw0 >> 24) & 0xFF;
+  Validate uDCO2_stat0;
+}
+uDACS_T30K75KU CO2_Cell1T; Invalidate CO2_Cell1T;
+{ CO2_Cell1T = (uDCO2_Raw1 & 0xFFFFFF) |
+    ((uDCO2_Raw1 & 0x800000) ? 0xFF000000 : 0);
+  Validate CO2_Cell1T;
+}
+uDACS_AD7770_AI_stat_t uDCO2_stat1; Invalidate uDCO2_stat1;
+{ uDCO2_stat1 = (uDCO2_Raw1 >> 24) & 0xFF;
+  Validate uDCO2_stat1;
+}
+uDACS_T30K75KU CO2_SamInT; Invalidate CO2_SamInT;
+{ CO2_SamInT = (uDCO2_Raw2 & 0xFFFFFF) |
+    ((uDCO2_Raw2 & 0x800000) ? 0xFF000000 : 0);
+  Validate CO2_SamInT;
+}
+uDACS_AD7770_AI_stat_t uDCO2_stat2; Invalidate uDCO2_stat2;
+{ uDCO2_stat2 = (uDCO2_Raw2 >> 24) & 0xFF;
+  Validate uDCO2_stat2;
+}
+uDACS_T30K75KU CO2_RefInT; Invalidate CO2_RefInT;
+{ CO2_RefInT = (uDCO2_Raw3 & 0xFFFFFF) |
+    ((uDCO2_Raw3 & 0x800000) ? 0xFF000000 : 0);
+  Validate CO2_RefInT;
+}
+uDACS_AD7770_AI_stat_t uDCO2_stat3; Invalidate uDCO2_stat3;
+{ uDCO2_stat3 = (uDCO2_Raw3 >> 24) & 0xFF;
+  Validate uDCO2_stat3;
+}
+uDACS_T30K75KU CO2_Cell2T; Invalidate CO2_Cell2T;
+{ CO2_Cell2T = (uDCO2_Raw4 & 0xFFFFFF) |
+    ((uDCO2_Raw4 & 0x800000) ? 0xFF000000 : 0);
+  Validate CO2_Cell2T;
+}
+uDACS_AD7770_AI_stat_t uDCO2_stat4; Invalidate uDCO2_stat4;
+{ uDCO2_stat4 = (uDCO2_Raw4 >> 24) & 0xFF;
+  Validate uDCO2_stat4;
+}
+uDACS_T30K75KU CO2_Cell3T; Invalidate CO2_Cell3T;
+{ CO2_Cell3T = (uDCO2_Raw5 & 0xFFFFFF) |
+    ((uDCO2_Raw5 & 0x800000) ? 0xFF000000 : 0);
+  Validate CO2_Cell3T;
+}
+uDACS_AD7770_AI_stat_t uDCO2_stat5; Invalidate uDCO2_stat5;
+{ uDCO2_stat5 = (uDCO2_Raw5 >> 24) & 0xFF;
+  Validate uDCO2_stat5;
+}
+uDACS_T30K75KU CO2_SamOutT; Invalidate CO2_SamOutT;
+{ CO2_SamOutT = (uDCO2_Raw6 & 0xFFFFFF) |
+    ((uDCO2_Raw6 & 0x800000) ? 0xFF000000 : 0);
+  Validate CO2_SamOutT;
+}
+uDACS_AD7770_AI_stat_t uDCO2_stat6; Invalidate uDCO2_stat6;
+{ uDCO2_stat6 = (uDCO2_Raw6 >> 24) & 0xFF;
+  Validate uDCO2_stat6;
+}
+uDACS_T30K75KU CO2_RefOutT; Invalidate CO2_RefOutT;
+{ CO2_RefOutT = (uDCO2_Raw7 & 0xFFFFFF) |
+    ((uDCO2_Raw7 & 0x800000) ? 0xFF000000 : 0);
+  Validate CO2_RefOutT;
+}
+uDACS_AD7770_AI_stat_t uDCO2_stat7; Invalidate uDCO2_stat7;
+{ uDCO2_stat7 = (uDCO2_Raw7 >> 24) & 0xFF;
+  Validate uDCO2_stat7;
+}

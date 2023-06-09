@@ -1,0 +1,54 @@
+/* uDCO2 */
+
+/* MS5607 P and T */
+TM 1 Hz MS5607_P_t uDCO2_OE_P;
+TM 1 Hz MS5607_T_t uDCO2_OE_T;
+TM 1 Hz MS5607_P_t uDCO2_LH_P;
+TM 1 Hz MS5607_T_t uDCO2_LH_T;
+
+/* DAC Channels */
+TM 1 Hz uDACS_DAC_t uDCO2_VSet0;
+TM 1 Hz uDACS_DAC_t uDCO2_VSet1;
+TM 1 Hz uDACS_DAC_t uDCO2_VSet2;
+TM 1 Hz uDACS_DAC_t uDCO2_VSet3;
+
+/* AD7770 for uDACS */
+TM 1 Hz uDACS_AD7770_status_t uDCO2_stat;
+TM 1 Hz uDACS_AD7770_rawAI_t uDCO2_Raw0;
+TM 1 Hz uDACS_AD7770_rawAI_t uDCO2_Raw1;
+TM 1 Hz uDACS_AD7770_rawAI_t uDCO2_Raw2;
+TM 1 Hz uDACS_AD7770_rawAI_t uDCO2_Raw3;
+TM 1 Hz uDACS_AD7770_rawAI_t uDCO2_Raw4;
+TM 1 Hz uDACS_AD7770_rawAI_t uDCO2_Raw5;
+TM 1 Hz uDACS_AD7770_rawAI_t uDCO2_Raw6;
+TM 1 Hz uDACS_AD7770_rawAI_t uDCO2_Raw7;
+TM 1 Hz uDACS_AD7770_count_t uDCO2_N;
+TM 1 Hz uDACS_AD7770_status_t uDCO2_errs;
+
+group uDCO2 (uDCO2_OE_P, uDCO2_OE_T, uDCO2_LH_P, uDCO2_LH_T,
+             uDCO2_VSet0, uDCO2_VSet1, uDCO2_VSet2, uDCO2_VSet3,
+             uDCO2_errs, uDCO2_stat, uDCO2_Raw0, uDCO2_Raw1,
+             uDCO2_Raw2, uDCO2_Raw3, uDCO2_Raw4, uDCO2_Raw5,
+             uDCO2_Raw6, uDCO2_Raw7, uDCO2_N) {
+  if (uDACS_mread(uDCO2)) {
+    uDCO2_OE_P  = rvals_to_float(uDCO2_rvals[0]);
+    uDCO2_OE_T  = rvals_to_float(uDCO2_rvals[2]);
+    uDCO2_LH_P  = rvals_to_float(uDCO2_rvals[4]);
+    uDCO2_LH_T  = rvals_to_float(uDCO2_rvals[6]);
+    uDCO2_Vset0 = uDCO2_rvals[8];
+    uDCO2_Vset1 = uDCO2_rvals[9];
+    uDCO2_Vset2 = uDCO2_rvals[10];
+    uDCO2_Vset3 = uDCO2_rvals[11];
+    uDCO2_errs  = uDCO2_rvals[12];
+    uDCO2_stat  = uDCO2_rvals[13];
+    uDCO2_Raw0  = (uDCO2_rvals[15] << 16) | uDCO2_rvals[14];
+    uDCO2_Raw0  = (uDCO2_rvals[17] << 16) | uDCO2_rvals[16];
+    uDCO2_Raw0  = (uDCO2_rvals[19] << 16) | uDCO2_rvals[18];
+    uDCO2_Raw0  = (uDCO2_rvals[21] << 16) | uDCO2_rvals[20];
+    uDCO2_Raw0  = (uDCO2_rvals[23] << 16) | uDCO2_rvals[22];
+    uDCO2_Raw0  = (uDCO2_rvals[25] << 16) | uDCO2_rvals[24];
+    uDCO2_Raw0  = (uDCO2_rvals[27] << 16) | uDCO2_rvals[26];
+    uDCO2_Raw0  = (uDCO2_rvals[29] << 16) | uDCO2_rvals[28];
+    uDCO2_N     = uDCO2_rvals[30];
+  }
+}

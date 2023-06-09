@@ -1,0 +1,19 @@
+Moduledef uDACS [ Panel= TBLNAME= ] {
+  Panel definition must include a trailing colon
+}
+
+tmcbase = uDACS.tmc
+tmcbase = uDACS_CO2.tmc
+colbase = uDACS_col.tmc
+colbase = uDACS_CO2_col.tmc
+cmdbase = uDACS.cmd
+extbase = uDACS_CO2_conv.tmc:uDACS_CO2_conv.tmc.in
+genuibase = uDACS.genui:uDACS.genui.in
+- : uDACS.tbl:uDACS.tbl.in
+
+IGNORE = uDACS.genui
+IGNORE = uDACS.tbl
+IGNORE = uDACS_CO2_conv.tmc
+OBJ = uDACS.genui uDACS.tbl
+OBJ = uDACS.tbl
+OBJ = uDACS_CO2_conv.tmc
