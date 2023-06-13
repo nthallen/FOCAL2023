@@ -13,6 +13,7 @@ Module Meerstetter mode=ignore name=ME_CO2 src=ME_CO2.txt
 Module Meerstetter mode=ignore name=ME_CH4 src=ME_CH4.txt
 
 Module alicat mode=ignore name=CPC src=CPC.txt
+Module alicat mode=ignore name=MPC src=MPC.txt
 Module alicat mode=ignore name=GD  src=GD.txt
 
 IGNORE = Makefile "*.o" "*.exe" "*.stackdump"
