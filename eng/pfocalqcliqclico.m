@@ -1,6 +1,6 @@
 function pfocalqcliqclico(varargin);
 % pfocalqcliqclico( [...] );
-% QCLIQCLI C Overflow
+% QCLI C Overflow
 h = ne_dstat({
   'CAOVF1_C', 'SSP_C_Flags', 0; ...
 	'CAOVF2_C', 'SSP_C_Flags', 1; ...

@@ -43,14 +43,14 @@
   1 FSat7:uDCO2_stat7:1 @Panel@uDCO2_HK FSat %.0lf
   1 OUV7:uDCO2_stat7:0  @Panel@uDCO2_HK OUV  %.0lf
   
-  1 CO2_CellP   CO2 P
-  1 CO2_Cell1T  CO2 CellT
-  1 CO2_Cell2T  CO2 CellT
-  1 CO2_Cell3T  CO2 CellT
-  1 CO2_SamInT  CO2 FlowT
-  1 CO2_SamOutT CO2 FlowT
-  1 CO2_RefInT  CO2 FlowT
-  1 CO2_RefOutT CO2 FlowT
+  1 CO2_CellP   @Panel@CO2 P
+  1 CO2_Cell1T  @Panel@CO2 CellT
+  1 CO2_Cell2T  @Panel@CO2 CellT
+  1 CO2_Cell3T  @Panel@CO2 CellT
+  1 CO2_SamInT  @Panel@CO2 FlowT
+  1 CO2_SamOutT @Panel@CO2 FlowT
+  1 CO2_RefInT  @Panel@CO2 FlowT
+  1 CO2_RefOutT @Panel@CO2 FlowT
 
   1 uDCO2_N    @Panel@uDCO2_HK AI_N
   1 uDCO2_errs @Panel@uDCO2_HK Errs

@@ -1,6 +1,6 @@
 function pfocaldacsdcohkouv(varargin);
 % pfocaldacsdcohkouv( [...] );
-% uDAC Su DCO2 HK OUV
+% uDCO2 HK OUV
 h = ne_dstat({
   'OUV0', 'uDCO2_stat0', 0; ...
 	'OUV1', 'uDCO2_stat1', 0; ...

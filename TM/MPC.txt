@@ -1,0 +1,5 @@
+# MPC CH4 Pressure Controller
+Name MPC
+Rate 1 Hz
+Port /dev/ttyS1
+Digital M_AbsP 1 PC3 1000 Torr "CH4 Absolute Pressure"

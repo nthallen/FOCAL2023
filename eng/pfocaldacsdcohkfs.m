@@ -1,6 +1,6 @@
 function pfocaldacsdcohkfs(varargin);
 % pfocaldacsdcohkfs( [...] );
-% uDAC Su DCO2 HK F Sat
+% uDCO2 HK F Sat
 h = ne_dstat({
   'FSat0', 'uDCO2_stat0', 1; ...
 	'FSat1', 'uDCO2_stat1', 1; ...

@@ -38,6 +38,11 @@ CPC_col.tmc
 CPC.cmd
 CPC.genui
 CPC.tbl
+MPC.tmc
+MPC_col.tmc
+MPC.cmd
+MPC.genui
+MPC.tbl
 GD.tmc
 GD_col.tmc
 GD.cmd
@@ -122,6 +127,11 @@ CPC_col.tmc
 CPC.cmd
 CPC.genui
 CPC.tbl
+MPC.tmc
+MPC_col.tmc
+MPC.cmd
+MPC.genui
+MPC.tbl
 GD.tmc
 GD_col.tmc
 GD.cmd

@@ -1,5 +1,6 @@
-Input "GD.tbl";
 Input "CPC.tbl";
+Input "MPC.tbl";
+Input "GD.tbl";
 
 # { HBox {
     # |+;
@@ -14,6 +15,7 @@ Input "CPC.tbl";
 # }
 
 { HBox { |+; [CPC_Ps]; |+; [CPC_Phk]; |+ };
+  HBox { |+; [MPC_Ps]; |+; [MPC_Phk]; |+ };
   HBox { |+; [GD_flows]; |+; [GD_hk]; |+ };
   -;
 }

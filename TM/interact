@@ -3,9 +3,10 @@
 #   CO2 uDACS FTDI $uDACS_CO2_port
 #   CO2 Alicat FTDI RS485 (2 drives) $Alicat_CPC_port
 #   CO2 FOE Feather CDC/ACM $FOE_CO2_port
-# CO2 Meerstetter FTDI RS485 (3 drives) $CO2_ME_port
+# CO2 Meerstetter FTDI RS485 (3 drives) $ME_CO2_port
 # CH4 Enclosure:
 #   CH4 uDACS FTDI $uDACS_CH4_port
+#   CH4 Alicat FTDI RS485 $Alicat_MPC_port
 #   CH4 FOE Feather CDC/ACM $FOE_CH4_port
 # CH4 Meerstetter FTDI RS485 (2 drives) $ME_CH4_port
 # Bay Meerstetter FTDI RS485 (1 drive) $ME_Bay_port
@@ -17,6 +18,8 @@
 # SPAN $SPAN_port
 
 DACS_port=/dev/ttyUSB1
+Alicat_CPC_port=/dev/ttyUSB2
+ME_CO2_port=/dev/ttyUSB3
 
   Launch      memo     memo -o $Experiment.log -l4
               [ -z "$launch_err" ] &&
@@ -55,14 +58,16 @@ DACS_port=/dev/ttyUSB1
 
   Launch      -          sspdrv -H SSP:10.0.0.211 -H UDP:10.0.0.100 -n SSP_C -N `mlf_find SSP_C`
 
-  [ -e "$CO2_ME_port" ] &&
-  Launch      -          meerstetter -n CO2_ME -p $CO2_ME_port -a 1:QCL,2:OE_C,3:Gas
+  [ -e "$ME_CO2_port" ] &&
+  Launch      -          meerstetter -n ME_CO2 -p $ME_CO2_port -a 1:QCL
   [ -e "$ME_CH4_port" ] &&
-  Launch      -          meerstetter -n ME_CH4 -p $ME_CH4_port -a 1:QCL,2:OE_C
+  Launch      -          meerstetter -n ME_CH4 -p $ME_CH4_port -a 1:QCL
   [ -e "$ME_Bay_port" ] &&
-  Launch      -          meerstetter -n ME_Bay -p $ME_Bay_port -a 1:Bay
+  Launch      -          meerstetter -n ME_Bay -p $ME_Bay_port -a 1:Bay,2:Gas,3:COE,4:MOE
   [ -e "$Alicat_CPC_port" ] &&
   Launch      -          alicat -n CPC -a 1:C_AbsP,2:C_DiffP -p $Alicat_CPC_port
+  [ -e "$Alicat_MPC_port" ] &&
+  Launch      -          alicat -n MPC -a 1:M_AbsP -p $Alicat_MPC_port
   [ -e "$Alicat_GD_port" ] &&
   Launch      -          alicat -n GD -a 1:MFC -p $Alicat_GD_port
 
