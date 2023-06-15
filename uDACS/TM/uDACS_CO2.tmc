@@ -42,13 +42,13 @@ group uDCO2 (uDCO2_OE_P, uDCO2_OE_T, uDCO2_LH_P, uDCO2_LH_T,
     uDCO2_errs  = uDCO2_rvals[12];
     uDCO2_stat  = uDCO2_rvals[13];
     uDCO2_Raw0  = (uDCO2_rvals[15] << 16) | uDCO2_rvals[14];
-    uDCO2_Raw0  = (uDCO2_rvals[17] << 16) | uDCO2_rvals[16];
-    uDCO2_Raw0  = (uDCO2_rvals[19] << 16) | uDCO2_rvals[18];
-    uDCO2_Raw0  = (uDCO2_rvals[21] << 16) | uDCO2_rvals[20];
-    uDCO2_Raw0  = (uDCO2_rvals[23] << 16) | uDCO2_rvals[22];
-    uDCO2_Raw0  = (uDCO2_rvals[25] << 16) | uDCO2_rvals[24];
-    uDCO2_Raw0  = (uDCO2_rvals[27] << 16) | uDCO2_rvals[26];
-    uDCO2_Raw0  = (uDCO2_rvals[29] << 16) | uDCO2_rvals[28];
+    uDCO2_Raw1  = (uDCO2_rvals[17] << 16) | uDCO2_rvals[16];
+    uDCO2_Raw2  = (uDCO2_rvals[19] << 16) | uDCO2_rvals[18];
+    uDCO2_Raw3  = (uDCO2_rvals[21] << 16) | uDCO2_rvals[20];
+    uDCO2_Raw4  = (uDCO2_rvals[23] << 16) | uDCO2_rvals[22];
+    uDCO2_Raw5  = (uDCO2_rvals[25] << 16) | uDCO2_rvals[24];
+    uDCO2_Raw6  = (uDCO2_rvals[27] << 16) | uDCO2_rvals[26];
+    uDCO2_Raw7  = (uDCO2_rvals[29] << 16) | uDCO2_rvals[28];
     uDCO2_N     = uDCO2_rvals[30];
   }
 }

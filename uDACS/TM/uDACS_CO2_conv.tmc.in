@@ -12,6 +12,7 @@ uDACS_T30K75KU CO2_Cell1T; Invalidate CO2_Cell1T;
     ((uDCO2_Raw1 & 0x800000) ? 0xFF000000 : 0);
   Validate CO2_Cell1T;
 }
+
 uDACS_AD7770_AI_stat_t uDCO2_stat1; Invalidate uDCO2_stat1;
 { uDCO2_stat1 = (uDCO2_Raw1 >> 24) & 0xFF;
   Validate uDCO2_stat1;
