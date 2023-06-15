@@ -25,6 +25,6 @@ IDISTRIB = doit
 
 focalsrvr : -lsubbuspp
 focaldisp : digio_conv.tmc QCLI_C_conv.tmc uDACS_CO2_conv.tmc \
-            focal.tbl uDACS.tbl ME.tbl alicat.tbl
+             uDACS_CH4_conv.tmc focal.tbl uDACS.tbl ME.tbl alicat.tbl
 focalalgo : focal.tma
 doit : focal.doit

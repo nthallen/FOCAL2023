@@ -1,140 +1,117 @@
-  1 uDCO2_OE_P   @Panel@uDCO2_PT P
-  1 uDCO2_LH_P   @Panel@uDCO2_PT P
-  1 uDCO2_OE_T   @Panel@uDCO2_PT T
-  1 uDCO2_LH_T   @Panel@uDCO2_PT T
-  1 uDCO2_VSet0  @Panel@uDCO2 DAC
-  1 uDCO2_VSet1  @Panel@uDCO2 DAC
-  1 uDCO2_VSet2  @Panel@uDCO2 DAC
-  1 uDCO2_VSet3  @Panel@uDCO2 DAC
-  1 uDCO2_stat   @Panel@uDCO2 AIStat %.0lf
+  1 uDCH4_OE_P   @Panel@uDCH4_PTRH P
+  1 uDCH4_LH_P   @Panel@uDCH4_PTRH P
+  1 uDCH4_OE_T   @Panel@uDCH4_PTRH T
+  1 uDCH4_LH_T   @Panel@uDCH4_PTRH T
+  1 uDCH4_OE_RH  @Panel@uDCH4_PTRH RH
+  1 uDCH4_LH_RH  @Panel@uDCH4_PTRH RH
+  1 uDCH4_VSet0  @Panel@uDCH4 DAC
+  1 uDCH4_VSet1  @Panel@uDCH4 DAC
+  1 uDCH4_VSet2  @Panel@uDCH4 DAC
+  1 uDCH4_VSet3  @Panel@uDCH4 DAC
+  1 uDCH4_stat   @Panel@uDCH4 AIStat %.0lf
 
-  1 Alert:uDCO2_stat0:7 @Panel@uDCO2 Status %.0lf
-  1 Reset:uDCO2_stat0:3 @Panel@uDCO2 Status %.0lf
+  1 Alert:uDCH4_stat0:7 @Panel@uDCH4 Status %.0lf
+  1 Reset:uDCH4_stat0:3 @Panel@uDCH4 Status %.0lf
 
-  1 MSat0:uDCO2_stat0:2 @Panel@uDCO2_HK MSat %.0lf
-  1 FSat0:uDCO2_stat0:1 @Panel@uDCO2_HK FSat %.0lf
-  1 OUV0:uDCO2_stat0:0  @Panel@uDCO2_HK OUV  %.0lf
+  1 MSat0:uDCH4_stat0:2 @Panel@uDCH4_HK MSat %.0lf
+  1 FSat0:uDCH4_stat0:1 @Panel@uDCH4_HK FSat %.0lf
+  1 OUV0:uDCH4_stat0:0  @Panel@uDCH4_HK OUV  %.0lf
 
-  1 MSat1:uDCO2_stat1:2 @Panel@uDCO2_HK MSat %.0lf
-  1 FSat1:uDCO2_stat1:1 @Panel@uDCO2_HK FSat %.0lf
-  1 OUV1:uDCO2_stat1:0  @Panel@uDCO2_HK OUV  %.0lf
+  1 MSat1:uDCH4_stat1:2 @Panel@uDCH4_HK MSat %.0lf
+  1 FSat1:uDCH4_stat1:1 @Panel@uDCH4_HK FSat %.0lf
+  1 OUV1:uDCH4_stat1:0  @Panel@uDCH4_HK OUV  %.0lf
 
-  1 MSat2:uDCO2_stat2:2 @Panel@uDCO2_HK MSat %.0lf
-  1 FSat2:uDCO2_stat2:1 @Panel@uDCO2_HK FSat %.0lf
-  1 OUV2:uDCO2_stat2:0  @Panel@uDCO2_HK OUV  %.0lf
+  1 MSat2:uDCH4_stat2:2 @Panel@uDCH4_HK MSat %.0lf
+  1 FSat2:uDCH4_stat2:1 @Panel@uDCH4_HK FSat %.0lf
+  1 OUV2:uDCH4_stat2:0  @Panel@uDCH4_HK OUV  %.0lf
 
-  1 MSat3:uDCO2_stat3:2 @Panel@uDCO2_HK MSat %.0lf
-  1 FSat3:uDCO2_stat3:1 @Panel@uDCO2_HK FSat %.0lf
-  1 OUV3:uDCO2_stat3:0  @Panel@uDCO2_HK OUV  %.0lf
+  1 MSat3:uDCH4_stat3:2 @Panel@uDCH4_HK MSat %.0lf
+  1 FSat3:uDCH4_stat3:1 @Panel@uDCH4_HK FSat %.0lf
+  1 OUV3:uDCH4_stat3:0  @Panel@uDCH4_HK OUV  %.0lf
 
-  1 MSat4:uDCO2_stat4:2 @Panel@uDCO2_HK MSat %.0lf
-  1 FSat4:uDCO2_stat4:1 @Panel@uDCO2_HK FSat %.0lf
-  1 OUV4:uDCO2_stat4:0  @Panel@uDCO2_HK OUV  %.0lf
+  1 MSat4:uDCH4_stat4:2 @Panel@uDCH4_HK MSat %.0lf
+  1 FSat4:uDCH4_stat4:1 @Panel@uDCH4_HK FSat %.0lf
+  1 OUV4:uDCH4_stat4:0  @Panel@uDCH4_HK OUV  %.0lf
 
-  1 MSat5:uDCO2_stat5:2 @Panel@uDCO2_HK MSat %.0lf
-  1 FSat5:uDCO2_stat5:1 @Panel@uDCO2_HK FSat %.0lf
-  1 OUV5:uDCO2_stat5:0  @Panel@uDCO2_HK OUV  %.0lf
+  1 MSat5:uDCH4_stat5:2 @Panel@uDCH4_HK MSat %.0lf
+  1 FSat5:uDCH4_stat5:1 @Panel@uDCH4_HK FSat %.0lf
+  1 OUV5:uDCH4_stat5:0  @Panel@uDCH4_HK OUV  %.0lf
 
-  1 MSat6:uDCO2_stat6:2 @Panel@uDCO2_HK MSat %.0lf
-  1 FSat6:uDCO2_stat6:1 @Panel@uDCO2_HK FSat %.0lf
-  1 OUV6:uDCO2_stat6:0  @Panel@uDCO2_HK OUV  %.0lf
+  1 MSat6:uDCH4_stat6:2 @Panel@uDCH4_HK MSat %.0lf
+  1 FSat6:uDCH4_stat6:1 @Panel@uDCH4_HK FSat %.0lf
+  1 OUV6:uDCH4_stat6:0  @Panel@uDCH4_HK OUV  %.0lf
 
-  1 MSat7:uDCO2_stat7:2 @Panel@uDCO2_HK MSat %.0lf
-  1 FSat7:uDCO2_stat7:1 @Panel@uDCO2_HK FSat %.0lf
-  1 OUV7:uDCO2_stat7:0  @Panel@uDCO2_HK OUV  %.0lf
+  1 MSat7:uDCH4_stat7:2 @Panel@uDCH4_HK MSat %.0lf
+  1 FSat7:uDCH4_stat7:1 @Panel@uDCH4_HK FSat %.0lf
+  1 OUV7:uDCH4_stat7:0  @Panel@uDCH4_HK OUV  %.0lf
   
-  1 CO2_CellP   @Panel@CO2 P
-  1 CO2_Cell1T  @Panel@CO2 CellT
-  1 CO2_Cell2T  @Panel@CO2 CellT
-  1 CO2_Cell3T  @Panel@CO2 CellT
-  1 CO2_SamInT  @Panel@CO2 FlowT
-  1 CO2_SamOutT @Panel@CO2 FlowT
-  1 CO2_RefInT  @Panel@CO2 FlowT
-  1 CO2_RefOutT @Panel@CO2 FlowT
+  1 CH4_CellP   @Panel@CH4 P
+  1 CH4_Cell1T  @Panel@CH4 CellT
+  1 CH4_Cell2T  @Panel@CH4 CellT
+  1 CH4_Cell3T  @Panel@CH4 CellT
+  1 CH4_SamInT  @Panel@CH4 FlowT
+  1 CH4_SamOutT @Panel@CH4 FlowT
+  1 CH4_Rov1T   @Panel@CH4 RovT
+  1 CH4_Rov2T   @Panel@CH4 RovT
 
-  1 uDCO2_N    @Panel@uDCO2_HK AI_N
-  1 uDCO2_errs @Panel@uDCO2_HK Errs
+  1 uDCH4_N    @Panel@uDCH4_HK AI_N
+  1 uDCH4_errs @Panel@uDCH4_HK Errs
+
+  1 uDCH4_OE_P   @Panel@uDCH4_PTRH P
+  1 uDCH4_LH_P   @Panel@uDCH4_PTRH P
+  1 uDCH4_OE_T   @Panel@uDCH4_PTRH T
+  1 uDCH4_LH_T   @Panel@uDCH4_PTRH T
+  1 uDCH4_OE_RH  @Panel@uDCH4_PTRH RH
+  1 uDCH4_LH_RH  @Panel@uDCH4_PTRH RH
+  1 uDCH4_VSet0  @Panel@uDCH4 DAC
+  1 uDCH4_VSet1  @Panel@uDCH4 DAC
+  1 uDCH4_VSet2  @Panel@uDCH4 DAC
+  1 uDCH4_VSet3  @Panel@uDCH4 DAC
+  1 uDCH4_stat   @Panel@uDCH4 AIStat %.0lf
+
+  1 Alert:uDCH4_stat0:7 @Panel@uDCH4 Status %.0lf
+  1 Reset:uDCH4_stat0:3 @Panel@uDCH4 Status %.0lf
+
+  1 MSat0:uDCH4_stat0:2 @Panel@uDCH4_HK MSat %.0lf
+  1 FSat0:uDCH4_stat0:1 @Panel@uDCH4_HK FSat %.0lf
+  1 OUV0:uDCH4_stat0:0  @Panel@uDCH4_HK OUV  %.0lf
+
+  1 MSat1:uDCH4_stat1:2 @Panel@uDCH4_HK MSat %.0lf
+  1 FSat1:uDCH4_stat1:1 @Panel@uDCH4_HK FSat %.0lf
+  1 OUV1:uDCH4_stat1:0  @Panel@uDCH4_HK OUV  %.0lf
+
+  1 MSat2:uDCH4_stat2:2 @Panel@uDCH4_HK MSat %.0lf
+  1 FSat2:uDCH4_stat2:1 @Panel@uDCH4_HK FSat %.0lf
+  1 OUV2:uDCH4_stat2:0  @Panel@uDCH4_HK OUV  %.0lf
+
+  1 MSat3:uDCH4_stat3:2 @Panel@uDCH4_HK MSat %.0lf
+  1 FSat3:uDCH4_stat3:1 @Panel@uDCH4_HK FSat %.0lf
+  1 OUV3:uDCH4_stat3:0  @Panel@uDCH4_HK OUV  %.0lf
+
+  1 MSat4:uDCH4_stat4:2 @Panel@uDCH4_HK MSat %.0lf
+  1 FSat4:uDCH4_stat4:1 @Panel@uDCH4_HK FSat %.0lf
+  1 OUV4:uDCH4_stat4:0  @Panel@uDCH4_HK OUV  %.0lf
+
+  1 MSat5:uDCH4_stat5:2 @Panel@uDCH4_HK MSat %.0lf
+  1 FSat5:uDCH4_stat5:1 @Panel@uDCH4_HK FSat %.0lf
+  1 OUV5:uDCH4_stat5:0  @Panel@uDCH4_HK OUV  %.0lf
+
+  1 MSat6:uDCH4_stat6:2 @Panel@uDCH4_HK MSat %.0lf
+  1 FSat6:uDCH4_stat6:1 @Panel@uDCH4_HK FSat %.0lf
+  1 OUV6:uDCH4_stat6:0  @Panel@uDCH4_HK OUV  %.0lf
+
+  1 MSat7:uDCH4_stat7:2 @Panel@uDCH4_HK MSat %.0lf
+  1 FSat7:uDCH4_stat7:1 @Panel@uDCH4_HK FSat %.0lf
+  1 OUV7:uDCH4_stat7:0  @Panel@uDCH4_HK OUV  %.0lf
   
-  
-# 1 MMcmd  Moudi Command %.0lf
-# 1 MMstat Moudi Status %.0lf
+  1 CH4_CellP   @Panel@CH4 P
+  1 CH4_Cell1T  @Panel@CH4 CellT
+  1 CH4_Cell2T  @Panel@CH4 CellT
+  1 CH4_Cell3T  @Panel@CH4 CellT
+  1 CH4_SamInT  @Panel@CH4 FlowT
+  1 CH4_SamOutT @Panel@CH4 FlowT
+  1 CH4_Rov1T   @Panel@CH4 RovT
+  1 CH4_Rov2T   @Panel@CH4 RovT
 
-# 1 uDACS_B_VSet0 uDACS_B DAC
-# 1 uDACS_B_VSet2 uDACS_B DAC
-# 1 uDACS_B_VSet3 uDACS_B DAC
-# 1 uDACS_B_AIN0  uDACS_B PVolts
-# 1 InltBPZV      uDACS_B PVolts
-
-# 1 uDACS_B_status uDACS_B AIStat %.0lf
-# 1 InltBP Honeywell HPS_P
-# 1 Ring1T  Inlet RingT
-# 1 Ring2T  Inlet RingT
-# 1 Ring3T  Inlet RingT
-# 1 RingT   Inlet RingT
-# 1 PD_Vel  Inlet Velocity
-# 1 PD_nccm Inlet NCCM
-
-# 1 Alert:uDACS_B_stat0:7 uDACS_B Status %.0lf
-# 1 Reset:uDACS_B_stat0:3 uDACS_B AIChS %.0lf
-
-# 1 MSat0:uDACS_B_stat0:2 uDACS_B AIChS %.0lf
-# 1 FSat0:uDACS_B_stat0:1 uDACS_B AIChS %.0lf
-# 1 OUV0:uDACS_B_stat0:0 uDACS_B AIChS %.0lf
-
-# 1 MSat1:uDACS_B_stat1:2 uDACS_B AIChS %.0lf
-# 1 FSat1:uDACS_B_stat1:1 uDACS_B AIChS %.0lf
-# 1 OUV1:uDACS_B_stat1:0 uDACS_B AIChS %.0lf
-
-# 1 MSat2:uDACS_B_stat2:2 uDACS_B AIChS %.0lf
-# 1 FSat2:uDACS_B_stat2:1 uDACS_B AIChS %.0lf
-# 1 OUV2:uDACS_B_stat2:0 uDACS_B AIChS %.0lf
-
-# 1 MSat3:uDACS_B_stat3:2 uDACS_B AIChS %.0lf
-# 1 FSat3:uDACS_B_stat3:1 uDACS_B AIChS %.0lf
-# 1 OUV3:uDACS_B_stat3:0 uDACS_B AIChS %.0lf
-
-# 1 MSat4:uDACS_B_stat4:2 uDACS_B AIChS %.0lf
-# 1 FSat4:uDACS_B_stat4:1 uDACS_B AIChS %.0lf
-# 1 OUV4:uDACS_B_stat4:0 uDACS_B AIChS %.0lf
-
-# 1 MSat5:uDACS_B_stat5:2 uDACS_B AIChS %.0lf
-# 1 FSat5:uDACS_B_stat5:1 uDACS_B AIChS %.0lf
-# 1 OUV5:uDACS_B_stat5:0 uDACS_B AIChS %.0lf
-
-# 1 MSat6:uDACS_B_stat6:2 uDACS_B AIChS %.0lf
-# 1 FSat6:uDACS_B_stat6:1 uDACS_B AIChS %.0lf
-# 1 OUV6:uDACS_B_stat6:0 uDACS_B AIChS %.0lf
-
-# 1 MSat7:uDACS_B_stat7:2 uDACS_B AIChS %.0lf
-# 1 FSat7:uDACS_B_stat7:1 uDACS_B AIChS %.0lf
-# 1 OUV7:uDACS_B_stat7:0 uDACS_B AIChS %.0lf
-# 1 uDACS_B_N uDACS_B AI_N
-# 1 uDACS_B_errors uDACS_B AI_errs %.01f
-# 1 uDACS_B_elapsed RTC elapsed
-# 1 uDACS_B_curloopdur RTC loop
-# 1 uDACS_B_maxloopdur RTC loop
-
-# 1 PPmpCmd:PumpsStat:0 Pumps Status %.0lf
-# 1 PPmpS:PumpsStat:1 Pumps Status %.0lf
-# 1 BPmpCmd:PumpsStat:2 Pumps Status %.0lf
-# 1 BPmpS:PumpsStat:3 Pumps Status %.0lf
-# 1 BPmpV Pumps BPmpV
-
-# 1 PS1_Init:HPS_Stat:0 Honeywell Status %.0lf
-# 1 PS1_CRC_OK:HPS_Stat:1 Honeywell Status %.0lf
-# 1 PS2_Init:HPS_Stat:2 Honeywell Status %.0lf
-# 1 PS2_CRC_OK:HPS_Stat:3 Honeywell Status %.0lf
-# 1 PS3_Init:HPS_Stat:4 Honeywell Status %.0lf
-# 1 PS3_CRC_OK:HPS_Stat:5 Honeywell Status %.0lf
-# 
-# 1 HPS1_Temp Honeywell HPS_T
-# 1 HPS2_Temp Honeywell HPS_T
-# 1 HPS3_Temp Honeywell HPS_T
-# 1 HPS_P     Honeywell HPS_P
-# 1 HPS_dP    Honeywell HPS_dP %.4lf
-# 1 HPS3_P    Honeywell HPS_P
-
-# 1 uDACS_B_Raw0 uDACS_B Raw %.0lf
-# 1 uDACS_B_Raw1 uDACS_B Raw %.0lf
-# 1 uDACS_B_Raw2 uDACS_B Raw %.0lf
-# 1 uDACS_B_Raw3 uDACS_B Raw %.0lf
+  1 uDCH4_N    @Panel@uDCH4_HK AI_N
+  1 uDCH4_errs @Panel@uDCH4_HK Errs

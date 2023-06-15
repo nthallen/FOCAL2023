@@ -4,15 +4,17 @@
 
   /*
     Addresses Category Offsets
-    61:1:64   MS5607        0-3
-    81:1:84   LH P/T        4-7
-    10:1:13   VSet          8-11
+    61:1:64   OE P/T       0-3
+    81:1:84   LH P/T       4-7
+    70        OE RH        8
+    90        LH RH        9
+    10:1:13   VSet         10-13
               AD7770
-    26        generrs       12
-    14        Status        13
-    15:1:24   AIN[0-7]      14-29** Aligned for 32-bit values
-    25        Poll Count    30
-    Total of 31 words
+    26        generrs       14
+    14        Status        15
+    15:1:24   AIN[0-7]      16-31** Aligned for 32-bit values
+    25        Poll Count    32
+    Total of 33 words
     
     Unused:
     40:1:43   RTC
@@ -26,8 +28,8 @@
   void uDCO2_init() {
     uDACS_init(uDCO2, "uDCO2");
     if (uDCO2.present) {
-      uDCO2.mreq = uDCO2.SB->pack_mread_request(31,
-        "61:1:64,81:1:84,10:1:13,26,14:1:25");
+      uDCO2.mreq = uDCO2.SB->pack_mread_request(33,
+        "61:1:64,81:1:84,70,90,10:1:13,26,14:1:25");
       uDCO2.rvals = uDCO2_rvals;
     }
   }

@@ -1,0 +1,58 @@
+/* uDCH4 */
+
+/* MS5607 P and T */
+TM 1 Hz MS5607_P_t  uDCH4_OE_P;
+TM 1 Hz MS5607_T_t  uDCH4_OE_T;
+TM 1 Hz MS5607_RH_t uDCH4_OE_RH;
+TM 1 Hz MS5607_P_t  uDCH4_LH_P;
+TM 1 Hz MS5607_T_t  uDCH4_LH_T;
+TM 1 Hz MS5607_RH_t uDCH4_LH_RH;
+
+TM 1 Hz uDACS_DAC_t uDCH4_VSet0;
+TM 1 Hz uDACS_DAC_t uDCH4_VSet1;
+TM 1 Hz uDACS_DAC_t uDCH4_VSet2;
+TM 1 Hz uDACS_DAC_t uDCH4_VSet3;
+
+TM 1 Hz uDACS_AD7770_status_t uDCH4_stat;
+TM 1 Hz uDACS_AD7770_count_t uDCH4_N;
+TM 1 Hz uDACS_AD7770_status_t uDCH4_errs;
+TM 1 Hz uDACS_AD7770_rawAI_t uDCH4_Raw0;
+TM 1 Hz uDACS_AD7770_rawAI_t uDCH4_Raw1;
+TM 1 Hz uDACS_AD7770_rawAI_t uDCH4_Raw2;
+TM 1 Hz uDACS_AD7770_rawAI_t uDCH4_Raw3;
+TM 1 Hz uDACS_AD7770_rawAI_t uDCH4_Raw4;
+TM 1 Hz uDACS_AD7770_rawAI_t uDCH4_Raw5;
+TM 1 Hz uDACS_AD7770_rawAI_t uDCH4_Raw6;
+TM 1 Hz uDACS_AD7770_rawAI_t uDCH4_Raw7;
+
+group uDCH4 (
+    uDCH4_OE_P, uDCH4_OE_T, uDCH4_OE_RH, uDCH4_LH_P, uDCH4_LH_T,
+    uDCH4_LH_RH, uDCH4_VSet0, uDCH4_VSet1, uDCH4_VSet2, uDCH4_VSet3,
+    uDCH4_stat, uDCH4_Raw0, uDCH4_Raw1, uDCH4_Raw2,
+    uDCH4_Raw3, uDCH4_Raw4, uDCH4_Raw5, uDCH4_Raw6, uDCH4_Raw7,
+    uDCH4_N, uDCH4_errs
+) {
+  if (uDACS_mread(uDCH4)) {
+    uDCH4_OE_P  = rvals_to_float(uDCH4_rvals[0]);
+    uDCH4_OE_T  = rvals_to_float(uDCH4_rvals[2]);
+    uDCH4_LH_P  = rvals_to_float(uDCH4_rvals[4]);
+    uDCH4_LH_T  = rvals_to_float(uDCH4_rvals[6]);
+    uDCH4_OE_RH = uDCH4_rvals[8];
+    uDCH4_LH_RH = uDCH4_rvals[9];
+    uDCH4_Vset0 = uDCH4_rvals[10];
+    uDCH4_Vset1 = uDCH4_rvals[11];
+    uDCH4_Vset2 = uDCH4_rvals[12];
+    uDCH4_Vset3 = uDCH4_rvals[13];
+    uDCH4_errs  = uDCH4_rvals[14];
+    uDCH4_stat  = uDCH4_rvals[15];
+    uDCH4_Raw0  = (uDCH4_rvals[17] << 16) | uDCH4_rvals[16];
+    uDCH4_Raw1  = (uDCH4_rvals[19] << 16) | uDCH4_rvals[18];
+    uDCH4_Raw2  = (uDCH4_rvals[21] << 16) | uDCH4_rvals[20];
+    uDCH4_Raw3  = (uDCH4_rvals[23] << 16) | uDCH4_rvals[22];
+    uDCH4_Raw4  = (uDCH4_rvals[25] << 16) | uDCH4_rvals[24];
+    uDCH4_Raw5  = (uDCH4_rvals[27] << 16) | uDCH4_rvals[26];
+    uDCH4_Raw6  = (uDCH4_rvals[29] << 16) | uDCH4_rvals[28];
+    uDCH4_Raw7  = (uDCH4_rvals[31] << 16) | uDCH4_rvals[30];
+    uDCH4_N     = uDCH4_rvals[32];
+  }
+}

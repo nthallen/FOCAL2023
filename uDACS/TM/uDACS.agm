@@ -4,16 +4,21 @@ Moduledef uDACS [ Panel= TBLNAME= ] {
 
 tmcbase = uDACS.tmc
 tmcbase = uDACS_CO2.tmc
+tmcbase = uDACS_CH4.tmc
 colbase = uDACS_col.tmc
 colbase = uDACS_CO2_col.tmc
+colbase = uDACS_CH4_col.tmc
 cmdbase = uDACS.cmd
 extbase = uDACS_CO2_conv.tmc:uDACS_CO2_conv.tmc.in
+extbase = uDACS_CH4_conv.tmc:uDACS_CH4_conv.tmc.in
 genuibase = uDACS.genui:uDACS.genui.in
 - : uDACS.tbl:uDACS.tbl.in
 
 IGNORE = uDACS.genui
 IGNORE = uDACS.tbl
 IGNORE = uDACS_CO2_conv.tmc
+IGNORE = uDACS_CH4_conv.tmc
 OBJ = uDACS.genui uDACS.tbl
 OBJ = uDACS.tbl
 OBJ = uDACS_CO2_conv.tmc
+OBJ = uDACS_CH4_conv.tmc

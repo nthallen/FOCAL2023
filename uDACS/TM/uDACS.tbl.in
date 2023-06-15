@@ -9,7 +9,7 @@ CO2_DAC {
 }
 
 CH4_DAC {
-  HBox { +-; Title: DAC_B; -+ };
+  HBox { +-; Title: "CH4 DAC"; -+ };
   "0:"   (uDCH4_Vset0,6) V;
   "1:"   (uDCH4_Vset1,6) V;
   "2:"   (uDCH4_Vset2,6) V;
@@ -29,11 +29,33 @@ CO2_ADC {
   { Status: (uDCO2_stat,4) N: (uDCO2_N,5) };
 }
 
-MS5607 {
-  HBox { +-; Title: "CO2 MS5607"; -+ };
-  ""  >OE<              >LH<;
-  P: (uDCO2_OE_P,8) (uDCO2_LH_P,8) mbar;
-  T: (uDCO2_OE_T,7) (uDCO2_LH_T,7) C;
+CH4_ADC {
+  HBox { +-; Title: "CH4 ADC"; -+ };
+  Cell:   (CH4_CellP,7)   Torr;
+  Cell1:  (CH4_Cell1T,7)  C;
+  Cell2:  (CH4_Cell2T,7)  C;
+  Cell3:  (CH4_Cell3T,7)  C;
+  SamIn:  (CH4_SamInT,7)  C;
+  SamOut: (CH4_SamOutT,7) C;
+  RefIn:  (CH4_Rov1T,7)   C;
+  RefOut: (CH4_Rov2T,7)   C;
+  { Status: (uDCH4_stat,4) N: (uDCH4_N,5) };
+}
+
+CO2_PTRH {
+  HBox { +-; Title: "CO2 PTRH"; -+ };
+  ""   >OE<              >LH<;
+  P:  (uDCO2_OE_P,8)  (uDCO2_LH_P,8)  mbar;
+  T:  (uDCO2_OE_T,7)  (uDCO2_LH_T,7)   C;
+  RH: (uDCO2_OE_RH,6) (uDCO2_LH_RH,6) "%";
+}
+
+CH4_PTRH {
+  HBox { +-; Title: "CH4 PTRH"; -+ };
+  ""   >OE<              >LH<;
+  P:  (uDCH4_OE_P,8)  (uDCH4_LH_P,8)  mbar;
+  T:  (uDCH4_OE_T,7)  (uDCH4_LH_T,7)   C;
+  RH: (uDCH4_OE_RH,6) (uDCH4_LH_RH,6) "%";
 }
 
 TMbaseC {
@@ -48,8 +70,12 @@ TMbaseC {
     |+;
     { [CO2_DAC];
       [CO2_ADC];
+      [CO2_PTRH];
     }; |+; {
-      [MS5607];
+      [CH4_DAC];
+      [CH4_ADC];
+      [CH4_PTRH];
+    }; |+; {
       [TMbaseB];
     }; |+
   };

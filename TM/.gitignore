@@ -51,6 +51,7 @@ GD.tbl
 uDACS.genui
 uDACS.tbl
 uDACS_CO2_conv.tmc
+uDACS_CH4_conv.tmc
 focalcmd.cc
 focalcmd.dat
 focalcmd.h
@@ -140,6 +141,7 @@ GD.tbl
 uDACS.genui
 uDACS.tbl
 uDACS_CO2_conv.tmc
+uDACS_CH4_conv.tmc
 Makefile
 *.o
 *.exe
