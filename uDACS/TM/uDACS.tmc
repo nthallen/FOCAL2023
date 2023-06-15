@@ -78,7 +78,7 @@ TM typedef uint16_t RTC_loopdur_t { text "%6.2lf"; convert uDACS_msec; }
 
 TM typedef float MS5607_P_t { text "%8.3lf"; } /* mbar */
 TM typedef float MS5607_T_t { text "%7.3lf"; } /* Celcius */
-TM typedef float MS5607_RH_t { text "%6.2lf"; } /* Percent RH */
+TM typedef uint16_t MS5607_RH_t { text "%6.2lf"; } /* Percent RH */
 
 TM typedef uint8_t uDACS_Fail_t { text "%02X"; }
 TM typedef uint8_t uDACS_PwrStat_t { text "%02X"; }
