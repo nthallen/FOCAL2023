@@ -1,14 +1,14 @@
 # Device buses we need to identify:
 # CO2 Enclosure:
-#   CO2 uDACS FTDI $uDACS_CO2_port
-#   CO2 Alicat FTDI RS485 (2 drives) $Alicat_CPC_port
-#   CO2 FOE Feather CDC/ACM $FOE_CO2_port
-# CO2 Meerstetter FTDI RS485 (3 drives) $ME_CO2_port
+#   CO2 uDACS FTDI $uDCO2_port
+#   CO2 Alicat FTDI RS485 (2 drives) $Alicat_COE_port
+#   CO2 GDS Feather COE $GDS_COE_port
+# CO2 Meerstetter FTDI RS485 (3 drives) $ME_COE_port
 # CH4 Enclosure:
-#   CH4 uDACS FTDI $uDACS_CH4_port
-#   CH4 Alicat FTDI RS485 $Alicat_MPC_port
-#   CH4 FOE Feather CDC/ACM $FOE_CH4_port
-# CH4 Meerstetter FTDI RS485 (2 drives) $ME_CH4_port
+#   CH4 uDACS FTDI $uDCH4_port
+#   CH4 Alicat FTDI RS485 $Alicat_MOE_port
+#   CH4 GDS Feather MOE $GDS_MOE_port
+# CH4 Meerstetter FTDI RS485 (2 drives) $ME_MOE_port
 # Bay Meerstetter FTDI RS485 (1 drive) $ME_Bay_port
 # Bay FBay Feather CDC/ACM $FOE_Bay_port
 # GD  GDS Feather CDC/ACM $GDS_port
@@ -16,10 +16,8 @@
 # DACS FTDI $DACS_port
 # BAT $BAT_port
 # SPAN $SPAN_port
-
-DACS_port=/dev/ttyUSB1
-Alicat_CPC_port=/dev/ttyUSB2
-ME_CO2_port=/dev/ttyUSB3
+/usr/local/libexec/usb_enum >>usb_enum.log
+. ./usb_enum.log
 
   Launch      memo     memo -o $Experiment.log -l4
               [ -z "$launch_err" ] &&
@@ -34,23 +32,23 @@ ME_CO2_port=/dev/ttyUSB3
 # Launch      -          qclidacsd -n QCLI_M -d0
   fi
 
-  [ -e "$uDACS_CO2_port" ] &&
-  Launch      uDACS_CO2  subbusd_serusb -q -p $uDACS_CO2_port -s uDACS_CO2 -n uDACS_CO2
+  [ -e "$uDCO2_port" ] &&
+  Launch      uDCO2    subbusd_serusb -q -p $uDCO2_port -s uDCO2 -n uDCO2
 
-  [ -e "$uDACS_CH4_port" ] &&
-  Launch      uDACS_CH4  subbusd_serusb -q -p $uDACS_CH4_port -s uDACS_CH4 -n uDACS_CH4
+  [ -e "$uDCH4_port" ] &&
+  Launch      uDCH4    subbusd_serusb -q -p $uDCH4_port -s uDCH4 -n uDCH4
 
-  [ -e "$FOE_CO2_port" ] &&
-  Launch      FOE_CO2  subbusd_serusb -q -p $FOE_CO2_port -s FOE_CO2 -n FOE_CO2
+  [ -e "$GDS_COE_port" ] &&
+  Launch      GDS_COE  subbusd_serusb -q -p $GDS_COE_port -s GDS_COE -n GDS_COE
 
-  [ -e "$FOE_CH4_port" ] &&
-  Launch      FOE_CH4  subbusd_serusb -q -p $FOE_CH4_port -s FOE_CH4 -n FOE_CH4
+  [ -e "$GDS_MOE_port" ] &&
+  Launch      GDS_MOE  subbusd_serusb -q -p $GDS_MOE_port -s GDS_MOE -n GDS_MOE
 
   [ -e "$FOE_Bay_port" ] &&
   Launch      FOE_Bay  subbusd_serusb -q -p $FOE_Bay_port -s FOE_Bay -n FOE_Bay
 
   [ -e "$GDS_port" ] &&
-  Launch      GDS  subbusd_serusb -q -p $GDS_port -s GDS -n GDS
+  Launch      GDS      subbusd_serusb -q -p $GDS_port -s GDS -n GDS
 
   Launch      tm_gen     focalcol
   Launch      cmd        focalsrvr -H srvr: -S:
@@ -58,16 +56,16 @@ ME_CO2_port=/dev/ttyUSB3
 
   Launch      -          sspdrv -H SSP:10.0.0.211 -H UDP:10.0.0.100 -n SSP_C -N `mlf_find SSP_C`
 
-  [ -e "$ME_CO2_port" ] &&
-  Launch      -          meerstetter -n ME_CO2 -p $ME_CO2_port -a 1:QCL
-  [ -e "$ME_CH4_port" ] &&
-  Launch      -          meerstetter -n ME_CH4 -p $ME_CH4_port -a 1:QCL
+  [ -e "$ME_COE_port" ] &&
+  Launch      -          meerstetter -n ME_CO2 -p $ME_COE_port -a 1:QCL
+  [ -e "$ME_MOE_port" ] &&
+  Launch      -          meerstetter -n ME_MOE -p $ME_MOE_port -a 1:QCL
   [ -e "$ME_Bay_port" ] &&
   Launch      -          meerstetter -n ME_Bay -p $ME_Bay_port -a 1:Bay,2:Gas,3:COE,4:MOE
-  [ -e "$Alicat_CPC_port" ] &&
-  Launch      -          alicat -n CPC -a 1:C_AbsP,2:C_DiffP -p $Alicat_CPC_port
-  [ -e "$Alicat_MPC_port" ] &&
-  Launch      -          alicat -n MPC -a 1:M_AbsP -p $Alicat_MPC_port
+  [ -e "$Alicat_COE_port" ] &&
+  Launch      -          alicat -n CPC -a 1:C_AbsP,2:C_DiffP -p $Alicat_COE_port
+  [ -e "$Alicat_MOE_port" ] &&
+  Launch      -          alicat -n MPC -a 1:M_AbsP -p $Alicat_MOE_port
   [ -e "$Alicat_GD_port" ] &&
   Launch      -          alicat -n GD -a 1:MFC -p $Alicat_GD_port
 

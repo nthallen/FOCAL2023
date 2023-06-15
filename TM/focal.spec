@@ -20,7 +20,7 @@ Module uDACS Panel=uDACS:
 
 IGNORE = Makefile "*.o" "*.exe" "*.stackdump"
 DISTRIB = services interact runfile.flight
-DISTRIB = dccc.dccc
+DISTRIB = dccc.dccc USB.id
 IDISTRIB = doit
 
 focalsrvr : -lsubbuspp

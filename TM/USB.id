@@ -1,0 +1,24 @@
+# COE = CO2 Optical Enclosure
+# MOE = CH4 Optical Enclosure
+# GD = Gas Deck
+# Bay = Luggage Bay
+# ME = Meerstetter
+# uD = uDACS
+# GDS = "Gas Deck Shield", but used in GD, COE & MOE
+
+  unused      124MBQWE:1.0
+  DACS        124MBQWE:1.1
+  uDCO2       AQ010YNC
+# GDS_COE
+  ME_COE      AU06D6JE
+  Alicat_COE  FT3W2YVG
+# uDMO2
+# Alicat_MOE
+# GDS_MOE
+# ME_MOE
+# ME_Bay
+# GDS_Bay?
+# GDS_GD
+# Alicat_GD
+# BAT
+# SPAN
