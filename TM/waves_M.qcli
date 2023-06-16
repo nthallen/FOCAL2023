@@ -1,0 +1,46 @@
+# QCLI_M.qcli
+# Generic Waveforms for QCLI_M
+QCLIConfig StandardxP33;
+Digitizer SSP;
+Prefix QCLI_M;
+
+ICOS Waveform MC22_600Hz {
+  SampleRate = 100 MHz/84;
+  Ncoadd = 563;
+  Tz = 5%;
+  Ramp from 1.04 A to 1.24 A in 1.5 msec;
+}
+
+ICOS Waveform QCLI_M_ConstantI {
+  Tz = 10 msec;
+  Iz = 1.15 A;
+  SampleRate = 10 MHz;
+  dI/dt = 0 A/sec;
+}
+
+Ringdown Waveform MC22_rConstant {
+  SampleRate = 25 MHz;
+  Toff = 50 msec;
+  Ton =  50 msec;
+  Tpre = 2 usec;
+  I = 1.15 A;
+}
+
+Ringdown Waveform MC22_rRamp {
+  SampleRate = 50 MHz/20;
+  Nsample = 3500;
+  Toff = 5 msec;
+  Ton =  5 msec;
+  Tpre = 2 usec;
+  I = 1.15 A to 1.25 A in 1000 Steps;
+}
+
+Ringdown Waveform MC22_rRamp_NC10 {
+  SampleRate = 50 MHz/20;
+  Nsample = 3500;
+  Ncoadd = 10;
+  Toff = 500 usec;
+  Ton =  500 usec;
+  Tpre = 2 usec;
+  I = 600 mA to 730 mA in 1000 Steps;
+}

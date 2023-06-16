@@ -6,8 +6,10 @@ cmdbase = dccc.cmd
 genuibase = focal.genui
 
 Module TMbase mode=ignore Panel=HK:
+Module QCLI mode=baseignore
 Module QCLI mode=noiseignore SUFFIX=_C ADDR=0x1010 RESET= SSPRATE=1 Panel=QCLI:
-# Module QCLI mode=noiseignore SUFFIX=_M RESET= SSPRATE=1
+Module QCLI mode=noiseignore SUFFIX=_M ADDR=0x1000 RESET= SSPRATE=1 Panel=QCLI: CMDTYPE=#
+
 Module Meerstetter mode=ignore name=ME_Bay src=ME_Bay.txt Panel=HK:
 Module Meerstetter mode=ignore name=ME_CO2 src=ME_CO2.txt Panel=HK:
 Module Meerstetter mode=ignore name=ME_CH4 src=ME_CH4.txt Panel=HK:
@@ -24,7 +26,8 @@ DISTRIB = dccc.dccc USB.id
 IDISTRIB = doit
 
 focalsrvr : -lsubbuspp
-focaldisp : digio_conv.tmc QCLI_C_conv.tmc uDACS_CO2_conv.tmc \
-             uDACS_CH4_conv.tmc focal.tbl uDACS.tbl ME.tbl alicat.tbl
+focaldisp : digio_conv.tmc QCLI_C_conv.tmc QCLI_M_conv.tmc \
+            uDACS_CO2_conv.tmc uDACS_CH4_conv.tmc focal.tbl \
+            uDACS.tbl ME.tbl alicat.tbl
 focalalgo : focal.tma
 doit : focal.doit
