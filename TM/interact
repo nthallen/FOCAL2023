@@ -59,7 +59,7 @@
   [ -e "$ME_COE_port" ] &&
   Launch      -          meerstetter -n ME_CO2 -p $ME_COE_port -a 1:QCL
   [ -e "$ME_MOE_port" ] &&
-  Launch      -          meerstetter -n ME_MOE -p $ME_MOE_port -a 1:QCL
+  Launch      -          meerstetter -n ME_CH4 -p $ME_MOE_port -a 1:QCL
   [ -e "$ME_Bay_port" ] &&
   Launch      -          meerstetter -n ME_Bay -p $ME_Bay_port -a 1:Bay,2:Gas,3:COE,4:MOE
   [ -e "$Alicat_COE_port" ] &&

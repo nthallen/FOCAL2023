@@ -23,7 +23,7 @@
     (Addresses are all hex, Offsets are decimal)
   */  
   uDACS_mreq uDCO2;
-  uint16_t uDCO2_rvals[31];
+  uint16_t uDCO2_rvals[33];
   
   void uDCO2_init() {
     uDACS_init(uDCO2, "uDCO2");
