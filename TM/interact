@@ -29,7 +29,7 @@
   Launch      subbus     subbusd_serusb -q -p $DACS_port -s subbus -n DACS
   Launch      dccc       dccc -f $TMBINDIR/dccc.dccc
   Launch      -          qclidacsd -n QCLI_C -d1
-# Launch      -          qclidacsd -n QCLI_M -d0
+  Launch      -          qclidacsd -n QCLI_M -d0
   fi
 
   [ -e "$uDCO2_port" ] &&
@@ -55,6 +55,7 @@
   Launch      -          tmdf
 
   Launch      -          sspdrv -H SSP:10.0.0.211 -H UDP:10.0.0.100 -n SSP_C -N `mlf_find SSP_C`
+  Launch      -          sspdrv -H SSP:10.0.0.210 -H UDP:10.0.0.100 -n SSP_M -N `mlf_find SSP_M`
 
   [ -e "$ME_COE_port" ] &&
   Launch      -          meerstetter -n ME_CO2 -p $ME_COE_port -a 1:QCL
