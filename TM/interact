@@ -31,7 +31,9 @@ function dns {
 
 # Verify and/or Program QCLIs
   if [ -e "$DACS_port" ]; then
-  Launch      subbus     subbusd_serusb -q -p $DACS_port -s subbus -n DACS
+    Launch      subbus     subbusd_serusb -q -p $DACS_port -s subbus -n DACS
+    MOK=''
+    COK=''
   else
     MOK=dns
     COK=dns
