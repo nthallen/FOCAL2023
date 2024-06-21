@@ -1,0 +1,41 @@
+Input "TMbase.tbl";
+
+MSP {
+  HBox { +-; Bottles; -+ };
+  ""      HP      LP;
+  Cal_Hi: (Cal_Hi_HP,8) (Cal_Hi_LP,8) psi;
+  Cal_Lo: (Cal_Lo_HP,8) (Cal_Lo_LP,8) psi;
+  Ref:    (Ref_HP,8)    (Ref_LP,8)    psi;
+}
+
+GDS_Rovers {
+  HBox { +-; Rovers; -+ };
+  "1:" (Rov1_T,6) C;
+  "2:" (Rov2_T,6) C;
+  "3:" (Rov3_T,6) C;
+  "4:" (Rov4_T,6) C;
+  "5:" (Rov5_T,6) C;
+  "6:" (Rov6_T,6) C;
+}
+
+GDS_Pump_T {
+  HBox { +-; Pumps; -+ };
+  ""   Pump           Mot;
+  MM:  (MM_Pump_T,6)  (MM_Mot_T,6) C;
+  CO2: (CO2_Pump_T,6) (CO2_Mot_T,6) C;
+}
+
+@TBLNAME@ {
+  HBox {
+    |+;
+    {
+      [MSP];
+      [GDS_Pump_T];
+    }; |+;
+    {
+      [GDS_Rovers];
+      [TMbase_times];
+    }; |+;
+  };
+  -;
+}

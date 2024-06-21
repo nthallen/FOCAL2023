@@ -1,0 +1,17 @@
+Moduledef GDS [ Panel= TBLNAME= ] {
+  Panel definition must include a trailing colon
+}
+
+Module sb_driver SVC=GDS
+
+tmcbase = GDS.tmc
+# colbase = GDS_col.tmc
+cmdbase = GDS.cmd
+extbase = GDS_conv.tmc
+genuibase = GDS.genui:GDS.genui.in
+- : GDS.tbl:GDS.tbl.in
+
+IGNORE = GDS.genui
+IGNORE = GDS.tbl
+OBJ = GDS.genui
+OBJ = GDS.tbl

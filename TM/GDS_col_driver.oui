@@ -1,0 +1,9 @@
+<package> GDS_col_driver
+<include> "GDS_col_driver.h"
+
+<defs>
+  GDS_col_driver *GDS_col;
+
+<init>
+  GDS_col = new GDS_col_driver("GDS", "serusb");
+  GDS_col->init();
