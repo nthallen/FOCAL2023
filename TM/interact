@@ -67,7 +67,7 @@ function dns {
   Launch      FOE_Bay  subbusd_serusb -q -p $FOE_Bay_port -s FOE_Bay -n FOE_Bay
 
   [ -e "$GDS_port" ] &&
-  Launch      GDS      subbusd_serusb -q -p $GDS_port -s GDS -n GDS
+  Launch      GDS     subbusd_serusb -q -p $GDS_port -s GDS -n GDS
 
   Launch      tm_gen     focalcol
   Launch      cmd        focalsrvr -H srvr: -S:
