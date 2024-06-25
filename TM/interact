@@ -1,11 +1,11 @@
 # Device buses we need to identify:
 # CO2 Enclosure:
-#   CO2 uDACS FTDI $uDCO2_port
+#   CO2 uDACS FTDI $uD_COE_port
 #   CO2 Alicat FTDI RS485 (2 drives) $Alicat_COE_port
 #   CO2 GDS Feather COE $GDS_COE_port
 # CO2 Meerstetter FTDI RS485 (3 drives) $ME_COE_port
 # CH4 Enclosure:
-#   CH4 uDACS FTDI $uDCH4_port
+#   CH4 uDACS FTDI $uD_MOE_port
 #   CH4 Alicat FTDI RS485 $Alicat_MOE_port
 #   CH4 GDS Feather MOE $GDS_MOE_port
 # CH4 Meerstetter FTDI RS485 (2 drives) $ME_MOE_port
@@ -51,11 +51,11 @@ function dns {
   $COK Launch      -          qclidacsd -n QCLI_C -d1
   $MOK Launch      -          qclidacsd -n QCLI_M -d0
 
-  [ -e "$uDCO2_port" ] &&
-  Launch      uDCO2    subbusd_serusb -q -p $uDCO2_port -s uDCO2 -n uDCO2
+  [ -e "$uD_COE_port" ] &&
+  Launch      uD_COE    subbusd_serusb -q -p $uD_COE_port -s uD_COE -n uD_COE
 
-  [ -e "$uDCH4_port" ] &&
-  Launch      uDCH4    subbusd_serusb -q -p $uDCH4_port -s uDCH4 -n uDCH4
+  [ -e "$uD_MOE_port" ] &&
+  Launch      uD_MOE    subbusd_serusb -q -p $uD_MOE_port -s uD_MOE -n uD_MOE
 
   [ -e "$GDS_COE_port" ] &&
   Launch      GDS_COE  subbusd_serusb -q -p $GDS_COE_port -s GDS_COE -n GDS_COE
