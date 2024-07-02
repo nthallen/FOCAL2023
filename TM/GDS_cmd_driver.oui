@@ -1,0 +1,11 @@
+<package> GDS_cmd_driver
+<include> msg oui
+<include> "GDS_cmd_driver.h"
+<follow> msg
+
+<defs>
+  GDS_cmd_driver *GDS_cmd;
+
+<init>
+  GDS_cmd = new GDS_cmd_driver("GDS", "serusb");
+  GDS_cmd->init();

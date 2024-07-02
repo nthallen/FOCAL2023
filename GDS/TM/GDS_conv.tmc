@@ -1,0 +1,42 @@
+%{
+  /* GDS_conv.tmc */
+  #define GDS_cmd_text(x) ((x)?"On ":"Off")
+%}
+
+/* Command Status */
+TM typedef uint16_t GDS_cmd_chan_t { text "%3d" GDS_cmd_text(); }
+GDS_cmd_chan_t GDS_Cal_Hi; Invalidate GDS_Cal_Hi;
+GDS_cmd_chan_t GDS_Cal_Lo; Invalidate GDS_Cal_Lo;
+GDS_cmd_chan_t GDS_Cal_Ref; Invalidate GDS_Cal_Ref;
+GDS_cmd_chan_t GDS_CO2_Ref; Invalidate GDS_CO2_Ref;
+GDS_cmd_chan_t GDS_Cal_Spr; Invalidate GDS_Cal_Spr;
+GDS_cmd_chan_t GDS_MM_Pump; Invalidate GDS_MM_Pump;
+GDS_cmd_chan_t GDS_MM_Exh; Invalidate GDS_MM_Exh;
+GDS_cmd_chan_t GDS_CO2_Pump; Invalidate GDS_CO2_Pump;
+GDS_cmd_chan_t GDS_CO2_Exh; Invalidate GDS_CO2_Exh;
+GDS_cmd_chan_t GDS_Ckt3_En; Invalidate GDS_Ckt3_En;
+GDS_cmd_chan_t GDS_Inv_Arm; Invalidate GDS_Inv_Arm;
+
+
+{ GDS_Cal_Hi = (GDS_cmd_stat>>0) & 1; Validate GDS_Cal_Hi; }
+{ GDS_Cal_Lo = (GDS_cmd_stat>>1) & 1; Validate GDS_Cal_Lo; }
+{ GDS_Cal_Ref = (GDS_cmd_stat>>2) & 1; Validate GDS_Cal_Ref; }
+{ GDS_CO2_Ref = (GDS_cmd_stat>>3) & 1; Validate GDS_CO2_Ref; }
+{ GDS_Cal_Spr = (GDS_cmd_stat>>4) & 1; Validate GDS_Cal_Spr; }
+{ GDS_MM_Pump = (GDS_cmd_stat>>5) & 1; Validate GDS_MM_Pump; }
+{ GDS_MM_Exh = (GDS_cmd_stat>>6) & 1; Validate GDS_MM_Exh; }
+{ GDS_CO2_Pump = (GDS_cmd_stat>>7) & 1; Validate GDS_CO2_Pump; }
+{ GDS_CO2_Exh = (GDS_cmd_stat>>8) & 1; Validate GDS_CO2_Exh; }
+{ GDS_Ckt3_En = (GDS_cmd_stat>>9) & 1; Validate GDS_Ckt3_En; }
+{ GDS_Inv_Arm = (GDS_cmd_stat>>10) & 1; Validate GDS_Inv_Arm; }
+
+/* I2C Status */
+/*
+ uint8_t GDS_I2C_Stat_t:
+   0: I2C_ERR_PACKAGE_COLLISION
+   1: I2C_ERR_BUSY
+   2: I2C_ERR_BUS
+   3: I2C_ERR_BAD_ADDRESS
+   4: I2C_ERR_ARBLOST
+   5: I2C_NACK (expected while waiting for conversions to complete)
+ */

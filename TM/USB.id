@@ -8,17 +8,17 @@
 
   unused      124MBQWE:1.0
   DACS        124MBQWE:1.1
-  uDCO2       AQ010YNC
-# GDS_COE
+  uD_COE      AQ010YNC
+  GDS_COE     GDS00003
   ME_COE      AU06D6JE
   Alicat_COE  FT3W2YVG
-  uDCH4       AQ010ZJI
+  uD_MOE      AQ010ZJI
   Alicat_MOE  AU06CZLP
-# GDS_MOE
+  GDS_MOE     GDS00004
   ME_MOE      AU067A00
 # ME_Bay
 # GDS_Bay?
-  GDS_GD      GDS00001
+  GDS         GDS00001
   Alicat_GD   AU06D58C
 # BAT
 # SPAN
