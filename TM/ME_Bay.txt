@@ -1,7 +1,7 @@
 # ME_Bay.txt
 Name ME_Bay
 Port /dev/ser2
-Data Bay_Heat 1 "Meerstetter Luggage Bay Heat"
+#Data Bay_Heat 1 "Meerstetter Luggage Bay Heat"
 Data Fwd_Gas  2 "Meerstetter Forward Gas Heat"
-Data CO2_OE   3 "Meerstetter CO2 OE Heat"
-Data CH4_OE   4 "Meerstetter CH4 OE Heat"
+#Data CO2_OE   3 "Meerstetter CO2 OE Heat"
+#Data CH4_OE   4 "Meerstetter CH4 OE Heat"
