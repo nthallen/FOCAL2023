@@ -1,10 +1,8 @@
 %{
   /* GDS_conv.tmc */
-  #define GDS_cmd_text(x) ((x)?"On ":"Off")
 %}
 
 /* Command Status */
-TM typedef uint16_t GDS_cmd_chan_t { text "%3d" GDS_cmd_text(); }
 GDS_cmd_chan_t GDS_Cal_Hi; Invalidate GDS_Cal_Hi;
 GDS_cmd_chan_t GDS_Cal_Lo; Invalidate GDS_Cal_Lo;
 GDS_cmd_chan_t GDS_Cal_Ref; Invalidate GDS_Cal_Ref;

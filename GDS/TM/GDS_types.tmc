@@ -1,0 +1,75 @@
+%{
+  /* GDS_types.tmc */
+
+  double GDS_T30K75KU_2_Celcius(int16_t At) {
+    double Rpu = 75e3;
+    int32_t Aref = 1<<15;
+    double logR = log(At * Rpu / (Aref - At));
+    double a0 = 9.3316e-04;
+    double a1 = 2.2141e-04;
+    double a3 = 1.2622e-07;
+    double C = 1/(a0 + a1 * logR + a3*pow(logR,3)) - 273.15;
+    return C;
+  }
+  #define GDS_cmd_text(x) ((x)?"On ":"Off")
+  #define GDS_At_T_text(x) ((x)?"At Temp ":"not cool")
+%}
+TM typedef double GDS_CELCIUS { text "%6.2lf"; }
+TM typedef double GDS_TORR { text "%6.1lf"; }
+TM typedef double GDS_PSI { text "%6.1lf"; }
+TM typedef double GDS_VOLTS { text ""; }
+
+/* Analog Inputs */
+TM typedef uint8_t GDS_I2C_Stat_t { text "%2u"; }
+TM typedef int16_t GDS_MSP_Hi_t { convert GDS_PSI; text "%6.1lf"; }
+  Calibration (GDS_MSP_Hi_T, GDS_PSI) {
+    5333.3, 0,
+    26666.7, 5000
+  }
+TM typedef int16_t GDS_MSP_Lo_t { convert GDS_PSI; text "%7.3lf"; }
+  Calibration (GDS_MSP_Lo_T, GDS_PSI) {
+    5333.3, 0,
+    26666.7, 100
+  }
+TM typedef int16_t GDS_MKS_KTorr { convert GDS_TORR; text "%7.2lf"; }
+  /* Assuming output is 0-10V for 0-1000 Torr.
+     That is then divided by 2 via the resistor network and
+     read in to the AD1115 with a full scale range of 6.144V,
+     then converted to mbar. */
+  Calibration (GDS_MKS_KTorr, GDS_TORR) {
+    0, 0,
+    26666.7, 1000
+  }
+TM typedef int16_t GDS_T30K_t {
+  convert GDS_CELCIUS GDS_T30K75KU_2_Celcius();
+  text "%6.2lf";
+}
+TM typedef uint8_t GDS_Nreads_t { text "%3u"; }
+
+TM typedef int16_t GDS_AI {
+  convert GDS_VOLTS;
+  text "%7.4lf";
+}
+  Calibration (GDS_AI, GDS_VOLTS) {
+    0, 0,
+    32768, 6.144
+  }
+
+TM typedef uint8_t GDS_cmd_stat_t { text "%02X"; }
+
+TM typedef float GDS_MBAR32_t {
+  convert GDS_TORR;
+  text "%6.2lf";
+}
+  Calibration (GDS_MBAR32_t, GDS_TORR) {
+    0, 0,
+    1013.25, 760
+  }
+TM typedef float GDS_CELCIUS32_t { text "%6.2lf"; }
+TM typedef uint16_t GDS_RHp10K_t { text "%6.2lf"; }
+TM typedef uint8_t GDS_cmd_chan_t {
+  text "%3d" GDS_cmd_text();
+}
+TM typedef uint8_t GDS_At_T_t {
+  text "%8d" GDS_At_T_text();
+}

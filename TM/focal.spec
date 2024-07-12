@@ -19,7 +19,8 @@ Module alicat mode=ignore name=MPC src=MPC.txt Panel=HK:
 Module alicat mode=ignore name=GD  src=GD.txt Panel=HK:
 
 Module uDACS Panel=uDACS:
-Module GDS Panel=GDS:
+Module GDS Panel=GDS: SVC=GDS
+Module GDS Panel=GDS: SVC=GDS_COE SBMODE=col mode=col
 
 IGNORE = Makefile "*.o" "*.exe" "*.stackdump"
 DISTRIB = services interact runfile.flight
@@ -29,6 +30,6 @@ IDISTRIB = doit
 focalclt : -lsubbuspp
 focalsrvr : -lsubbuspp
 focaldisp : digio_conv.tmc $extbase \
-            focal.tbl uDACS.tbl ME.tbl alicat.tbl GDS.tbl
+            focal.tbl uDACS.tbl ME.tbl alicat.tbl GDS.tbl GDS_COE.tbl
 focalalgo : focal.tma
 doit : focal.doit

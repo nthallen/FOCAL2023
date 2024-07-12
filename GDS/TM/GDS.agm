@@ -1,17 +1,22 @@
-Moduledef GDS [ Panel= TBLNAME= ] {
+Moduledef GDS [ SVC=GDS Panel= TBLNAME= SBMODE=default ] {
   Panel definition must include a trailing colon
 }
 
-Module sb_driver SVC=GDS
+Module sb_driver SVC=@SVC@ mode=@SBMODE@
 
-tmcbase = GDS.tmc
-# colbase = GDS_col.tmc
-cmdbase = GDS.cmd
-extbase = GDS_conv.tmc
-genuibase = GDS.genui:GDS.genui.in
-- : GDS.tbl:GDS.tbl.in
+tmcbase = GDS_types.tmc
+tmcbase = @SVC@.tmc
+colbase = GDS_col_class.cc
 
-IGNORE = GDS.genui
-IGNORE = GDS.tbl
-OBJ = GDS.genui
-OBJ = GDS.tbl
+mode (default,cmd,col_cmd) {
+  cmdbase = @SVC@.cmd
+}
+
+extbase = @SVC@_conv.tmc
+genuibase = @SVC@.genui:@SVC@.genui.in
+- : @SVC@.tbl:@SVC@.tbl.in
+
+IGNORE = @SVC@.genui
+IGNORE = @SVC@.tbl
+OBJ = @SVC@.genui
+OBJ = @SVC@.tbl

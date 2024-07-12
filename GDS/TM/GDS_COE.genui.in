@@ -1,0 +1,14 @@
+ 1 GDS_COE_CellP_Hi  @Panel@COE CellP
+ 1 CO2_Ref_Det_Tmon  @Panel@COE Det_Tmon Ref
+ 1 CO2_Sig_Det_Tmon  @Panel@COE Det_Tmon Sig
+ 1 CO2_Ref_TEM_Imon  @Panel@COE TEM_Imon Ref
+ 1 CO2_Sig_TEM_Imon  @Panel@COE TEM_Imon Sig
+
+ 1 GDS_COE_MS_P       @Panel@COE P
+ 1 GDS_COE_MS_T       @Panel@COE T
+ 1 GDS_COE_RH         @Panel@COE RH
+
+ 1 GDS_COE_I2C_Status @Panel@COE_HK AI_I2C
+ 1 GDS_COE_Nreads     @Panel@COE_HK Nreads
+ 1 At_T_Sig:GDS_COE_cmd_stat:0  @Panel@COE_HK Cmd
+ 1 At_T_Ref:GDS_COE_cmd_stat:1  @Panel@COE_HK Cmd

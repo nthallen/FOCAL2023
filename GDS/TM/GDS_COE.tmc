@@ -1,0 +1,39 @@
+%{
+  /* GDS_COE.tmc */
+  #include "GDS_COE_col_driver.h"
+%}
+
+/* Analog Inputs */
+TM 1 Hz GDS_I2C_Stat_t GDS_COE_I2C_Status; /* 0: 0x20 */
+TM 1 Hz GDS_MKS_KTorr GDS_COE_CellP_Hi; /* 1: 0x22 ±6.144V */
+TM 1 Hz GDS_AI CO2_Ref_Det_Tmon;        /* 2: 0x23 ±6.144V */
+TM 1 Hz GDS_AI CO2_Ref_TEM_Imon;        /* 3: 0x24 ±6.144V */
+TM 1 Hz GDS_AI CO2_Sig_Det_Tmon;        /* 4: 0x25 ±6.144V */
+TM 1 Hz GDS_AI CO2_Sig_TEM_Imon;        /* 5: 0x26 ±6.144V */
+TM 1 Hz GDS_Nreads_t GDS_COE_Nreads;    /* 6: 0x31 ±4.096V */
+
+/* Command Status */
+TM 1 Hz GDS_cmd_stat_t GDS_COE_cmd_stat; /* 7: 0X10 */
+
+/* PTRH : could include I2C status, raw values */
+TM 1 Hz GDS_MBAR32_t GDS_COE_MS_P;    /* 8,9:  0x61,0x62 */
+TM 1 Hz GDS_CELCIUS32_t GDS_COE_MS_T; /* 10,11: 0x63,0x64 */
+TM 1 Hz GDS_RHp10K_t GDS_COE_RH;      /* 12:   0x70 */
+
+group GDS_COE (GDS_COE_I2C_Status, GDS_COE_CellP_Hi,
+    CO2_Ref_Det_Tmon, CO2_Ref_TEM_Imon, CO2_Sig_Det_Tmon, CO2_Sig_TEM_Imon, GDS_COE_Nreads, GDS_COE_cmd_stat,
+    GDS_COE_MS_P, GDS_COE_MS_T, GDS_COE_RH)
+{
+  GDS_COE_col->acquire();
+  GDS_COE_I2C_Status = GDS_COE_col->vals[0];
+  GDS_COE_CellP_Hi = GDS_COE_col->vals[1];
+  CO2_Ref_Det_Tmon = GDS_COE_col->vals[2];
+  CO2_Ref_TEM_Imon = GDS_COE_col->vals[3];
+  CO2_Sig_Det_Tmon = GDS_COE_col->vals[4];
+  CO2_Sig_TEM_Imon = GDS_COE_col->vals[5];
+  GDS_COE_Nreads =   GDS_COE_col->vals[6];
+  GDS_COE_cmd_stat = GDS_COE_col->vals[7]>>11;
+  GDS_COE_MS_P =     GDS_COE_col->float_val(8, 9);
+  GDS_COE_MS_T =     GDS_COE_col->float_val(10, 11);
+  GDS_COE_RH =       GDS_COE_col->vals[12];
+}

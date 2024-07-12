@@ -1,0 +1,9 @@
+<package> GDS_COE_col_driver
+<include> "GDS_COE_col_driver.h"
+
+<defs>
+  GDS_COE_col_driver *GDS_COE_col;
+
+<init>
+  GDS_COE_col = new GDS_COE_col_driver("GDS_COE", "serusb");
+  GDS_COE_col->init();

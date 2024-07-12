@@ -1,0 +1,38 @@
+Input "TMbase.tbl";
+
+COE_Det {
+  HBox { +-; "COE Detectors"; -+ };
+  ""       Sig                 Ref;
+  Det_T: (CO2_Sig_Det_Tmon,7) (CO2_Ref_Det_Tmon,7) V;
+  TEM_I: (CO2_Sig_TEM_Imon,7) (CO2_Ref_TEM_Imon,7) V;
+  Stat:  (GDS_COE_At_T_Sig,8) (GDS_COE_At_T_Ref,8);
+}
+
+COE_PTRH {
+  HBox { +-; "COE PTRH"; -+ };
+  P:  (GDS_COE_MS_P,6) Torr;
+  T:  (GDS_COE_MS_T,6) C;
+  RH: (GDS_COE_RH,6)   "%";
+}
+
+COE_P {
+  HBox { +-; "COE Cell"; -+ };
+  Hi: (GDS_COE_CellP_Hi,7) Torr;
+  Lo: uDACS                Torr;
+}
+
+COE_HK {
+  HBox { +-; "COE HK"; -+ };
+  AI_I2C: (GDS_COE_I2C_Status,2);
+  Nreads: (GDS_COE_Nreads,3);
+}
+
+COE_Raw {
+  HBox { [COE_Det]; |; [COE_PTRH] };
+  HBox { [COE_PTRH]; |; [COE_P]; |; { +-+; [TMbase_times] } };
+}
+
+@TBLNAME@ {
+  HBox { |+; [COE_Raw]; |+ };
+  -;
+}

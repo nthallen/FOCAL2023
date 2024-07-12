@@ -68,6 +68,8 @@ uDACS_CO2_conv.tmc
 uDACS_CH4_conv.tmc
 GDS.genui
 GDS.tbl
+GDS_COE.genui
+GDS_COE.tbl
 focalcmd.cc
 focalcmd.dat
 focalcmd.h
@@ -84,6 +86,7 @@ uDACStblnc.tmc
 MEtblnc.tmc
 alicattblnc.tmc
 GDStblnc.tmc
+GDS_COEtblnc.tmc
 focaldispnc.cc
 focaldispncoui.cc
 focaldispnc.o
@@ -100,6 +103,8 @@ focalcoloui.cc
 focalcol.o
 GDS_col_driver.o
 focalcoloui.o
+GDS_col_class.o
+GDS_COE_col_driver.o
 focalengext.cdf
 focalengextcdf.oui
 focalengextcdf.tmc
@@ -112,6 +117,7 @@ uDACStblnc.tmc.dep
 MEtblnc.tmc.dep
 alicattblnc.tmc.dep
 GDStblnc.tmc.dep
+GDS_COEtblnc.tmc.dep
 *.err
 freemem.tmc
 TMbase.genui
@@ -175,6 +181,8 @@ uDACS_CO2_conv.tmc
 uDACS_CH4_conv.tmc
 GDS.genui
 GDS.tbl
+GDS_COE.genui
+GDS_COE.tbl
 Makefile
 *.o
 *.exe

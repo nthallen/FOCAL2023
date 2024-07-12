@@ -1,68 +1,31 @@
 %{
   /* GDS.tmc */
   #include "GDS_col_driver.h"
-
-  double GDS_T30K75KU_2_Celcius(int16_t At) {
-    double Rpu = 75e3;
-    int32_t Aref = 1<<15;
-    double logR = log(At * Rpu / (Aref - At));
-    double a0 = 9.3316e-04;
-    double a1 = 2.2141e-04;
-    double a3 = 1.2622e-07;
-    double C = 1/(a0 + a1 * logR + a3*pow(logR,3)) - 273.15;
-    return C;
-  }
-
 %}
-TM typedef double GDS_CELCIUS { text "%6.2lf"; }
-TM typedef double GDS_MBAR { text "%6.1lf"; }
-TM typedef double GDS_PSI { text "%6.1lf"; }
-
-/* Analog Inputs */
-TM typedef uint8_t GDS_I2C_Stat_t { text "%2u"; }
-TM typedef int16_t GDS_MSP_Hi_t { convert GDS_PSI; text "%6.1lf"; }
-  Calibration (GDS_MSP_Hi_T, GDS_PSI) {
-    5333.3, 0,
-    26666.7, 5000
-  }
-TM typedef int16_t GDS_MSP_Lo_t { convert GDS_PSI; text "%7.3lf"; }
-  Calibration (GDS_MSP_Lo_T, GDS_PSI) {
-    5333.3, 0,
-    26666.7, 100
-  }
-TM typedef int16_t GDS_T30K_t {
-  convert GDS_CELCIUS GDS_T30K75KU_2_Celcius();
-  text "%6.2lf";
-}
-TM typedef uint8_t GDS_Nreads_t { text "%3u"; }
 
 TM 1 Hz GDS_I2C_Stat_t GDS_I2C_Status; /* 0: 0x20 */
-TM 1 Hz GDS_MSP_Hi_t Cal_Hi_HP;        /* 1: 0x21 */
-TM 1 Hz GDS_MSP_Lo_t Cal_Hi_LP;        /* 2: 0x22 */
-TM 1 Hz GDS_MSP_Hi_t Cal_Lo_HP;        /* 3: 0x23 */
-TM 1 Hz GDS_MSP_Lo_t Cal_Lo_LP;        /* 4: 0x24 */
-TM 1 Hz GDS_MSP_Hi_t Ref_HP;           /* 5: 0x25 */
-TM 1 Hz GDS_MSP_Lo_t Ref_LP;           /* 6: 0x26 */
-TM 1 Hz GDS_T30K_t Rov1_T;             /* 7: 0x27 */
-TM 1 Hz GDS_T30K_t Rov2_T;             /* 8: 0x28 */
-TM 1 Hz GDS_T30K_t Rov3_T;             /* 9: 0x29 */
-TM 1 Hz GDS_T30K_t Rov4_T;             /* 10: 0x2A */
-TM 1 Hz GDS_T30K_t Rov5_T;             /* 11: 0x2B */
-TM 1 Hz GDS_T30K_t Rov6_T;             /* 12: 0x2C */
-TM 1 Hz GDS_T30K_t MM_Pump_T;          /* 13: 0x2D */
-TM 1 Hz GDS_T30K_t MM_Mot_T;           /* 14: 0x2E */
-TM 1 Hz GDS_T30K_t CO2_Pump_T;         /* 15: 0x2F */
-TM 1 Hz GDS_T30K_t CO2_Mot_T;          /* 16: 0x30 */
-TM 1 Hz GDS_Nreads_t GDS_Nreads;       /* 17: 0x31 */
+TM 1 Hz GDS_MSP_Hi_t Cal_Hi_HP;        /* 1: 0x21 ±6.144V */
+TM 1 Hz GDS_MSP_Lo_t Cal_Hi_LP;        /* 2: 0x22 ±6.144V */
+TM 1 Hz GDS_MSP_Hi_t Cal_Lo_HP;        /* 3: 0x23 ±6.144V */
+TM 1 Hz GDS_MSP_Lo_t Cal_Lo_LP;        /* 4: 0x24 ±6.144V */
+TM 1 Hz GDS_MSP_Hi_t Ref_HP;           /* 5: 0x25 ±6.144V */
+TM 1 Hz GDS_MSP_Lo_t Ref_LP;           /* 6: 0x26 ±6.144V */
+TM 1 Hz GDS_T30K_t Rov1_T;             /* 7: 0x27 ±4.096V */
+TM 1 Hz GDS_T30K_t Rov2_T;             /* 8: 0x28 ±4.096V */
+TM 1 Hz GDS_T30K_t CO2_Mot_T;          /* 9: 0x29 ±4.096V */
+TM 1 Hz GDS_T30K_t CO2_Pump_T;         /* 10: 0x2A ±4.096V */
+TM 1 Hz GDS_T30K_t MM_Mot_T;           /* 11: 0x2B ±4.096V */
+TM 1 Hz GDS_T30K_t MM_Pump_T;          /* 12: 0x2C ±4.096V */
+TM 1 Hz GDS_T30K_t Rov3_T;             /* 13: 0x2D ±4.096V */
+TM 1 Hz GDS_T30K_t Rov4_T;             /* 14: 0x2E ±4.096V */
+TM 1 Hz GDS_T30K_t Rov5_T;             /* 15: 0x2F ±4.096V */
+TM 1 Hz GDS_T30K_t Rov6_T;             /* 16: 0x30 ±4.096V */
+TM 1 Hz GDS_Nreads_t GDS_Nreads;       /* 17: 0x31 ±4.096V */
 
 /* Command Status */
-TM typedef uint16_t GDS_cmd_stat_t { text "%04X"; }
 TM 1 Hz GDS_cmd_stat_t GDS_cmd_stat;   /* 18: 0X10 */
 
 /* PTRH : could include I2C status, raw values */
-TM typedef float GDS_MBAR32_t { text "%6.1lf"; }
-TM typedef float GDS_CELCIUS32_t { text "%6.2lf"; }
-TM typedef uint16_t GDS_RHp10K_t { text "%6.2lf"; }
 TM 1 Hz GDS_MBAR32_t GDS_MS_P;    /* 19,20: 0x61,0x62 */
 TM 1 Hz GDS_CELCIUS32_t GDS_MS_T; /* 21,22: 0x63,0x64 */
 TM 1 Hz GDS_RHp10K_t GDS_RH;      /* 23:    0x70 */
@@ -85,14 +48,14 @@ group GDS (GDS_I2C_Status, Cal_Hi_HP, Cal_Hi_LP, Cal_Lo_HP,
   Ref_LP =         GDS_col->vals[6];
   Rov1_T =         GDS_col->vals[7];
   Rov2_T =         GDS_col->vals[8];
-  Rov3_T =         GDS_col->vals[9];
-  Rov4_T =         GDS_col->vals[10];
-  Rov5_T =         GDS_col->vals[11];
-  Rov6_T =         GDS_col->vals[12];
-  MM_Pump_T =      GDS_col->vals[13];
-  MM_Mot_T =       GDS_col->vals[14];
-  CO2_Pump_T =     GDS_col->vals[15];
-  CO2_Mot_T =      GDS_col->vals[16];
+  CO2_Mot_T =      GDS_col->vals[9];
+  CO2_Pump_T =     GDS_col->vals[10];
+  MM_Mot_T =       GDS_col->vals[11];
+  MM_Pump_T =      GDS_col->vals[12];
+  Rov3_T =         GDS_col->vals[13];
+  Rov4_T =         GDS_col->vals[14];
+  Rov5_T =         GDS_col->vals[15];
+  Rov6_T =         GDS_col->vals[16];
   GDS_Nreads =     GDS_col->vals[17];
   GDS_cmd_stat =   GDS_col->vals[18];
   GDS_MS_P =       GDS_col->float_val(19, 20);
