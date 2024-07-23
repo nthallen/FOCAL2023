@@ -31,43 +31,44 @@ function dns {
 
 # Verify and/or Program QCLIs
   if [ -e "$DACS_port" ]; then
-    Launch      subbus     subbusd_serusb -q -p $DACS_port -s subbus -n DACS
+    POK=''
     MOK=''
     COK=''
   else
+    POK=dns
     MOK=dns
     COK=dns
   fi
+  $POK Launch      subbus     subbusd_serusb -q -p $DACS_port -s subbus -n DACS
 
   $COK qclidprog -n QCLI_C_prog -d1 -cwcwc $TMBINDIR/waves_C.out
   $MOK qclidprog -n QCLI_M_prog -d0 -cwcwc $TMBINDIR/waves_M.out
 
   Launch      -TMC-      lgr -N `mlf_find LOG` -n lgr
 
-  if [ -e "$DACS_port" ]; then
-  Launch      dccc       dccc -f $TMBINDIR/dccc.dccc
-  fi
+  if [ -e "$DACS_port" ]; then POK=''; else POK=dns; fi
+  $POK Launch      dccc       dccc -f $TMBINDIR/dccc.dccc
 
   $COK Launch      -          qclidacsd -n QCLI_C -d1
   $MOK Launch      -          qclidacsd -n QCLI_M -d0
 
-  [ -e "$uD_COE_port" ] &&
-  Launch      uD_COE    subbusd_serusb -q -p $uD_COE_port -s uD_COE -n uD_COE
+  if [ -e "$uD_COE_port" ]; then POK=''; else POK=dns; fi
+  $POK Launch      uD_COE    subbusd_serusb -q -p $uD_COE_port -s uD_COE -n uD_COE
 
-  [ -e "$uD_MOE_port" ] &&
-  Launch      uD_MOE    subbusd_serusb -q -p $uD_MOE_port -s uD_MOE -n uD_MOE
+  if [ -e "$uD_MOE_port" ]; then POK=''; else POK=dns; fi
+  $POK Launch      uD_MOE    subbusd_serusb -q -p $uD_MOE_port -s uD_MOE -n uD_MOE
 
-  [ -e "$GDS_COE_port" ] &&
-  Launch      GDS_COE  subbusd_serusb -q -p $GDS_COE_port -s GDS_COE -n GDS_COE
+  if [ -e "$GDS_port" ]; then POK=''; else POK=dns; fi
+  $POK Launch      GDS     subbusd_serusb -q -p $GDS_port -s GDS -n GDS
 
-  [ -e "$GDS_MOE_port" ] &&
-  Launch      GDS_MOE  subbusd_serusb -q -p $GDS_MOE_port -s GDS_MOE -n GDS_MOE
+  if [ -e "$GDS_COE_port" ]; then POK=''; else POK=dns; fi
+  $POK Launch      GDS_COE  subbusd_serusb -q -p $GDS_COE_port -s GDS_COE -n GDS_COE
 
-  [ -e "$FOE_Bay_port" ] &&
-  Launch      FOE_Bay  subbusd_serusb -q -p $FOE_Bay_port -s FOE_Bay -n FOE_Bay
+  if [ -e "$GDS_MOE_port" ]; then POK=''; else POK=dns; fi
+  $POK Launch      GDS_MOE  subbusd_serusb -q -p $GDS_MOE_port -s GDS_MOE -n GDS_MOE
 
-  [ -e "$GDS_port" ] &&
-  Launch      GDS     subbusd_serusb -q -p $GDS_port -s GDS -n GDS
+  if [ -e "$FOE_Bay_port" ]; then POK=''; else POK=dns; fi
+  $POK Launch      FOE_Bay  subbusd_serusb -q -p $FOE_Bay_port -s FOE_Bay -n FOE_Bay
 
   Launch      tm_gen     focalcol
   Launch      cmd        focalsrvr -H srvr: -S:
