@@ -1,5 +1,7 @@
 <package> GDS_COE_col_driver
+<include> msg oui
 <include> "GDS_COE_col_driver.h"
+<follow> msg
 
 <defs>
   GDS_COE_col_driver *GDS_COE_col;
