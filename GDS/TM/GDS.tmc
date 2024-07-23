@@ -38,27 +38,28 @@ group GDS (GDS_I2C_Status, Cal_Hi_HP, Cal_Hi_LP, Cal_Lo_HP,
     CO2_Mot_T, GDS_Nreads, GDS_cmd_stat, GDS_MS_P, GDS_MS_T,
     GDS_RH)
 {
-  GDS_col->acquire();
-  GDS_I2C_Status = GDS_col->vals[0];
-  Cal_Hi_HP =      GDS_col->vals[1];
-  Cal_Hi_LP =      GDS_col->vals[2];
-  Cal_Lo_HP =      GDS_col->vals[3];
-  Cal_Lo_LP =      GDS_col->vals[4];
-  Ref_HP =         GDS_col->vals[5];
-  Ref_LP =         GDS_col->vals[6];
-  Rov1_T =         GDS_col->vals[7];
-  Rov2_T =         GDS_col->vals[8];
-  CO2_Mot_T =      GDS_col->vals[9];
-  CO2_Pump_T =     GDS_col->vals[10];
-  MM_Mot_T =       GDS_col->vals[11];
-  MM_Pump_T =      GDS_col->vals[12];
-  Rov3_T =         GDS_col->vals[13];
-  Rov4_T =         GDS_col->vals[14];
-  Rov5_T =         GDS_col->vals[15];
-  Rov6_T =         GDS_col->vals[16];
-  GDS_Nreads =     GDS_col->vals[17];
-  GDS_cmd_stat =   GDS_col->vals[18];
-  GDS_MS_P =       GDS_col->float_val(19, 20);
-  GDS_MS_T =       GDS_col->float_val(21, 22);
-  GDS_RH =         GDS_col->vals[23];
+  if (GDS_col->acquire()) {
+    GDS_I2C_Status = GDS_col->vals[0];
+    Cal_Hi_HP =      GDS_col->vals[1];
+    Cal_Hi_LP =      GDS_col->vals[2];
+    Cal_Lo_HP =      GDS_col->vals[3];
+    Cal_Lo_LP =      GDS_col->vals[4];
+    Ref_HP =         GDS_col->vals[5];
+    Ref_LP =         GDS_col->vals[6];
+    Rov1_T =         GDS_col->vals[7];
+    Rov2_T =         GDS_col->vals[8];
+    CO2_Mot_T =      GDS_col->vals[9];
+    CO2_Pump_T =     GDS_col->vals[10];
+    MM_Mot_T =       GDS_col->vals[11];
+    MM_Pump_T =      GDS_col->vals[12];
+    Rov3_T =         GDS_col->vals[13];
+    Rov4_T =         GDS_col->vals[14];
+    Rov5_T =         GDS_col->vals[15];
+    Rov6_T =         GDS_col->vals[16];
+    GDS_Nreads =     GDS_col->vals[17];
+    GDS_cmd_stat =   GDS_col->vals[18];
+    GDS_MS_P =       GDS_col->float_val(19, 20);
+    GDS_MS_T =       GDS_col->float_val(21, 22);
+    GDS_RH =         GDS_col->vals[23];
+  }
 }

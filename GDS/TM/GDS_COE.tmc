@@ -21,19 +21,21 @@ TM 1 Hz GDS_CELCIUS32_t GDS_COE_MS_T; /* 10,11: 0x63,0x64 */
 TM 1 Hz GDS_RHp10K_t GDS_COE_RH;      /* 12:   0x70 */
 
 group GDS_COE (GDS_COE_I2C_Status, GDS_COE_CellP_Hi,
-    CO2_Ref_Det_Tmon, CO2_Ref_TEM_Imon, CO2_Sig_Det_Tmon, CO2_Sig_TEM_Imon, GDS_COE_Nreads, GDS_COE_cmd_stat,
+    CO2_Ref_Det_Tmon, CO2_Ref_TEM_Imon, CO2_Sig_Det_Tmon,
+    CO2_Sig_TEM_Imon, GDS_COE_Nreads, GDS_COE_cmd_stat,
     GDS_COE_MS_P, GDS_COE_MS_T, GDS_COE_RH)
 {
-  GDS_COE_col->acquire();
-  GDS_COE_I2C_Status = GDS_COE_col->vals[0];
-  GDS_COE_CellP_Hi = GDS_COE_col->vals[1];
-  CO2_Ref_Det_Tmon = GDS_COE_col->vals[2];
-  CO2_Ref_TEM_Imon = GDS_COE_col->vals[3];
-  CO2_Sig_Det_Tmon = GDS_COE_col->vals[4];
-  CO2_Sig_TEM_Imon = GDS_COE_col->vals[5];
-  GDS_COE_Nreads =   GDS_COE_col->vals[6];
-  GDS_COE_cmd_stat = GDS_COE_col->vals[7]>>11;
-  GDS_COE_MS_P =     GDS_COE_col->float_val(8, 9);
-  GDS_COE_MS_T =     GDS_COE_col->float_val(10, 11);
-  GDS_COE_RH =       GDS_COE_col->vals[12];
+  if (GDS_COE_col->acquire()) {
+    GDS_COE_I2C_Status = GDS_COE_col->vals[0];
+    GDS_COE_CellP_Hi = GDS_COE_col->vals[1];
+    CO2_Ref_Det_Tmon = GDS_COE_col->vals[2];
+    CO2_Ref_TEM_Imon = GDS_COE_col->vals[3];
+    CO2_Sig_Det_Tmon = GDS_COE_col->vals[4];
+    CO2_Sig_TEM_Imon = GDS_COE_col->vals[5];
+    GDS_COE_Nreads =   GDS_COE_col->vals[6];
+    GDS_COE_cmd_stat = GDS_COE_col->vals[7]>>11;
+    GDS_COE_MS_P =     GDS_COE_col->float_val(8, 9);
+    GDS_COE_MS_T =     GDS_COE_col->float_val(10, 11);
+    GDS_COE_RH =       GDS_COE_col->vals[12];
+  }
 }

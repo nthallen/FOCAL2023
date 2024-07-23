@@ -7,7 +7,10 @@ class GDS_col_class : public SB_driver {
   public:
     inline GDS_col_class(const char *service, const char *subservice) :
       SB_driver(service, subservice) {}
-    void acquire(uint16_t *vals);
+    /**
+     * @return true on successful read
+     */
+    bool acquire(uint16_t *vals);
     float float_val(uint16_t *vals, uint16_t lsb_idx, uint16_t msb_idx);
   protected:
     void check_ms8607_coeffs(uint16_t base, uint16_t *coeffs);

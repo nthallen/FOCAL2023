@@ -1,13 +1,18 @@
 #include "GDS_col_class.h"
 #include "nl.h"
 
-void GDS_col_class::acquire(uint16_t *vals) {
-  int rv = mread_subbus(mr, vals);
-  if (rv < 0) {
-    report_err("%s: Error %d from subbusd", iname, rv);
-  } else if (rv > 0) {
-    report_err("%s: NACK on some value reported", iname);
+bool GDS_col_class::acquire(uint16_t *vals) {
+  if (loaded) {
+    int rv = mread_subbus(mr, vals);
+    if (rv < 0) {
+      report_err("%s: Error %d from subbusd", iname, rv);
+      return false;
+    } else if (rv > 0) {
+      report_err("%s: NACK on some value reported", iname);
+    }
+    return true;
   }
+  return false;
 }
 
 float GDS_col_class::float_val(uint16_t *vals, uint16_t lsb_idx,

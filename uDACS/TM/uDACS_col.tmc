@@ -72,10 +72,10 @@
     mreq.rvals = 0;
     mreq.saw_nack = false;
     mreq.present = false;
-    msg(0, "%s->load()", name);
+    // msg(0, "%s->load()", name);
     int subfunc = mreq.SB->load();
     if (subfunc == 0) {
-      msg(2, "subbus load() failed");
+      msg(2, "subbus %s->load() failed", name);
     } else {
       mreq.present = true;
       if (subfunc != 14) {

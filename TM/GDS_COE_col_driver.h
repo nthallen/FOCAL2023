@@ -12,7 +12,7 @@ class GDS_COE_col_driver : public GDS_col_class {
     uint16_t vals[n_reads_mr];
     inline float float_val(uint16_t lsb_idx, uint16_t msb_idx)
       { return GDS_col_class::float_val(vals, lsb_idx, msb_idx); }
-    inline void acquire() { GDS_col_class::acquire(vals); }
+    inline bool acquire() { return GDS_col_class::acquire(vals); }
   protected:
 };
 
