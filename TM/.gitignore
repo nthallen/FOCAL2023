@@ -75,9 +75,9 @@ focalcmd.dat
 focalcmd.h
 focalcltnc.o
 focalcltncoui.cc
+focalcltncoui.o
 sb_driver.o
 GDS_cmd_driver.o
-focalcltncoui.o
 focalsrvr.o
 focalsrvroui.cc
 focalsrvroui.o

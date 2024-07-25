@@ -1,10 +1,11 @@
 %{
   #ifdef SERVER
+
   #include "subbuspp.h"
 
   subbuspp *uDCO2;
   subbuspp *uDCH4;
-  
+
   void uDCO2_wr(uint16_t addr, uint16_t val) {
     if (uDCO2 && uDCO2->fd >= 0) {
       uDCO2->write_ack(addr, val);
@@ -16,7 +17,7 @@
       uDCH4->write_ack(addr, val);
     }
   }
-  
+
   /**
    * @param name must be one of "uDCO2" or "uDCH4"
    */
@@ -39,6 +40,16 @@
       msg(2, "subbus %s->load() failed", name);
     }
   }
+  
+  void uDACS_init() {
+    uDACS_init("uDCH4");
+    uDACS_init("uDCO2");
+  }
+  
+  #else // Not SERVER
+
+  void uDACS_init() {}
+
   #endif
 %}
 

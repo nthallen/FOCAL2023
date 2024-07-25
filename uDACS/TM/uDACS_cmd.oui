@@ -1,0 +1,7 @@
+<package> uDACS_cmd
+<include> msg oui
+<include> "uDACS_cmd.h"
+<follow> msg
+
+<init>
+  uDACS_init();
