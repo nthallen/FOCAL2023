@@ -66,7 +66,7 @@
   }
   
   void uDACS_init(uDACS_mreq &mreq, const char *name) {
-    msg(0, "uDACS_init()");
+    // msg(0, "uDACS_init()");
     mreq.SB = new subbuspp(name, "serusb");
     mreq.name = name;
     mreq.rvals = 0;

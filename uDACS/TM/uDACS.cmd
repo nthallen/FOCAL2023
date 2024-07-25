@@ -22,7 +22,7 @@
    * @param name must be one of "uDCO2" or "uDCH4"
    */
   void uDACS_init(const char *name) {
-    msg(0, "uDACS_init(%s)", name);
+    // msg(0, "uDACS_init(%s)", name);
     subbuspp *uD, **uDP;
     if (strcmp(name, "uDCO2") == 0) {
       uDP = &uDCO2;
@@ -34,7 +34,7 @@
     }
     uD = new subbuspp(name, "serusb");
     *uDP = uD;
-    msg(0, "%s->load()", name);
+    // msg(0, "%s->load()", name);
     int subfunc = uD->load();
     if (subfunc == 0) {
       msg(2, "subbus %s->load() failed", name);
