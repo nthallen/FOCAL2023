@@ -1,0 +1,56 @@
+Input "TMbase.tbl";
+
+CO2_DAC {
+  HBox { +-; Title: "CO2 DAC"; -+ };
+  "0:"  (uDCO2_Vset0,6) V;
+  "1:"  (uDCO2_Vset1,6) V;
+  "2:"  (uDCO2_Vset2,6) V;
+  "3:"  (uDCO2_Vset3,6) V;
+}
+
+CO2_ADC {
+  HBox { +-; Title: "CO2 ADC"; -+ };
+  Cell:   (CO2_CellP,7) Torr;
+  Cell1:  (CO2_Cell1T,7) C;
+  Cell2:  (CO2_Cell2T,7) C;
+  Cell3:  (CO2_Cell3T,7) C;
+  SamIn:  (CO2_SamInT,7) C;
+  SamOut: (CO2_SamOutT,7) C;
+  RefIn:  (CO2_RefInT,7) C;
+  RefOut: (CO2_RefOutT,7) C;
+  { Status: (uDCO2_stat,4) N: (uDCO2_N,5) };
+}
+
+CO2_PTRH {
+  HBox { +-; Title: "CO2 PTRH"; -+ };
+  ""   >OE<              >LH<;
+  P:  (uDCO2_OE_P,8)  (uDCO2_LH_P,8)  mbar;
+  T:  (uDCO2_OE_T,7)  (uDCO2_LH_T,7)   C;
+  RH: (uDCO2_OE_RH,6) (uDCO2_LH_RH,6) "%";
+}
+
+CO2_TMbaseC {
+  VGlue 0+1;
+  HBox{ +-; Title: "System"; -+ };
+  [TMbase_times]
+}
+
+CO2_uDACS {
+  HBox { +-; "CO2 uDACS"; -+ };
+  [CO2_DAC];
+  [CO2_ADC];
+  [CO2_PTRH];
+}
+
+@TBLNAME@ {
+  HBox {
+    |+;
+    {
+      [CO2_uDACS];
+      -;
+      [TMbase_htimes];
+    };
+    |+
+  };
+  -;
+}

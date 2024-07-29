@@ -3,24 +3,30 @@ Moduledef uDACS [ Panel= TBLNAME= ] {
 }
 
 tmcbase = uDACS.tmc
-tmcbase = uDACS_CO2.tmc
-tmcbase = uDACS_CH4.tmc
-colbase = uDACS_col.tmc
-colbase = uDACS_CO2_col.tmc
-colbase = uDACS_CH4_col.tmc
 cmdbase = uDACS.cmd
 cmdbase = uDACS_cmd.oui
-extbase = uDACS_CO2_conv.tmc:uDACS_CO2_conv.tmc.in
-extbase = uDACS_CH4_conv.tmc:uDACS_CH4_conv.tmc.in
-genuibase = uDACS.genui:uDACS.genui.in
-- : uDACS.tbl:uDACS.tbl.in
-
-IGNORE = uDACS.genui
+colbase = uDACS_col.tmc
 IGNORE = uDACS.tbl
-IGNORE = uDACS_CO2_conv.tmc
-IGNORE = uDACS_CH4_conv.tmc
-OBJ = uDACS.genui uDACS.tbl
 OBJ = uDACS.tbl
-OBJ = uDACS_CO2_conv.tmc
-OBJ = uDACS_CH4_conv.tmc
+
+mode (default,CO2) {
+  tmcbase = uDACS_CO2.tmc
+  colbase = uDACS_CO2_col.tmc
+  extbase = uDACS_CO2_conv.tmc:uDACS_CO2_conv.tmc.in
+  genuibase = uDACS_CO2.genui:uDACS_CO2.genui.in
+  - : uDACS_CO2.tbl:uDACS_CO2.tbl.in
+  IGNORE = uDACS_CO2_conv.tmc uDACS_CO2.genui uDACS_CO2.tbl
+  OBJ = uDACS_CO2_conv.tmc uDACS_C02.genui uDACS_CO2.tbl
+}
+
+mode (default,CH4) {
+  tmcbase = uDACS_CH4.tmc
+  colbase = uDACS_CH4_col.tmc
+  extbase = uDACS_CH4_conv.tmc:uDACS_CH4_conv.tmc.in
+  genuibase = uDACS_CH4.genui:uDACS_CH4.genui.in
+  - : uDACS_CH4.tbl:uDACS_CH4.tbl.in
+  IGNORE = uDACS_CH4_conv.tmc uDACS_CH4.genui uDACS_CH4.tbl
+  OBJ = uDACS_CH4_conv.tmc uDACS_CH4.genui uDACS_CH4.tbl
+}
+
 CPPFLAGS = -I @MODDIR@

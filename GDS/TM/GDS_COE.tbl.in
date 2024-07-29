@@ -28,11 +28,18 @@ COE_HK {
 }
 
 COE_Raw {
-  HBox { [COE_Det]; |; [COE_PTRH] };
-  HBox { [COE_PTRH]; |; [COE_P]; |; { +-+; [TMbase_times] } };
+  [COE_Det];
+  HBox { [COE_PTRH]; |; [COE_P]; };
 }
 
 @TBLNAME@ {
-  HBox { |+; [COE_Raw]; |+ };
+  HBox {
+    |+;
+    { [COE_Raw];
+      -;
+      [TMbase_htimes]
+    };
+    |+
+  };
   -;
 }
