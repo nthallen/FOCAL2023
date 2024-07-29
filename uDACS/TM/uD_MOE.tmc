@@ -1,0 +1,58 @@
+/* uD_MOE */
+
+/* MS5607 P and T */
+TM 1 Hz MS5607_P_t  uD_MOE_OE_P;
+TM 1 Hz MS5607_T_t  uD_MOE_OE_T;
+TM 1 Hz MS5607_RH_t uD_MOE_OE_RH;
+TM 1 Hz MS5607_P_t  uD_MOE_LH_P;
+TM 1 Hz MS5607_T_t  uD_MOE_LH_T;
+TM 1 Hz MS5607_RH_t uD_MOE_LH_RH;
+
+TM 1 Hz uDACS_DAC_t uD_MOE_VSet0;
+TM 1 Hz uDACS_DAC_t uD_MOE_VSet1;
+TM 1 Hz uDACS_DAC_t uD_MOE_VSet2;
+TM 1 Hz uDACS_DAC_t uD_MOE_VSet3;
+
+TM 1 Hz uDACS_AD7770_status_t uD_MOE_stat;
+TM 1 Hz uDACS_AD7770_count_t uD_MOE_N;
+TM 1 Hz uDACS_AD7770_status_t uD_MOE_errs;
+TM 1 Hz uDACS_AD7770_rawAI_t uD_MOE_Raw0;
+TM 1 Hz uDACS_AD7770_rawAI_t uD_MOE_Raw1;
+TM 1 Hz uDACS_AD7770_rawAI_t uD_MOE_Raw2;
+TM 1 Hz uDACS_AD7770_rawAI_t uD_MOE_Raw3;
+TM 1 Hz uDACS_AD7770_rawAI_t uD_MOE_Raw4;
+TM 1 Hz uDACS_AD7770_rawAI_t uD_MOE_Raw5;
+TM 1 Hz uDACS_AD7770_rawAI_t uD_MOE_Raw6;
+TM 1 Hz uDACS_AD7770_rawAI_t uD_MOE_Raw7;
+
+group uD_MOE (
+    uD_MOE_OE_P, uD_MOE_OE_T, uD_MOE_OE_RH, uD_MOE_LH_P, uD_MOE_LH_T,
+    uD_MOE_LH_RH, uD_MOE_VSet0, uD_MOE_VSet1, uD_MOE_VSet2, uD_MOE_VSet3,
+    uD_MOE_stat, uD_MOE_Raw0, uD_MOE_Raw1, uD_MOE_Raw2,
+    uD_MOE_Raw3, uD_MOE_Raw4, uD_MOE_Raw5, uD_MOE_Raw6, uD_MOE_Raw7,
+    uD_MOE_N, uD_MOE_errs
+) {
+  if (uDACS_mread(uD_MOE)) {
+    uD_MOE_OE_P  = rvals_to_float(uD_MOE_rvals[0]);
+    uD_MOE_OE_T  = rvals_to_float(uD_MOE_rvals[2]);
+    uD_MOE_LH_P  = rvals_to_float(uD_MOE_rvals[4]);
+    uD_MOE_LH_T  = rvals_to_float(uD_MOE_rvals[6]);
+    uD_MOE_OE_RH = uD_MOE_rvals[8];
+    uD_MOE_LH_RH = uD_MOE_rvals[9];
+    uD_MOE_Vset0 = uD_MOE_rvals[10];
+    uD_MOE_Vset1 = uD_MOE_rvals[11];
+    uD_MOE_Vset2 = uD_MOE_rvals[12];
+    uD_MOE_Vset3 = uD_MOE_rvals[13];
+    uD_MOE_errs  = uD_MOE_rvals[14];
+    uD_MOE_stat  = uD_MOE_rvals[15];
+    uD_MOE_Raw0  = (uD_MOE_rvals[17] << 16) | uD_MOE_rvals[16];
+    uD_MOE_Raw1  = (uD_MOE_rvals[19] << 16) | uD_MOE_rvals[18];
+    uD_MOE_Raw2  = (uD_MOE_rvals[21] << 16) | uD_MOE_rvals[20];
+    uD_MOE_Raw3  = (uD_MOE_rvals[23] << 16) | uD_MOE_rvals[22];
+    uD_MOE_Raw4  = (uD_MOE_rvals[25] << 16) | uD_MOE_rvals[24];
+    uD_MOE_Raw5  = (uD_MOE_rvals[27] << 16) | uD_MOE_rvals[26];
+    uD_MOE_Raw6  = (uD_MOE_rvals[29] << 16) | uD_MOE_rvals[28];
+    uD_MOE_Raw7  = (uD_MOE_rvals[31] << 16) | uD_MOE_rvals[30];
+    uD_MOE_N     = uD_MOE_rvals[32];
+  }
+}

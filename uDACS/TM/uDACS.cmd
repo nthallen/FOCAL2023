@@ -3,31 +3,31 @@
 
   #include "subbuspp.h"
 
-  subbuspp *uDCO2;
-  subbuspp *uDCH4;
+  subbuspp *uD_COE;
+  subbuspp *uD_MOE;
 
-  void uDCO2_wr(uint16_t addr, uint16_t val) {
-    if (uDCO2 && uDCO2->fd >= 0) {
-      uDCO2->write_ack(addr, val);
+  void uD_COE_wr(uint16_t addr, uint16_t val) {
+    if (uD_COE && uD_COE->fd >= 0) {
+      uD_COE->write_ack(addr, val);
     }
   }
 
-  void uDCH4_wr(uint16_t addr, uint16_t val) {
-    if (uDCH4 && uDCH4->fd >= 0) {
-      uDCH4->write_ack(addr, val);
+  void uD_MOE_wr(uint16_t addr, uint16_t val) {
+    if (uD_MOE && uD_MOE->fd >= 0) {
+      uD_MOE->write_ack(addr, val);
     }
   }
 
   /**
-   * @param name must be one of "uDCO2" or "uDCH4"
+   * @param name must be one of "uD_COE" or "uD_MOE"
    */
   void uDACS_init(const char *name) {
     // msg(0, "uDACS_init(%s)", name);
     subbuspp *uD, **uDP;
-    if (strcmp(name, "uDCO2") == 0) {
-      uDP = &uDCO2;
-    } else if (strcmp(name, "uDCH4") == 0) {
-      uDP = &uDCH4;
+    if (strcmp(name, "uD_COE") == 0) {
+      uDP = &uD_COE;
+    } else if (strcmp(name, "uD_MOE") == 0) {
+      uDP = &uD_MOE;
     } else {
       msg(2, "Invalid name '%s' in uDACS_init()", name);
       return;
@@ -42,8 +42,8 @@
   }
   
   void uDACS_init() {
-    uDACS_init("uDCH4");
-    uDACS_init("uDCO2");
+    uDACS_init("uD_MOE");
+    uDACS_init("uD_COE");
   }
   
   #else // Not SERVER
@@ -54,21 +54,21 @@
 %}
 
 &command
-  : Set uDCO2 Vout %d (0-3) %d (bits) bits * {
+  : Set uD_COE Vout %d (0-3) %d (bits) bits * {
       if ($4 >= 0 && $4 < 4) {
-        uDCO2_wr(0x10 + $4, $5);
+        uD_COE_wr(0x10 + $4, $5);
       }
     }
-  : Set uDCH4 Vout %d (0-3) %d (bits) bits * {
+  : Set uD_MOE Vout %d (0-3) %d (bits) bits * {
       if ($4 >= 0 && $4 < 4) {
-        uDCH4_wr(0x10 + $4, $5);
+        uD_MOE_wr(0x10 + $4, $5);
       }
     }
-  : Set uDCO2 Baratron Vrtn &uDACS_DAC_V * {
-      uDCO2_wr(0x11, $5);
+  : Set uD_COE Baratron Vrtn &uDACS_DAC_V * {
+      uD_COE_wr(0x11, $5);
     }
-  : Set uDCH4 Baratron Vrtn &uDACS_DAC_V * {
-      uDCH4_wr(0x11, $5);
+  : Set uD_MOE Baratron Vrtn &uDACS_DAC_V * {
+      uD_MOE_wr(0x11, $5);
     }
   ;
 

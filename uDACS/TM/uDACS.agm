@@ -9,24 +9,24 @@ colbase = uDACS_col.tmc
 IGNORE = uDACS.tbl
 OBJ = uDACS.tbl
 
-mode (default,CO2) {
-  tmcbase = uDACS_CO2.tmc
-  colbase = uDACS_CO2_col.tmc
-  extbase = uDACS_CO2_conv.tmc:uDACS_CO2_conv.tmc.in
-  genuibase = uDACS_CO2.genui:uDACS_CO2.genui.in
-  - : uDACS_CO2.tbl:uDACS_CO2.tbl.in
-  IGNORE = uDACS_CO2_conv.tmc uDACS_CO2.genui uDACS_CO2.tbl
-  OBJ = uDACS_CO2_conv.tmc uDACS_C02.genui uDACS_CO2.tbl
+mode (default,COE) {
+  tmcbase = uD_COE.tmc
+  colbase = uD_COE_col.tmc
+  extbase = uD_COE_conv.tmc:uD_COE_conv.tmc.in
+  genuibase = uD_COE.genui:uD_COE.genui.in
+  - : uD_COE.tbl:uD_COE.tbl.in
+  IGNORE = uD_COE_conv.tmc uD_COE.genui uD_COE.tbl
+  OBJ = uD_COE_conv.tmc uDACS_C02.genui uD_COE.tbl
 }
 
-mode (default,CH4) {
-  tmcbase = uDACS_CH4.tmc
-  colbase = uDACS_CH4_col.tmc
-  extbase = uDACS_CH4_conv.tmc:uDACS_CH4_conv.tmc.in
-  genuibase = uDACS_CH4.genui:uDACS_CH4.genui.in
-  - : uDACS_CH4.tbl:uDACS_CH4.tbl.in
-  IGNORE = uDACS_CH4_conv.tmc uDACS_CH4.genui uDACS_CH4.tbl
-  OBJ = uDACS_CH4_conv.tmc uDACS_CH4.genui uDACS_CH4.tbl
+mode (default,MOE) {
+  tmcbase = uD_MOE.tmc
+  colbase = uD_MOE_col.tmc
+  extbase = uD_MOE_conv.tmc:uD_MOE_conv.tmc.in
+  genuibase = uD_MOE.genui:uD_MOE.genui.in
+  - : uD_MOE.tbl:uD_MOE.tbl.in
+  IGNORE = uD_MOE_conv.tmc uD_MOE.genui uD_MOE.tbl
+  OBJ = uD_MOE_conv.tmc uD_MOE.genui uD_MOE.tbl
 }
 
 CPPFLAGS = -I @MODDIR@

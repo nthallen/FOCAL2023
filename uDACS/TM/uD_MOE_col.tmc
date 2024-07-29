@@ -1,0 +1,36 @@
+%{
+
+  /* uD_MOE Multi Read
+    MS5607
+      Addresses Category Offsets
+      61:1:64   OE P/T     0-3
+      81:1:84   LH P/T     4-7
+      70        OE RH      8
+      90        LH RH      9
+
+    DAC Outputs
+      10-13     VSet0-3    10-13
+      
+    AD7770:
+      26        Errors     14
+      14        Status     15
+      15:1:24   AIN 0-7    16-31
+      25        Poll Count 32
+    
+      
+      Total: 33
+   */
+
+  uDACS_mreq uD_MOE;
+  uint16_t uD_MOE_rvals[33];
+  
+  void uD_MOE_init() {
+    uDACS_init(uD_MOE, "uD_MOE");
+    if (uD_MOE.present) {
+      uD_MOE.mreq = uD_MOE.SB->pack_mread_request(33,
+        "61:1:64,81:1:84,70,90,10:1:13,26,14:1:25");
+      uD_MOE.rvals = uD_MOE_rvals;
+    }
+  }
+%}
+TM INITFUNC uD_MOE_init();

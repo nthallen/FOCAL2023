@@ -1,4 +1,4 @@
 # ME_CO2.txt
 Name ME_CO2
-Port /dev/ser1
+#Port /dev/ser1
 Data CO2_QCL  1 "Meerstetter CO2 QCL TEC"

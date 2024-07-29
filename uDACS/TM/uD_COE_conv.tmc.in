@@ -1,0 +1,73 @@
+uDACS_Baratron_100Torr_t CO2_CellP; Invalidate CO2_CellP;
+{ CO2_CellP = (uD_COE_Raw0 & 0xFFFFFF) |
+    ((uD_COE_Raw0 & 0x800000) ? 0xFF000000 : 0);
+  Validate CO2_CellP;
+}
+uDACS_AD7770_AI_stat_t uD_COE_stat0; Invalidate uD_COE_stat0;
+{ uD_COE_stat0 = (uD_COE_Raw0 >> 24) & 0xFF;
+  Validate uD_COE_stat0;
+}
+uDACS_T30K75KU CO2_Cell1T; Invalidate CO2_Cell1T;
+{ CO2_Cell1T = (uD_COE_Raw1 & 0xFFFFFF) |
+    ((uD_COE_Raw1 & 0x800000) ? 0xFF000000 : 0);
+  Validate CO2_Cell1T;
+}
+
+uDACS_AD7770_AI_stat_t uD_COE_stat1; Invalidate uD_COE_stat1;
+{ uD_COE_stat1 = (uD_COE_Raw1 >> 24) & 0xFF;
+  Validate uD_COE_stat1;
+}
+uDACS_T30K75KU CO2_SamInT; Invalidate CO2_SamInT;
+{ CO2_SamInT = (uD_COE_Raw2 & 0xFFFFFF) |
+    ((uD_COE_Raw2 & 0x800000) ? 0xFF000000 : 0);
+  Validate CO2_SamInT;
+}
+uDACS_AD7770_AI_stat_t uD_COE_stat2; Invalidate uD_COE_stat2;
+{ uD_COE_stat2 = (uD_COE_Raw2 >> 24) & 0xFF;
+  Validate uD_COE_stat2;
+}
+uDACS_T30K75KU CO2_RefInT; Invalidate CO2_RefInT;
+{ CO2_RefInT = (uD_COE_Raw3 & 0xFFFFFF) |
+    ((uD_COE_Raw3 & 0x800000) ? 0xFF000000 : 0);
+  Validate CO2_RefInT;
+}
+uDACS_AD7770_AI_stat_t uD_COE_stat3; Invalidate uD_COE_stat3;
+{ uD_COE_stat3 = (uD_COE_Raw3 >> 24) & 0xFF;
+  Validate uD_COE_stat3;
+}
+uDACS_T30K75KU CO2_Cell2T; Invalidate CO2_Cell2T;
+{ CO2_Cell2T = (uD_COE_Raw4 & 0xFFFFFF) |
+    ((uD_COE_Raw4 & 0x800000) ? 0xFF000000 : 0);
+  Validate CO2_Cell2T;
+}
+uDACS_AD7770_AI_stat_t uD_COE_stat4; Invalidate uD_COE_stat4;
+{ uD_COE_stat4 = (uD_COE_Raw4 >> 24) & 0xFF;
+  Validate uD_COE_stat4;
+}
+uDACS_T30K75KU CO2_Cell3T; Invalidate CO2_Cell3T;
+{ CO2_Cell3T = (uD_COE_Raw5 & 0xFFFFFF) |
+    ((uD_COE_Raw5 & 0x800000) ? 0xFF000000 : 0);
+  Validate CO2_Cell3T;
+}
+uDACS_AD7770_AI_stat_t uD_COE_stat5; Invalidate uD_COE_stat5;
+{ uD_COE_stat5 = (uD_COE_Raw5 >> 24) & 0xFF;
+  Validate uD_COE_stat5;
+}
+uDACS_T30K75KU CO2_SamOutT; Invalidate CO2_SamOutT;
+{ CO2_SamOutT = (uD_COE_Raw6 & 0xFFFFFF) |
+    ((uD_COE_Raw6 & 0x800000) ? 0xFF000000 : 0);
+  Validate CO2_SamOutT;
+}
+uDACS_AD7770_AI_stat_t uD_COE_stat6; Invalidate uD_COE_stat6;
+{ uD_COE_stat6 = (uD_COE_Raw6 >> 24) & 0xFF;
+  Validate uD_COE_stat6;
+}
+uDACS_T30K75KU CO2_RefOutT; Invalidate CO2_RefOutT;
+{ CO2_RefOutT = (uD_COE_Raw7 & 0xFFFFFF) |
+    ((uD_COE_Raw7 & 0x800000) ? 0xFF000000 : 0);
+  Validate CO2_RefOutT;
+}
+uDACS_AD7770_AI_stat_t uD_COE_stat7; Invalidate uD_COE_stat7;
+{ uD_COE_stat7 = (uD_COE_Raw7 >> 24) & 0xFF;
+  Validate uD_COE_stat7;
+}

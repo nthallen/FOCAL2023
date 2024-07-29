@@ -1,0 +1,73 @@
+uDACS_Baratron_100Torr_t CH4_CellP; Invalidate CH4_CellP;
+{ CH4_CellP = (uD_MOE_Raw0 & 0xFFFFFF) |
+    ((uD_MOE_Raw0 & 0x800000) ? 0xFF000000 : 0);
+  Validate CH4_CellP;
+}
+uDACS_AD7770_AI_stat_t uD_MOE_stat0; Invalidate uD_MOE_stat0;
+{ uD_MOE_stat0 = (uD_MOE_Raw0 >> 24) & 0xFF;
+  Validate uD_MOE_stat0;
+}
+uDACS_T30K75KU CH4_Cell1T; Invalidate CH4_Cell1T;
+{ CH4_Cell1T = (uD_MOE_Raw1 & 0xFFFFFF) |
+    ((uD_MOE_Raw1 & 0x800000) ? 0xFF000000 : 0);
+  Validate CH4_Cell1T;
+}
+
+uDACS_AD7770_AI_stat_t uD_MOE_stat1; Invalidate uD_MOE_stat1;
+{ uD_MOE_stat1 = (uD_MOE_Raw1 >> 24) & 0xFF;
+  Validate uD_MOE_stat1;
+}
+uDACS_T30K75KU CH4_SamInT; Invalidate CH4_SamInT;
+{ CH4_SamInT = (uD_MOE_Raw2 & 0xFFFFFF) |
+    ((uD_MOE_Raw2 & 0x800000) ? 0xFF000000 : 0);
+  Validate CH4_SamInT;
+}
+uDACS_AD7770_AI_stat_t uD_MOE_stat2; Invalidate uD_MOE_stat2;
+{ uD_MOE_stat2 = (uD_MOE_Raw2 >> 24) & 0xFF;
+  Validate uD_MOE_stat2;
+}
+uDACS_T30K75KU CH4_Rov1T; Invalidate CH4_Rov1T;
+{ CH4_Rov1T = (uD_MOE_Raw3 & 0xFFFFFF) |
+    ((uD_MOE_Raw3 & 0x800000) ? 0xFF000000 : 0);
+  Validate CH4_Rov1T;
+}
+uDACS_AD7770_AI_stat_t uD_MOE_stat3; Invalidate uD_MOE_stat3;
+{ uD_MOE_stat3 = (uD_MOE_Raw3 >> 24) & 0xFF;
+  Validate uD_MOE_stat3;
+}
+uDACS_T30K75KU CH4_Cell2T; Invalidate CH4_Cell2T;
+{ CH4_Cell2T = (uD_MOE_Raw4 & 0xFFFFFF) |
+    ((uD_MOE_Raw4 & 0x800000) ? 0xFF000000 : 0);
+  Validate CH4_Cell2T;
+}
+uDACS_AD7770_AI_stat_t uD_MOE_stat4; Invalidate uD_MOE_stat4;
+{ uD_MOE_stat4 = (uD_MOE_Raw4 >> 24) & 0xFF;
+  Validate uD_MOE_stat4;
+}
+uDACS_T30K75KU CH4_Cell3T; Invalidate CH4_Cell3T;
+{ CH4_Cell3T = (uD_MOE_Raw5 & 0xFFFFFF) |
+    ((uD_MOE_Raw5 & 0x800000) ? 0xFF000000 : 0);
+  Validate CH4_Cell3T;
+}
+uDACS_AD7770_AI_stat_t uD_MOE_stat5; Invalidate uD_MOE_stat5;
+{ uD_MOE_stat5 = (uD_MOE_Raw5 >> 24) & 0xFF;
+  Validate uD_MOE_stat5;
+}
+uDACS_T30K75KU CH4_SamOutT; Invalidate CH4_SamOutT;
+{ CH4_SamOutT = (uD_MOE_Raw6 & 0xFFFFFF) |
+    ((uD_MOE_Raw6 & 0x800000) ? 0xFF000000 : 0);
+  Validate CH4_SamOutT;
+}
+uDACS_AD7770_AI_stat_t uD_MOE_stat6; Invalidate uD_MOE_stat6;
+{ uD_MOE_stat6 = (uD_MOE_Raw6 >> 24) & 0xFF;
+  Validate uD_MOE_stat6;
+}
+uDACS_T30K75KU CH4_Rov2T; Invalidate CH4_Rov2T;
+{ CH4_Rov2T = (uD_MOE_Raw7 & 0xFFFFFF) |
+    ((uD_MOE_Raw7 & 0x800000) ? 0xFF000000 : 0);
+  Validate CH4_Rov2T;
+}
+uDACS_AD7770_AI_stat_t uD_MOE_stat7; Invalidate uD_MOE_stat7;
+{ uD_MOE_stat7 = (uD_MOE_Raw7 >> 24) & 0xFF;
+  Validate uD_MOE_stat7;
+}

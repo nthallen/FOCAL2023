@@ -1,0 +1,58 @@
+  1 uD_COE_OE_P   @Panel@uD_COE_PTRH P
+  1 uD_COE_LH_P   @Panel@uD_COE_PTRH P
+  1 uD_COE_OE_T   @Panel@uD_COE_PTRH T
+  1 uD_COE_LH_T   @Panel@uD_COE_PTRH T
+  1 uD_COE_OE_RH  @Panel@uD_COE_PTRH RH
+  1 uD_COE_LH_RH  @Panel@uD_COE_PTRH RH
+  1 uD_COE_VSet0  @Panel@uD_COE DAC
+  1 uD_COE_VSet1  @Panel@uD_COE DAC
+  1 uD_COE_VSet2  @Panel@uD_COE DAC
+  1 uD_COE_VSet3  @Panel@uD_COE DAC
+  1 uD_COE_stat   @Panel@uD_COE AIStat %.0lf
+
+  1 Alert_CO2:uD_COE_stat0:7 @Panel@uD_COE Status %.0lf
+  1 Reset_CO2:uD_COE_stat0:3 @Panel@uD_COE Status %.0lf
+
+  1 MSat0_CO2:uD_COE_stat0:2 @Panel@uD_COE_HK MSat %.0lf
+  1 FSat0_CO2:uD_COE_stat0:1 @Panel@uD_COE_HK FSat %.0lf
+  1 OUV0_CO2:uD_COE_stat0:0  @Panel@uD_COE_HK OUV  %.0lf
+
+  1 MSat1_CO2:uD_COE_stat1:2 @Panel@uD_COE_HK MSat %.0lf
+  1 FSat1_CO2:uD_COE_stat1:1 @Panel@uD_COE_HK FSat %.0lf
+  1 OUV1_CO2:uD_COE_stat1:0  @Panel@uD_COE_HK OUV  %.0lf
+
+  1 MSat2_CO2:uD_COE_stat2:2 @Panel@uD_COE_HK MSat %.0lf
+  1 FSat2_CO2:uD_COE_stat2:1 @Panel@uD_COE_HK FSat %.0lf
+  1 OUV2_CO2:uD_COE_stat2:0  @Panel@uD_COE_HK OUV  %.0lf
+
+  1 MSat3_CO2:uD_COE_stat3:2 @Panel@uD_COE_HK MSat %.0lf
+  1 FSat3_CO2:uD_COE_stat3:1 @Panel@uD_COE_HK FSat %.0lf
+  1 OUV3_CO2:uD_COE_stat3:0  @Panel@uD_COE_HK OUV  %.0lf
+
+  1 MSat4_CO2:uD_COE_stat4:2 @Panel@uD_COE_HK MSat %.0lf
+  1 FSat4_CO2:uD_COE_stat4:1 @Panel@uD_COE_HK FSat %.0lf
+  1 OUV4_CO2:uD_COE_stat4:0  @Panel@uD_COE_HK OUV  %.0lf
+
+  1 MSat5_CO2:uD_COE_stat5:2 @Panel@uD_COE_HK MSat %.0lf
+  1 FSat5_CO2:uD_COE_stat5:1 @Panel@uD_COE_HK FSat %.0lf
+  1 OUV5_CO2:uD_COE_stat5:0  @Panel@uD_COE_HK OUV  %.0lf
+
+  1 MSat6_CO2:uD_COE_stat6:2 @Panel@uD_COE_HK MSat %.0lf
+  1 FSat6_CO2:uD_COE_stat6:1 @Panel@uD_COE_HK FSat %.0lf
+  1 OUV6_CO2:uD_COE_stat6:0  @Panel@uD_COE_HK OUV  %.0lf
+
+  1 MSat7_CO2:uD_COE_stat7:2 @Panel@uD_COE_HK MSat %.0lf
+  1 FSat7_CO2:uD_COE_stat7:1 @Panel@uD_COE_HK FSat %.0lf
+  1 OUV7_CO2:uD_COE_stat7:0  @Panel@uD_COE_HK OUV  %.0lf
+  
+  1 CO2_CellP     @Panel@CO2 P
+  1 CO2_Cell1T    @Panel@CO2 CellT
+  1 CO2_Cell2T    @Panel@CO2 CellT
+  1 CO2_Cell3T    @Panel@CO2 CellT
+  1 CO2_SamInT    @Panel@CO2 FlowT
+  1 CO2_SamOutT   @Panel@CO2 FlowT
+  1 CO2_RefInT    @Panel@CO2 RovT
+  1 CO2_RefOutT   @Panel@CO2 RovT
+
+  1 uD_COE_N       @Panel@uD_COE_HK AI_N
+  1 uD_COE_errs    @Panel@uD_COE_HK Errs

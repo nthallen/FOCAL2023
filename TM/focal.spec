@@ -18,8 +18,8 @@ Module alicat mode=ignore name=CPC src=CPC.txt Panel=HK:
 Module alicat mode=ignore name=MPC src=MPC.txt Panel=HK:
 Module alicat mode=ignore name=GD  src=GD.txt Panel=HK:
 
-Module uDACS mode=CO2 Panel=CO2:
-Module uDACS mode=CH4 Panel=CH4:
+Module uDACS mode=COE Panel=COE:
+Module uDACS mode=MOE Panel=MOE:
 Module GDS Panel=GDS: SVC=GDS
 Module GDS Panel=CO2: SVC=GDS_COE SBMODE=col mode=col
 
@@ -31,7 +31,7 @@ IDISTRIB = doit
 focalclt : -lsubbuspp
 focalsrvr : -lsubbuspp
 focaldisp : digio_conv.tmc $extbase \
-            focal.tbl uDACS_CO2.tbl uDACS_CH4.tbl ME.tbl \
+            focal.tbl uD_COE.tbl uD_MOE.tbl ME.tbl \
             alicat.tbl GDS.tbl GDS_COE.tbl
 focalalgo : focal.tma
 doit : focal.doit

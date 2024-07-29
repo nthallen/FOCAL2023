@@ -1,0 +1,59 @@
+/* uD_COE */
+
+/* MS5607 P and T */
+TM 1 Hz MS5607_P_t  uD_COE_OE_P;
+TM 1 Hz MS5607_T_t  uD_COE_OE_T;
+TM 1 Hz MS5607_RH_t uD_COE_OE_RH;
+TM 1 Hz MS5607_P_t  uD_COE_LH_P;
+TM 1 Hz MS5607_T_t  uD_COE_LH_T;
+TM 1 Hz MS5607_RH_t uD_COE_LH_RH;
+
+/* DAC Channels */
+TM 1 Hz uDACS_DAC_t uD_COE_VSet0;
+TM 1 Hz uDACS_DAC_t uD_COE_VSet1;
+TM 1 Hz uDACS_DAC_t uD_COE_VSet2;
+TM 1 Hz uDACS_DAC_t uD_COE_VSet3;
+
+/* AD7770 for uDACS */
+TM 1 Hz uDACS_AD7770_status_t uD_COE_stat;
+TM 1 Hz uDACS_AD7770_rawAI_t uD_COE_Raw0;
+TM 1 Hz uDACS_AD7770_rawAI_t uD_COE_Raw1;
+TM 1 Hz uDACS_AD7770_rawAI_t uD_COE_Raw2;
+TM 1 Hz uDACS_AD7770_rawAI_t uD_COE_Raw3;
+TM 1 Hz uDACS_AD7770_rawAI_t uD_COE_Raw4;
+TM 1 Hz uDACS_AD7770_rawAI_t uD_COE_Raw5;
+TM 1 Hz uDACS_AD7770_rawAI_t uD_COE_Raw6;
+TM 1 Hz uDACS_AD7770_rawAI_t uD_COE_Raw7;
+TM 1 Hz uDACS_AD7770_count_t uD_COE_N;
+TM 1 Hz uDACS_AD7770_status_t uD_COE_errs;
+
+group uD_COE (uD_COE_OE_P, uD_COE_OE_T, uD_COE_OE_RH, uD_COE_LH_P,
+             uD_COE_LH_T, uD_COE_LH_RH, uD_COE_VSet0, uD_COE_VSet1,
+             uD_COE_VSet2, uD_COE_VSet3, uD_COE_errs, uD_COE_stat,
+             uD_COE_Raw0, uD_COE_Raw1, uD_COE_Raw2, uD_COE_Raw3,
+             uD_COE_Raw4, uD_COE_Raw5, uD_COE_Raw6, uD_COE_Raw7,
+             uD_COE_N) {
+  if (uDACS_mread(uD_COE)) {
+    uD_COE_OE_P  = rvals_to_float(uD_COE_rvals[0]);
+    uD_COE_OE_T  = rvals_to_float(uD_COE_rvals[2]);
+    uD_COE_LH_P  = rvals_to_float(uD_COE_rvals[4]);
+    uD_COE_LH_T  = rvals_to_float(uD_COE_rvals[6]);
+    uD_COE_OE_RH = uD_COE_rvals[8];
+    uD_COE_LH_RH = uD_COE_rvals[9];
+    uD_COE_Vset0 = uD_COE_rvals[10];
+    uD_COE_Vset1 = uD_COE_rvals[11];
+    uD_COE_Vset2 = uD_COE_rvals[12];
+    uD_COE_Vset3 = uD_COE_rvals[13];
+    uD_COE_errs  = uD_COE_rvals[14];
+    uD_COE_stat  = uD_COE_rvals[15];
+    uD_COE_Raw0  = (uD_COE_rvals[17] << 16) | uD_COE_rvals[16];
+    uD_COE_Raw1  = (uD_COE_rvals[19] << 16) | uD_COE_rvals[18];
+    uD_COE_Raw2  = (uD_COE_rvals[21] << 16) | uD_COE_rvals[20];
+    uD_COE_Raw3  = (uD_COE_rvals[23] << 16) | uD_COE_rvals[22];
+    uD_COE_Raw4  = (uD_COE_rvals[25] << 16) | uD_COE_rvals[24];
+    uD_COE_Raw5  = (uD_COE_rvals[27] << 16) | uD_COE_rvals[26];
+    uD_COE_Raw6  = (uD_COE_rvals[29] << 16) | uD_COE_rvals[28];
+    uD_COE_Raw7  = (uD_COE_rvals[31] << 16) | uD_COE_rvals[30];
+    uD_COE_N     = uD_COE_rvals[32];
+  }
+}

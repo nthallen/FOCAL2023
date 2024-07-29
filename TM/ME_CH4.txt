@@ -1,4 +1,4 @@
 # ME_CH4.txt
 Name ME_CH4
-Port /dev/ser3
+#Port /dev/ser3
 Data CH4_QCL  1 "Meerstetter CH4 QCL TEC"
