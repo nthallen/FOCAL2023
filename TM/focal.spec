@@ -21,7 +21,8 @@ Module alicat mode=ignore name=GD  src=GD.txt Panel=HK:
 Module uDACS mode=COE Panel=COE:
 Module uDACS mode=MOE Panel=MOE:
 Module GDS Panel=GDS: SVC=GDS
-Module GDS Panel=CO2: SVC=GDS_COE SBMODE=col mode=col
+Module GDS Panel=COE: SVC=GDS_COE SBMODE=col mode=col
+#Module GDS Panel=MOE: SVC=GDS_MOE SBMODE=col mode=col
 
 IGNORE = Makefile "*.o" "*.exe" "*.stackdump"
 DISTRIB = services interact runfile.flight

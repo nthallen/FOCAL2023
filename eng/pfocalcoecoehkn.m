@@ -1,5 +1,5 @@
-function pfocalcocoehkn(varargin);
-% pfocalcocoehkn( [...] );
+function pfocalcoecoehkn(varargin);
+% pfocalcoecoehkn( [...] );
 % COE HK Nreads
 h = timeplot({'GDS_COE_Nreads'}, ...
       'COE HK Nreads', ...

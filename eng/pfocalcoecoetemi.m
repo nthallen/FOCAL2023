@@ -1,5 +1,5 @@
-function pfocalcocoetemi(varargin);
-% pfocalcocoetemi( [...] );
+function pfocalcoecoetemi(varargin);
+% pfocalcoecoetemi( [...] );
 % COE TEM Imon
 h = timeplot({'CO2_Ref_TEM_Imon','CO2_Sig_TEM_Imon'}, ...
       'COE TEM Imon', ...

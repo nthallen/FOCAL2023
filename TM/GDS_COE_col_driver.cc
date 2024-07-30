@@ -1,6 +1,4 @@
 #include "GDS_COE_col_driver.h"
-#include "nl.h"
-#include "nl_assert.h"
 
 void GDS_COE_col_driver::setup() {
   mr = pack_mread_request(n_reads_mr,

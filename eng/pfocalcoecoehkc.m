@@ -1,5 +1,5 @@
-function pfocalcocoehkc(varargin);
-% pfocalcocoehkc( [...] );
+function pfocalcoecoehkc(varargin);
+% pfocalcoecoehkc( [...] );
 % COE HK Cmd
 h = ne_dstat({
   'At_T_Sig', 'GDS_COE_cmd_stat', 0; ...

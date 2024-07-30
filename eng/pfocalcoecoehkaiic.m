@@ -1,5 +1,5 @@
-function pfocalcocoehkaiic(varargin);
-% pfocalcocoehkaiic( [...] );
+function pfocalcoecoehkaiic(varargin);
+% pfocalcoecoehkaiic( [...] );
 % COE HK AI I2C
 h = timeplot({'GDS_COE_I2C_Status'}, ...
       'COE HK AI I2C', ...

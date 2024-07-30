@@ -1,5 +1,5 @@
-function pfocalcocoedt(varargin);
-% pfocalcocoedt( [...] );
+function pfocalcoecoedt(varargin);
+% pfocalcoecoedt( [...] );
 % COE Det Tmon
 h = timeplot({'CO2_Ref_Det_Tmon','CO2_Sig_Det_Tmon'}, ...
       'COE Det Tmon', ...

@@ -1,5 +1,5 @@
-function pfocalcocoet(varargin);
-% pfocalcocoet( [...] );
+function pfocalcoecoet(varargin);
+% pfocalcoecoet( [...] );
 % COE T
 h = timeplot({'GDS_COE_MS_T'}, ...
       'COE T', ...
