@@ -4,14 +4,8 @@ network:
   renderer: networkd
   ethernets:
     enp9s0:
+      dhcp4: true
       dhcp6: false
-      addresses:
-        - 10.245.83.107/25
-      routes:
-        - to: default
-          via: 10.245.83.1
-      nameservers:
-        addresses: [8.8.8.8,8.8.4.4]
     enp8s0:
       dhcp6: false
       addresses:
