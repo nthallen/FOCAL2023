@@ -1,0 +1,31 @@
+%{
+  /* GDS_MOE.tmc */
+  #include "GDS_MOE_col_driver.h"
+%}
+
+/* Analog Inputs */
+TM 1 Hz GDS_I2C_Stat_t GDS_MOE_I2C_Status; /* 0: 0x20 */
+/* TM 1 Hz GDS_AI CH4_Ref_Det_Tmon; */  /* 1: 0x21 ±6.144V */
+TM 1 Hz GDS_MKS_KTorr GDS_MOE_CellP_Hi; /* 1: 0x22 ±6.144V */
+/* Rovers at J11-16? */
+TM 1 Hz GDS_Nreads_t GDS_MOE_Nreads;    /* 2: 0x31 ±4.096V */
+
+/* Command Status */
+
+/* PTRH : could include I2C status, raw values */
+TM 1 Hz GDS_MBAR32_t GDS_MOE_MS_P;    /* 3,4:  0x61,0x62 */
+TM 1 Hz GDS_CELCIUS32_t GDS_MOE_MS_T; /* 5,6: 0x63,0x64 */
+TM 1 Hz GDS_RHp10K_t GDS_MOE_RH;      /* 7:   0x70 */
+
+group GDS_MOE (GDS_MOE_I2C_Status, GDS_MOE_CellP_Hi,
+    GDS_MOE_Nreads, GDS_MOE_MS_P, GDS_MOE_MS_T, GDS_MOE_RH)
+{
+  if (GDS_MOE_col->acquire()) {
+    GDS_MOE_I2C_Status = GDS_MOE_col->vals[0];
+    GDS_MOE_CellP_Hi = GDS_MOE_col->vals[1];
+    GDS_MOE_Nreads =   GDS_MOE_col->vals[2];
+    GDS_MOE_MS_P =     GDS_MOE_col->float_val(3, 4);
+    GDS_MOE_MS_T =     GDS_MOE_col->float_val(5, 6);
+    GDS_MOE_RH =       GDS_MOE_col->vals[7];
+  }
+}

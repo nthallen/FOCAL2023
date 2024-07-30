@@ -1,0 +1,16 @@
+%{
+  /* GDS_MOE_conv.tmc */
+%}
+
+/* Command Status */
+
+/* I2C Status */
+/*
+ uint8_t GDS_I2C_Stat_t:
+   0: I2C_ERR_PACKAGE_COLLISION
+   1: I2C_ERR_BUSY
+   2: I2C_ERR_BUS
+   3: I2C_ERR_BAD_ADDRESS
+   4: I2C_ERR_ARBLOST
+   5: I2C_NACK (expected while waiting for conversions to complete)
+ */

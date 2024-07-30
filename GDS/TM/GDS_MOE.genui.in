@@ -1,0 +1,8 @@
+ 1 GDS_MOE_CellP_Hi  @Panel@MOE CellP
+
+ 1 GDS_MOE_MS_P       @Panel@MOE P
+ 1 GDS_MOE_MS_T       @Panel@MOE T
+ 1 GDS_MOE_RH         @Panel@MOE RH
+
+ 1 GDS_MOE_I2C_Status @Panel@MOE_HK AI_I2C
+ 1 GDS_MOE_Nreads     @Panel@MOE_HK Nreads

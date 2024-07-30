@@ -1,0 +1,35 @@
+Input "TMbase.tbl";
+
+MOE_PTRH {
+  HBox { +-; "MOE PTRH"; -+ };
+  P:  (GDS_MOE_MS_P,6) Torr;
+  T:  (GDS_MOE_MS_T,6) C;
+  RH: (GDS_MOE_RH,6)   "%";
+}
+
+MOE_P {
+  HBox { +-; "MOE Cell"; -+ };
+  Hi: (GDS_MOE_CellP_Hi,7) Torr;
+}
+
+MOE_HK {
+  HBox { +-; "MOE HK"; -+ };
+  AI_I2C: (GDS_MOE_I2C_Status,2);
+  Nreads: (GDS_MOE_Nreads,3);
+}
+
+MOE_Raw {
+  HBox { [MOE_PTRH]; |; [MOE_P]; };
+}
+
+@TBLNAME@ {
+  HBox {
+    |+;
+    { [MOE_Raw];
+      -;
+      [TMbase_htimes]
+    };
+    |+
+  };
+  -;
+}

@@ -1,0 +1,9 @@
+<package> GDS_MOE_col_driver
+<include> "GDS_MOE_col_driver.h"
+
+<defs>
+  GDS_MOE_col_driver *GDS_MOE_col;
+
+<init>
+  GDS_MOE_col = new GDS_MOE_col_driver("GDS_MOE", "serusb");
+  GDS_MOE_col->init();

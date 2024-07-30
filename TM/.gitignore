@@ -73,6 +73,8 @@ GDS.genui
 GDS.tbl
 GDS_COE.genui
 GDS_COE.tbl
+GDS_MOE.genui
+GDS_MOE.tbl
 focalcmd.cc
 focalcmd.dat
 focalcmd.h
@@ -91,6 +93,7 @@ MEtblnc.tmc
 alicattblnc.tmc
 GDStblnc.tmc
 GDS_COEtblnc.tmc
+GDS_MOEtblnc.tmc
 focaldispnc.cc
 focaldispncoui.cc
 focaldispnc.o
@@ -109,6 +112,7 @@ GDS_col_driver.o
 focalcoloui.o
 GDS_col_class.o
 GDS_COE_col_driver.o
+GDS_MOE_col_driver.o
 focalengext.cdf
 focalengextcdf.oui
 focalengextcdf.tmc
@@ -123,6 +127,7 @@ MEtblnc.tmc.dep
 alicattblnc.tmc.dep
 GDStblnc.tmc.dep
 GDS_COEtblnc.tmc.dep
+GDS_MOEtblnc.tmc.dep
 *.err
 freemem.tmc
 TMbase.genui
@@ -191,6 +196,8 @@ GDS.genui
 GDS.tbl
 GDS_COE.genui
 GDS_COE.tbl
+GDS_MOE.genui
+GDS_MOE.tbl
 Makefile
 *.o
 *.exe
