@@ -23,6 +23,7 @@ Module uDACS mode=MOE Panel=MOE:
 Module GDS Panel=GDS: SVC=GDS
 Module GDS Panel=COE: SVC=GDS_COE SBMODE=col mode=col
 Module GDS Panel=MOE: SVC=GDS_MOE SBMODE=col mode=col
+# Module GDS Panel=Bay: SVC=GDS_BAY
 
 IGNORE = Makefile "*.o" "*.exe" "*.stackdump"
 DISTRIB = services interact runfile.flight

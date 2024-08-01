@@ -20,13 +20,15 @@ GDS_cmd_chan_t GDS_Inv_Arm; Invalidate GDS_Inv_Arm;
 { GDS_Cal_Lo = (GDS_cmd_stat>>1) & 1; Validate GDS_Cal_Lo; }
 { GDS_Cal_Ref = (GDS_cmd_stat>>2) & 1; Validate GDS_Cal_Ref; }
 { GDS_CO2_Ref = (GDS_cmd_stat>>3) & 1; Validate GDS_CO2_Ref; }
-{ GDS_Cal_Spr = (GDS_cmd_stat>>4) & 1; Validate GDS_Cal_Spr; }
-{ GDS_MM_Pump = (GDS_cmd_stat>>5) & 1; Validate GDS_MM_Pump; }
-{ GDS_MM_Exh = (GDS_cmd_stat>>6) & 1; Validate GDS_MM_Exh; }
-{ GDS_CO2_Pump = (GDS_cmd_stat>>7) & 1; Validate GDS_CO2_Pump; }
-{ GDS_CO2_Exh = (GDS_cmd_stat>>8) & 1; Validate GDS_CO2_Exh; }
+{ GDS_MM_Pump = (GDS_cmd_stat>>4) & 1; Validate GDS_MM_Pump; }
+{ GDS_MM_Exh = (GDS_cmd_stat>>5) & 1; Validate GDS_MM_Exh; }
+{ GDS_CO2_Pump = (GDS_cmd_stat>>6) & 1; Validate GDS_CO2_Pump; }
+{ GDS_CO2_Exh = (GDS_cmd_stat>>7) & 1; Validate GDS_CO2_Exh; }
+/*
+{ GDS_Cal_Spr = (GDS_cmd_stat>>8) & 1; Validate GDS_Cal_Spr; }
 { GDS_Ckt3_En = (GDS_cmd_stat>>9) & 1; Validate GDS_Ckt3_En; }
 { GDS_Inv_Arm = (GDS_cmd_stat>>10) & 1; Validate GDS_Inv_Arm; }
+*/
 
 /* I2C Status */
 /*

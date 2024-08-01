@@ -1,22 +1,22 @@
- 1 Pkg_coll:GDS_Cmd_Stat:0 @Panel@GDS_HK Status
- 1 Busy:GDS_Cmd_Stat:1      @Panel@GDS_HK Status
- 1 Bus:GDS_Cmd_Stat:2       @Panel@GDS_HK Status
- 1 Bad_addr:GDS_Cmd_Stat:3  @Panel@GDS_HK Status
- 1 Arb_lost:GDS_Cmd_Stat:4  @Panel@GDS_HK Status
- 1 Nack:GDS_Cmd_Stat:5      @Panel@GDS_HK Status
- 1 GDS_Nreads              @Panel@GDS_HK Nreads
+ 1 Pkg_coll:GDS_I2C_Status:0  @Panel@GDS_HK I2C_Status
+ 1 Busy:GDS_I2C_Status:1      @Panel@GDS_HK I2C_Status
+ 1 Bus:GDS_I2C_Status:2       @Panel@GDS_HK I2C_Status
+ 1 Bad_addr:GDS_I2C_Status:3  @Panel@GDS_HK I2C_Status
+ 1 Arb_lost:GDS_I2C_Status:4  @Panel@GDS_HK I2C_Status
+ 1 Nack:GDS_I2C_Status:5      @Panel@GDS_HK I2C_Status
+ 1 GDS_Nreads                 @Panel@GDS_HK Nreads
 
- 1 GDS_Cal_Hi:GDS_cmd_stat:0   @Panel@GDS Status Cal_Hi
- 1 GDS_Cal_Lo:GDS_cmd_stat:0   @Panel@GDS Status Cal_Lo
- 1 GDS_Cal_Ref:GDS_cmd_stat:0  @Panel@GDS Status Cal_Ref
- 1 GDS_CO2_Ref:GDS_cmd_stat:0  @Panel@GDS Status CO2_Ref
- 1 GDS_Cal_Spr:GDS_cmd_stat:0  @Panel@GDS Status Cal_Spr
- 1 GDS_MM_Pump:GDS_cmd_stat:0  @Panel@GDS Status MM_Pump
- 1 GDS_MM_Exh:GDS_cmd_stat:0   @Panel@GDS Status MM_Exh
- 1 GDS_CO2_Pump:GDS_cmd_stat:0 @Panel@GDS Status CO2_Pump
- 1 GDS_CO2_Exh:GDS_cmd_stat:0  @Panel@GDS Status CO2_Exh
- 1 GDS_Ckt3_En:GDS_cmd_stat:0  @Panel@GDS Status Ckt3_En
- 1 GDS_Inv_Arm:GDS_cmd_stat:0  @Panel@GDS Status Inv_Arm
+ 1 GDS_Cal_Hi:GDS_cmd_stat:0   @Panel@GDS Cmd_Status Cal_Hi
+ 1 GDS_Cal_Lo:GDS_cmd_stat:1   @Panel@GDS Cmd_Status Cal_Lo
+ 1 GDS_Cal_Ref:GDS_cmd_stat:2  @Panel@GDS Cmd_Status Cal_Ref
+ 1 GDS_CO2_Ref:GDS_cmd_stat:3  @Panel@GDS Cmd_Status CO2_Ref
+ 1 GDS_MM_Pump:GDS_cmd_stat:4  @Panel@GDS Cmd_Status MM_Pump
+ 1 GDS_MM_Exh:GDS_cmd_stat:5   @Panel@GDS Cmd_Status MM_Exh
+ 1 GDS_CO2_Pump:GDS_cmd_stat:6 @Panel@GDS Cmd_Status CO2_Pump
+ 1 GDS_CO2_Exh:GDS_cmd_stat:7  @Panel@GDS Cmd_Status CO2_Exh
+#1 GDS_Cal_Spr:GDS_cmd_stat:8  @Panel@GDS Cmd_Status Cal_Spr
+#1 GDS_Ckt3_En:GDS_cmd_stat:9  @Panel@GDS Cmd_Status Ckt3_En
+#1 GDS_Inv_Arm:GDS_cmd_stat:10 @Panel@GDS Cmd_Status Inv_Arm
 
  
  1 Cal_Hi_HP @Panel@GDS Entran
