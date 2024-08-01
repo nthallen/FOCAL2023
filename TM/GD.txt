@@ -1,5 +1,4 @@
 # GD Gas Deck Flow Controllers
 Name GD
 Rate 1 Hz
-Port /dev/ttyS1
-Digital Cal 1 MFC 5000 ccm 5000 nccm 1000 Torr "MFC Cal"
+Digital Cal 1 MFC 5 lpm 5 slm 15 psia "MFC Cal"
