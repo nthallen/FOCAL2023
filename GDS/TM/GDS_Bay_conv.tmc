@@ -1,0 +1,23 @@
+%{
+  /* GDS_conv.tmc */
+%}
+
+/* Command Status */
+GDS_cmd_chan_t CO2_CAL_Gas_Inlet; Invalidate CO2_CAL_Gas_Inlet;
+GDS_cmd_chan_t CH4_Cal_Gas_Inlet; Invalidate CH4_Cal_Gas_Inlet;
+
+{ CO2_CAL_Gas_Inlet = (GDS_Bay_cmd_stat>>0) & 1;
+  Validate CO2_CAL_Gas_Inlet; }
+{ CH4_Cal_Gas_Inlet = (GDS_Bay_cmd_stat>>1) & 1;
+  Validate CH4_Cal_Gas_Inlet; }
+
+/* I2C Status */
+/*
+ uint8_t GDS_I2C_Stat_t:
+   0: I2C_ERR_PACKAGE_COLLISION
+   1: I2C_ERR_BUSY
+   2: I2C_ERR_BUS
+   3: I2C_ERR_BAD_ADDRESS
+   4: I2C_ERR_ARBLOST
+   5: I2C_NACK (expected while waiting for conversions to complete)
+ */

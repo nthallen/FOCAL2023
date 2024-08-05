@@ -1,0 +1,9 @@
+<package> GDS_Bay_col_driver
+<include> "GDS_Bay_col_driver.h"
+
+<defs>
+  GDS_Bay_col_driver *GDS_Bay_col;
+
+<init>
+  GDS_Bay_col = new GDS_Bay_col_driver("GDS_Bay", "serusb");
+  GDS_Bay_col->init();

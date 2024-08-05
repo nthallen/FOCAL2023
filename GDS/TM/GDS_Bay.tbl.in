@@ -1,0 +1,40 @@
+Input "TMbase.tbl";
+
+Bay_SSP {
+  HBox { +-; "SSP HK"; -+ };
+  ""    >CO2<              >CH4<;
+  LasI: (CO2_QCL_I)        (CH4_QCL_I)        V;
+  Pamp: (CO2_Pamp_T,6)     (CH4_Pamp_T,6)     C;
+  FPGA: (CO2_SSP_FPGA_T,6) (CH4_SSP_FPGA_T,6) C;
+  Pamp: (CO2_24VT,6)       (CH4_24VT,6)       C;
+}
+
+Bay_PTRH {
+  HBox { +-; "Bay PTRH"; -+ };
+  P:  (GDS_Bay_MS_P,6) Torr;
+  T:  (GDS_Bay_MS_T,6) C;
+  RH: (GDS_Bay_RH,6)   "%";
+}
+
+Bay_HK {
+  HBox { +-; "Bay HK"; -+ };
+  AI_I2C: (GDS_Bay_I2C_Status,2);
+  Nreads: (GDS_Bay_Nreads,3);
+}
+
+Bay_Raw {
+  [Bay_SSP];
+  HBox { [Bay_PTRH]; |; [Bay_HK]; };
+}
+
+@TBLNAME@ {
+  HBox {
+    |+;
+    { [Bay_Raw];
+      -;
+      [TMbase_htimes]
+    };
+    |+
+  };
+  -;
+}

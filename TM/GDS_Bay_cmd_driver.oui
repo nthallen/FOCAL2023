@@ -1,0 +1,9 @@
+<package> GDS_Bay_cmd_driver
+<include> "GDS_Bay_cmd_driver.h"
+
+<defs>
+  GDS_Bay_cmd_driver *GDS_Bay_cmd;
+
+<init>
+  GDS_Bay_cmd = new GDS_Bay_cmd_driver("GDS_Bay", "serusb");
+  GDS_Bay_cmd->init();
