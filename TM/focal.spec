@@ -22,7 +22,7 @@ Module uDACS mode=COE Panel=COE:
 Module uDACS mode=MOE Panel=MOE:
 Module GDS Panel=GDS: SVC=GDS
 Module GDS Panel=COE: SVC=GDS_COE SBMODE=col mode=col
-Module GDS Panel=MOE: SVC=GDS_MOE SBMODE=col mode=col
+# Module GDS Panel=MOE: SVC=GDS_MOE SBMODE=col mode=col
 Module GDS Panel=Bay: SVC=GDS_Bay
 
 IGNORE = Makefile "*.o" "*.exe" "*.stackdump"
@@ -34,7 +34,7 @@ focalclt : -lsubbuspp
 focalsrvr : -lsubbuspp
 focaldisp : digio_conv.tmc $extbase \
             focal.tbl uD_COE.tbl uD_MOE.tbl ME.tbl \
-            alicat.tbl GDS.tbl GDS_COE.tbl GDS_MOE.tbl \
+            alicat.tbl GDS.tbl GDS_COE.tbl \
             GDS_Bay.tbl
 focalalgo : focal.tma
 doit : focal.doit
