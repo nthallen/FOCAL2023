@@ -10,7 +10,7 @@
 #   CH4 GDS Feather MOE $GDS_MOE_port
 # CH4 Meerstetter FTDI RS485 (2 drives) $ME_MOE_port
 # Bay Meerstetter FTDI RS485 (1 drive) $ME_Bay_port
-# Bay FBay Feather CDC/ACM $FOE_Bay_port
+# Bay FBay Feather CDC/ACM $GDS_Bay_port
 # GD  GDS Feather CDC/ACM $GDS_port
 # GD  Alicat $Alicat_GD_port
 # DACS FTDI $DACS_port
@@ -67,8 +67,8 @@ function dns {
   if [ -e "$GDS_MOE_port" ]; then POK=''; else POK=dns; fi
   $POK Launch      GDS_MOE  subbusd_serusb -q -p $GDS_MOE_port -s GDS_MOE -n GDS_MOE
 
-  if [ -e "$FOE_Bay_port" ]; then POK=''; else POK=dns; fi
-  $POK Launch      FOE_Bay  subbusd_serusb -q -p $FOE_Bay_port -s FOE_Bay -n FOE_Bay
+  if [ -e "$GDS_Bay_port" ]; then POK=''; else POK=dns; fi
+  $POK Launch      GDS_Bay  subbusd_serusb -q -p $GDS_Bay_port -s GDS_Bay -n GDS_Bay
 
   Launch      tm_gen     focalcol
   Launch      cmd        focalsrvr -H srvr: -S:
