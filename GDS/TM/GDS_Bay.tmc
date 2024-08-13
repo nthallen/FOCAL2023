@@ -7,7 +7,7 @@
 TM 1 Hz GDS_I2C_Stat_t GDS_Bay_I2C_Status; /* 0: 0x20 */
 TM 1 Hz GDS_AI         CO2_QCL_I;          /* 1: 0x21 ±6.144V */
 TM 1 Hz GDS_AI         CH4_QCL_I;          /* 2: 0x22 ±6.144V */
-TM 1 Hz GDS_T30K_t     CO2_Pamp_T;         /* 3: 0x27 ±4.096V */
+TM 1 Hz GDS_AI         CO2_Pamp_T;         /* 3: 0x27 ±4.096V */
 TM 1 Hz GDS_T30K_t     CO2_SSP_FPGA_T;     /* 4: 0x28 ±4.096V */
 TM 1 Hz GDS_T30K_t     CO2_24VT;          /* 5: 0x29 ±4.096V */
 TM 1 Hz GDS_T30K_t     CH4_Pamp_T;         /* 6: 0x2A ±4.096V */

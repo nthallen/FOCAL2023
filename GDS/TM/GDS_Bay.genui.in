@@ -1,6 +1,12 @@
 # I2C_Status could be bit mapped, but probably not worth it.
 # See GDS.genui.in for values
- 1 GDS_Bay_I2C_Status             @Panel@Bay_HK I2C_Status
+ 1 B_Pkg_coll:GDS_Bay_I2C_Status:0  @Panel@Bay_HK I2C_Status %.0lf
+ 1 B_Busy:GDS_Bay_I2C_Status:1      @Panel@Bay_HK I2C_Status %.0lf
+ 1 B_Bus:GDS_Bay_I2C_Status:2       @Panel@Bay_HK I2C_Status %.0lf
+ 1 B_Bad_addr:GDS_Bay_I2C_Status:3  @Panel@Bay_HK I2C_Status %.0lf
+ 1 B_Arb_lost:GDS_Bay_I2C_Status:4  @Panel@Bay_HK I2C_Status %.0lf
+ 1 B_Nack:GDS_Bay_I2C_Status:5      @Panel@Bay_HK I2C_Status %.0lf
+#1 GDS_Bay_I2C_Status             @Panel@Bay_HK I2C_Status
  1 GDS_Bay_Nreads                 @Panel@Bay_HK Nreads
 
  1 CO2_CAL_Gas_Inlet:GDS_Bay_cmd_stat:0   @Panel@Bay Cmd_Status CO2_Inlet
