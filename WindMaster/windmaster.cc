@@ -26,10 +26,11 @@ Wind::Wind() :
     gettime_error(false)
 {
   zero_sums();
-  mlf = mlf_init(3, 60, 1, mlf_base, ".dat", mlf_config);
+  mlf = mlf_init(3, 60, 1, mlf_base, "dat", mlf_config);
   Tstamp.tv_sec = Tstamp.tv_nsec = 0;
   FileTstamp.tv_sec = FileTstamp.tv_nsec = 0;
   flags |= gflag(0);
+  setup(19200,8,'n',1,-1,0);
 }
 
 bool Wind::protocol_input()
@@ -39,13 +40,13 @@ bool Wind::protocol_input()
   // Q,+000.04,+000.00,+000.00,M,+346.15,+024.31,00,2C
   float U, V, W, SoS, SonicTemp;
   uint16_t status, cksum;
-  if (not_str("Q,") ||
+  if (not_str("\x02Q,") ||
       not_float(U) || not_str(",") ||
       not_float(V) || not_str(",") ||
       not_float(W) || not_str(",M,") ||
       not_float(SoS) || not_str(",") ||
       not_float(SonicTemp) || not_str(",") ||
-      not_hex(status) || not_str(",") ||
+      not_hex(status) || not_str(",\x03") ||
       not_hex(cksum) || not_str("\r\n")) {
     if (cp >= nc) return false; // Incomplete, need more data
     archive();
@@ -53,7 +54,7 @@ bool Wind::protocol_input()
     ++N_errors;
   } else {
     archive();
-    uint8_t new_cs = checksum((char *)buf, nc-4);
+    uint8_t new_cs = checksum((char *)(buf+1), nc-5);
     if (new_cs != cksum) {
       report_err("%s: Invalid checksum: should be %02X", iname, new_cs);
       ++N_errors;
@@ -84,6 +85,7 @@ bool Wind::tm_sync()
   }
   WindMaster.mlf_index = mlf->index;
   WindMaster.N_samples = N_samples;
+  WindMaster.N_errors = N_errors;
   if (FileTstamp.tv_sec) {
     int32_t dsecs = Tstamp.tv_sec - FileTstamp.tv_sec;
     int32_t dnsecs = Tstamp.tv_nsec - FileTstamp.tv_nsec;
@@ -193,7 +195,7 @@ int main(int argc, char **argv) {
     QP->connect();
     
     TM_data_sndr *TM = new
-      TM_data_sndr("TM", 0, "WindMaster", &WindMaster,
+      TM_data_sndr("TM", 0, AppID.name, &WindMaster,
         sizeof(WindMaster));
     ELoop.add_child(TM);
     TM->connect();
