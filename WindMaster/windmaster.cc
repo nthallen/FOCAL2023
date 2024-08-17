@@ -75,7 +75,6 @@ bool Wind::tm_sync()
 {
   // ### Load up WindMaster with current averages
   // ### reset averages
-  nl_assert(FileTstamp.tv_sec);
   if (N_samples) {
     WindMaster.U = sum.U/N_samples;
     WindMaster.V = sum.V/N_samples;
@@ -85,13 +84,15 @@ bool Wind::tm_sync()
   }
   WindMaster.mlf_index = mlf->index;
   WindMaster.N_samples = N_samples;
-  int32_t dsecs = Tstamp.tv_sec - FileTstamp.tv_sec;
-  int32_t dnsecs = Tstamp.tv_nsec - FileTstamp.tv_nsec;
-  if (dnsecs < 0) {
-    --dsecs;
-    dnsecs += 1000000000;
+  if (FileTstamp.tv_sec) {
+    int32_t dsecs = Tstamp.tv_sec - FileTstamp.tv_sec;
+    int32_t dnsecs = Tstamp.tv_nsec - FileTstamp.tv_nsec;
+    if (dnsecs < 0) {
+      --dsecs;
+      dnsecs += 1000000000;
+    }
+    WindMaster.mlf_time = dsecs*1000 + dnsecs/1000000;
   }
-  WindMaster.mlf_time = dsecs*1000 + dnsecs/1000000;
   zero_sums();
   return false;
 }
