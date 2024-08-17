@@ -92,6 +92,6 @@ function dns {
   Launch      -          alicat -n GD -a 1:MFC -p $Alicat_GD_port
 
   [ -e "$Wind_port" ] &&
-  Launch      -          windmaster -p $Wind_port
+  Launch      -          windmaster -p $Wind_port -c $(mlf_find Wind)
 
   Launch      -TMC-      focalalgo -v
