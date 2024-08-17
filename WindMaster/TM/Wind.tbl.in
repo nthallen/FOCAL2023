@@ -1,0 +1,33 @@
+Input "TMbase.tbl";
+
+@SVC@_data {
+  HBox { +-; "@SVC@"; -+ };
+  U:    (@SVC@_U,7)         "m/s";
+  V:    (@SVC@_V,7)         "m/s";
+  W:    (@SVC@_W,7)         "m/s";
+  SoS:  (@SVC@_SoS,7)       "m/s";
+  Temp: (@SVC@_SonicTemp,7) C;
+}
+
+@SVC@_HK {
+  HBox { +-; "@SVC@ HK"; -+ };
+  FileIdx:   (@SVC@_mlf_idx,5);
+  dTime:     (@SVC@_mlf_time,7) secs;
+  N_samples: (@SVC@_N_samples,5);
+  N_errors:  (@SVC@_N_errors,5);
+  Stale:     (@SVC@_stale,3);
+}
+
+@TBLNAME@ {
+  HBox {
+    |+;
+    {
+      [@SVC@_data];
+      [@SVC@_HK];
+      +-+;
+      [TMbase_times];
+    };
+    |+;
+  };
+  -
+}

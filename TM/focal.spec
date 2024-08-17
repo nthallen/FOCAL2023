@@ -24,6 +24,7 @@ Module GDS Panel=GDS: SVC=GDS
 Module GDS Panel=COE: SVC=GDS_COE SBMODE=col mode=col
 # Module GDS Panel=MOE: SVC=GDS_MOE SBMODE=col mode=col
 Module GDS Panel=Bay: SVC=GDS_Bay
+Module WindMaster Panel=Wind: SVC=Wind
 
 IGNORE = Makefile "*.o" "*.exe" "*.stackdump"
 DISTRIB = services interact runfile.flight
@@ -35,6 +36,6 @@ focalsrvr : -lsubbuspp
 focaldisp : digio_conv.tmc $extbase \
             focal.tbl uD_COE.tbl uD_MOE.tbl ME.tbl \
             alicat.tbl GDS.tbl GDS_COE.tbl \
-            GDS_Bay.tbl
+            GDS_Bay.tbl Wind.tbl
 focalalgo : focal.tma
 doit : focal.doit

@@ -1,0 +1,20 @@
+Moduledef WindMaster [ SVC=Wind Panel= TBLNAME= ] {
+  Panel definition must include a trailing colon
+}
+
+tmcbase = Wind_types.tmc
+tmcbase = @SVC@.tmc:Wind.tmc.in
+colbase = @SVC@_col.tmc:Wind_col.tmc.in
+genuibase = @SVC@.genui:Wind.genui.in
+- : @SVC@.tbl:Wind.tbl.in
+IGNORE = @SVC@.genui @SVC@.tbl @SVC@.tmc @SVC@_col.tmc
+OBJ = @SVC@.genui @SVC@.tbl @SVC@.tmc @SVC@_col.tmc
+DISTRIB = @MODDIR@/../windmaster
+CPPFLAGS = -I @MODDIR@/..
+%%
+.PHONY : clean-WindMaster @MODDIR@/../windmaster
+@MODDIR@/../windmaster :
+	$(MAKE) --directory=@MODDIR@/..
+clean-dist : clean-WindMaster
+clean-WindMaster :
+	$(MAKE) --directory=@MODDIR@/.. clean

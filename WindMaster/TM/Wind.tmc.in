@@ -1,0 +1,29 @@
+TM 1 Hz Wind_Speed_t @SVC@_U;
+TM 1 Hz Wind_Speed_t @SVC@_V;
+TM 1 Hz Wind_Speed_t @SVC@_W;
+TM 1 Hz Wind_Speed_t @SVC@_SoS;
+TM 1 Hz Wind_Temp_t  @SVC@_SonicTemp;
+TM 1 Hz Wind_Time_t  @SVC@_mlf_time;
+TM 1 Hz Wind_stat_t  @SVC@_mlf_idx;
+TM 1 Hz Wind_stat_t  @SVC@_N_samples;
+TM 1 Hz Wind_stat_t  @SVC@_N_errors;
+TM 1 Hz Wind_stale_t @SVC@_stale;
+
+TM "Receive" @SVC@ 1;
+
+group @SVC@ (@SVC@_U, @SVC@_V, @SVC@_W, @SVC@_SoS, @SVC@_SonicTemp,
+             @SVC@_mlf_time, @SVC@_mlf_idx, @SVC@_N_samples,
+             @SVC@_N_errors, @SVC@_stale)
+{
+  @SVC@_U = @SVC@.U;
+  @SVC@_V = @SVC@.V;
+  @SVC@_W = @SVC@.W;
+  @SVC@_SoS = @SVC@.SoS;
+  @SVC@_SonicTemp = @SVC@.SonicTemp;
+  @SVC@_mlf_time = @SVC@.mlf_time;
+  @SVC@_mlf_idx = @SVC@.mlf_index;
+  @SVC@_N_samples = @SVC@.N_samples;
+  @SVC@_N_errors = @SVC@.N_errors;
+  @SVC@_stale = @SVC@_obj->Stale(255);
+  @SVC@_obj->synch();
+}

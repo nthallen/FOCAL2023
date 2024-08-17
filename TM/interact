@@ -14,8 +14,9 @@
 # GD  GDS Feather CDC/ACM $GDS_port
 # GD  Alicat $Alicat_GD_port
 # DACS FTDI $DACS_port
-# BAT $BAT_port
-# SPAN $SPAN_port
+# Gil Anemometer $Wind_port
+
+Wind_port=/dev/ttyS1
 
 /usr/local/libexec/usb_enum >>usb_enum.log
 . ./usb_enum.log
@@ -89,5 +90,8 @@ function dns {
   Launch      -          alicat -n MPC -a 1:M_AbsP -p $Alicat_MOE_port
   [ -e "$Alicat_GD_port" ] &&
   Launch      -          alicat -n GD -a 1:MFC -p $Alicat_GD_port
+
+  [ -e "$Wind_port" ] &&
+  Launch      -          windmaster -p $Wind_port
 
   Launch      -TMC-      focalalgo -v
