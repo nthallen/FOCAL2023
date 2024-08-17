@@ -75,6 +75,10 @@ GDS_COE.genui
 GDS_COE.tbl
 GDS_Bay.genui
 GDS_Bay.tbl
+Wind.genui
+Wind.tbl
+Wind.tmc
+Wind_col.tmc
 focalcmd.cc
 focalcmd.dat
 focalcmd.h
@@ -95,6 +99,7 @@ alicattblnc.tmc
 GDStblnc.tmc
 GDS_COEtblnc.tmc
 GDS_Baytblnc.tmc
+Windtblnc.tmc
 focaldispnc.cc
 focaldispncoui.cc
 focaldispnc.o
@@ -129,6 +134,7 @@ alicattblnc.tmc.dep
 GDStblnc.tmc.dep
 GDS_COEtblnc.tmc.dep
 GDS_Baytblnc.tmc.dep
+Windtblnc.tmc.dep
 *.err
 freemem.tmc
 TMbase.genui
@@ -199,6 +205,10 @@ GDS_COE.genui
 GDS_COE.tbl
 GDS_Bay.genui
 GDS_Bay.tbl
+Wind.genui
+Wind.tbl
+Wind.tmc
+Wind_col.tmc
 Makefile
 *.o
 *.exe

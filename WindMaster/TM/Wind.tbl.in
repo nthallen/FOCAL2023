@@ -1,3 +1,5 @@
+Input "TMbase.tbl";
+
 @SVC@_data {
   HBox { +-; "@SVC@"; -+ };
   U:    (@SVC@_U,7)         "m/s";
@@ -21,7 +23,9 @@
     |+;
     {
       [@SVC@_data];
-      [@SVC@_HK]
+      [@SVC@_HK];
+      +-+;
+      [TMbase_times];
     };
     |+;
   };

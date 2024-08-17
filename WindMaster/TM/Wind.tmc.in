@@ -21,9 +21,9 @@ group @SVC@ (@SVC@_U, @SVC@_V, @SVC@_W, @SVC@_SoS, @SVC@_SonicTemp,
   @SVC@_SoS = @SVC@.SoS;
   @SVC@_SonicTemp = @SVC@.SonicTemp;
   @SVC@_mlf_time = @SVC@.mlf_time;
-  @SVC@_mlf_idx = @SVC@.mlf_idx;
+  @SVC@_mlf_idx = @SVC@.mlf_index;
   @SVC@_N_samples = @SVC@.N_samples;
   @SVC@_N_errors = @SVC@.N_errors;
-  @SVC@_stale = @SVC@_obj->stale(255);
+  @SVC@_stale = @SVC@_obj->Stale(255);
   @SVC@_obj->synch();
 }
