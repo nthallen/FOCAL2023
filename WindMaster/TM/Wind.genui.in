@@ -1,0 +1,10 @@
+ 1 @SVC@_U         @SVC@ Wind
+ 1 @SVC@_V         @SVC@ Wind
+ 1 @SVC@_W         @SVC@ Wind
+ 1 @SVC@_SoS       @SVC@ SoS
+ 1 @SVC@_SonicTemp @SVC@ Temp
+ 1 @SVC@_mlf_time  @SVC@_HK dTime
+ 1 @SVC@_mlf_idx   @SVC@_HK FileIdx
+ 1 @SVC@_N_samples @SVC@_HK N_samples
+ 1 @SVC@_N_errors  @SVC@_HK N_errors
+ 1 @SVC@_stale     @SVC@_HK Stale

@@ -1,0 +1,5 @@
+TM typedef float Wind_Speed_t { text "%7.2f"; }
+TM typedef float Wind_Temp_t { text "%7.2f"; }
+TM typedef int32_t Wind_Time_t { text "%7.3lf"; }
+TM typedef uint16_t Wind_stat_t { text "%5u"; }
+TM typedef uint8_t Wind_stale_t { text "%3u"; }

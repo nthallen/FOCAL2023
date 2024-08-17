@@ -1,0 +1,22 @@
+<package> wm_drv
+<include> msg oui
+<follow> msg
+<include> "wm_drv.h"
+
+<opts> "b:p:c:"
+<sort>
+  -b <base> Specify log directory
+  -p <port> Serial port of WindMaster device
+  -c <config> MLF configuration string from mlf_find
+
+<switch>
+  case 'b': Wind::mlf_base = optarg; break;
+  case 'p': Wind::port = optarg; break;
+  case 'c': Wind::mlf_config = optarg; break;
+
+<package> appid_default
+<include> "dasio/appid.h"
+<include> msg oui
+<preceed> msg oui
+<defs>
+  DAS_IO::AppID_t DAS_IO::AppID("Wind", "Gil WindMasterPro Driver", "V1.0");

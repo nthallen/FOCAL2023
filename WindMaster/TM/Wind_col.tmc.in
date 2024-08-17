@@ -1,0 +1,4 @@
+%{
+  #include "windmaster.h"
+  WindMaster_t @SVC@;
+%}
