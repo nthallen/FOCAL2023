@@ -1,5 +1,6 @@
 #ifndef WINDMASTER_H_INCLUDED
 #define WINDMASTER_H_INCLUDED
+#include <cstdint>
 
 typedef struct {
   float U, V, W; // Average of the most recent N_samples values
