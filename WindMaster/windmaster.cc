@@ -58,8 +58,8 @@ bool Wind::protocol_input()
       if (cp >= nc) break; // Incomplete, need more data
       ++N_errors;
     } else {
+      uint8_t new_cs = checksum((char *)(buf+parsed+1), cp-5);
       parsed = cp;
-      uint8_t new_cs = checksum((char *)(buf+1), nc-5);
       if (new_cs != cksum) {
         report_err("%s: Invalid checksum: should be %02X", iname, new_cs);
         ++N_errors;
