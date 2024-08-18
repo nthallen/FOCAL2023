@@ -58,7 +58,7 @@ bool Wind::protocol_input()
       if (cp >= nc) break; // Incomplete, need more data
       ++N_errors;
     } else {
-      uint8_t new_cs = checksum((char *)(buf+parsed+1), cp-5);
+      uint8_t new_cs = checksum((buf+parsed+1), cp-5);
       unsigned parsed_saved = parsed;
       parsed = cp;
       if (new_cs != cksum) {
@@ -134,18 +134,17 @@ void Wind::write_tstamp()
   nl_assert(ofp);
   char tbuf[64]; // ISO8601 is 23 @ msec res.
   int nb = snprintf(tbuf, 64, "T,%s,", ISO8601());
-  uint8_t cs = checksum(tbuf, nb);
+  uint8_t cs = checksum((uint8_t*)tbuf, nb);
   nl_assert(nb < 55);
   nb += snprintf(tbuf+nb, 64-nb, "%02X\r\n", cs);
   fprintf(ofp, "%s", tbuf);
   Bytes_in_File += nb;
 }
 
-uint8_t Wind::checksum(const char *csbuf, int nb) {
+uint8_t Wind::checksum(const uint8_t *csbuf, int nb) {
   uint8_t cs = 0;
-  while (nb > 0) {
-    cs ^= *csbuf++;
-    --nb;
+  for (int i = 0; i < nb; ++i) {
+    cs ^= csbuf[i];
   }
   return cs;
 }

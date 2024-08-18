@@ -22,7 +22,7 @@ class Wind : public Serial
     bool tm_sync() override;
     const char *ISO8601();
     void write_tstamp();
-    uint8_t checksum(const char *csbuf, int nc);
+    uint8_t checksum(const uint8_t *csbuf, int nc);
     void next_file();
     void archive();
     void zero_sums();
