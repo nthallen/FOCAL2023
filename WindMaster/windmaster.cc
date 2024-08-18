@@ -40,31 +40,35 @@ bool Wind::protocol_input()
   // Q,+000.04,+000.00,+000.00,M,+346.15,+024.31,00,2C
   float U, V, W, SoS, SonicTemp;
   uint16_t status, cksum;
-  if (not_str("\x02Q,") ||
-      not_float(U) || not_str(",") ||
-      not_float(V) || not_str(",") ||
-      not_float(W) || not_str(",M,") ||
-      not_float(SoS) || not_str(",") ||
-      not_float(SonicTemp) || not_str(",") ||
-      not_hex(status) || not_str(",\x03") ||
-      not_hex(cksum) || not_str("\r\n")) {
-    if (cp >= nc) return false; // Incomplete, need more data
-    archive();
-    consume(nc);
-    ++N_errors;
-  } else {
-    archive();
-    uint8_t new_cs = checksum((char *)(buf+1), nc-5);
-    if (new_cs != cksum) {
-      report_err("%s: Invalid checksum: should be %02X", iname, new_cs);
+  while (nc > 0) {
+    if (not_str("\x02Q,") ||
+        not_float(U) || not_str(",") ||
+        not_float(V) || not_str(",") ||
+        not_float(W) || not_str(",M,") ||
+        not_float(SoS) || not_str(",") ||
+        not_float(SonicTemp) || not_str(",") ||
+        not_hex(status) || not_str(",\x03") ||
+        not_hex(cksum) || not_str("\r\n")) {
+      if (cp >= nc) return false; // Incomplete, need more data
+      archive();
+      consume(nc); // could just search forward for <STX>
       ++N_errors;
     } else {
-      sum.U += U;
-      sum.V += V;
-      sum.W += W;
-      sum.SoS += SoS;
-      sum.SonicTemp += SonicTemp;
-      ++N_samples;
+      archive();
+      uint8_t new_cs = checksum((char *)(buf+1), nc-5);
+      if (new_cs != cksum) {
+        report_err("%s: Invalid checksum: should be %02X", iname, new_cs);
+        ++N_errors;
+        consume(cp);
+      } else {
+        sum.U += U;
+        sum.V += V;
+        sum.W += W;
+        sum.SoS += SoS;
+        sum.SonicTemp += SonicTemp;
+        ++N_samples;
+        report_ok(cp);
+      }
     }
   }
   return false;
