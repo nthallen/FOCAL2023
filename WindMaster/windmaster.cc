@@ -59,9 +59,11 @@ bool Wind::protocol_input()
       ++N_errors;
     } else {
       uint8_t new_cs = checksum((char *)(buf+parsed+1), cp-5);
+      unsigned parsed_saved = parsed;
       parsed = cp;
       if (new_cs != cksum) {
-        report_err("%s: Invalid checksum: should be %02X", iname, new_cs);
+        report_err("%s: Invalid checksum: should be %02X, parsed=%d N=%d",
+          iname, new_cs, parsed_saved, cp-parsed_saved-6);
         ++N_errors;
       } else {
         sum.U += U;
@@ -139,11 +141,11 @@ void Wind::write_tstamp()
   Bytes_in_File += nb;
 }
 
-uint8_t Wind::checksum(const char *csbuf, int nc) {
+uint8_t Wind::checksum(const char *csbuf, int nb) {
   uint8_t cs = 0;
-  while (nc > 0) {
+  while (nb > 0) {
     cs ^= *csbuf++;
-    --nc;
+    --nb;
   }
   return cs;
 }
