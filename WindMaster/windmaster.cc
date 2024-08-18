@@ -58,7 +58,7 @@ bool Wind::protocol_input()
       if (cp >= nc) break; // Incomplete, need more data
       ++N_errors;
     } else {
-      uint8_t new_cs = checksum((buf+parsed+1), cp-5);
+      uint8_t new_cs = checksum((buf+parsed+1), cp-parsed-6);
       unsigned parsed_saved = parsed;
       parsed = cp;
       if (new_cs != cksum) {
