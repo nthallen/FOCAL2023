@@ -1,5 +1,6 @@
 <package> GDS_Bay_col_driver
 <include> "GDS_Bay_col_driver.h"
+<follow> msg oui
 
 <defs>
   GDS_Bay_col_driver *GDS_Bay_col;
