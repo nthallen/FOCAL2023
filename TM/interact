@@ -42,8 +42,8 @@ function dns {
   fi
   $POK Launch      subbus     subbusd_serusb -q -p $DACS_port -s subbus -n DACS
 
-  $COK qclidprog -n QCLI_C_prog -d1 -cwcwc $TMBINDIR/waves_C.out
-  $MOK qclidprog -n QCLI_M_prog -d0 -cwcwc $TMBINDIR/waves_M.out
+  $COK qclidprog -n QCLI_C_prog -d1 -cwcwcwcwcwc $TMBINDIR/waves_C.out
+  $MOK qclidprog -n QCLI_M_prog -d0 -cwcwcwcwcwc $TMBINDIR/waves_M.out
 
   Launch      -TMC-      lgr -N `mlf_find LOG` -n lgr
 
