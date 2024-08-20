@@ -37,5 +37,6 @@ focaldisp : digio_conv.tmc $extbase \
             focal.tbl uD_COE.tbl uD_MOE.tbl ME.tbl \
             alicat.tbl GDS.tbl GDS_COE.tbl \
             GDS_Bay.tbl Wind.tbl
+focaljsonext : digio_conv.tmc $extbase $genuibase
 focalalgo : focal.tma
 doit : focal.doit

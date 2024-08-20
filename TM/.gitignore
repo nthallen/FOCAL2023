@@ -104,6 +104,13 @@ focaldispnc.cc
 focaldispncoui.cc
 focaldispnc.o
 focaldispncoui.o
+focaljsonext.cdf
+focaljsonextcdf.oui
+focaljsonextcdf.tmc
+focaljsonext.cc
+focaljsonextoui.cc
+focaljsonext.o
+focaljsonextoui.o
 focalalgoa.tmc
 focalalgo.cc
 focalalgooui.cc
@@ -216,6 +223,7 @@ Makefile
 focalcltnc
 focalsrvr
 focaldispnc
+focaljsonext
 focalalgo
 doit
 focalcol

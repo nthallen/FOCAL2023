@@ -1,4 +1,5 @@
 display focaldisp
 client focalclt
+extraction [!SI] focaljsonext -n json
 memo
 batchfile interact
