@@ -1,0 +1,22 @@
+<package> gps_drv
+<include> msg oui
+<follow> msg
+<include> "gps_drv.h"
+
+<opts> "b:p:c:"
+<sort>
+  -b <base> Specify log directory
+  -p <port> Serial port of GPS device
+  -c <config> MLF configuration string from mlf_find
+
+<switch>
+  case 'b': GPS::mlf_base = optarg; break;
+  case 'p': GPS::port = optarg; break;
+  case 'c': GPS::mlf_config = optarg; break;
+
+<package> appid_default
+<include> "dasio/appid.h"
+<include> msg oui
+<preceed> msg oui
+<defs>
+  DAS_IO::AppID_t DAS_IO::AppID("GPS", "FOCAL GPS Driver", "V1.0");
