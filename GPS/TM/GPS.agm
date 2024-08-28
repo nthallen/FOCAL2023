@@ -1,0 +1,20 @@
+Moduledef GPS [ Panel= TBLNAME= ] {
+  Panel definition must include a trailing colon
+}
+
+tmcbase = GPS.tmc
+colbase = GPS_col.tmc
+extbase = GPS_conv.tmc
+genuibase = GPS.genui:GPS.genui.in
+- : GPS.tbl:GPS.tbl.in
+IGNORE = GPS.genui GPS.tbl
+OBJ = GPS.genui GPS.tbl
+DISTRIB = @MODDIR@/../focalgps
+CPPFLAGS = -I @MODDIR@/..
+%%
+.PHONY : clean-GPS @MODDIR@/../focalgps
+@MODDIR@/../focalgps :
+	$(MAKE) --directory=@MODDIR@/..
+clean-dist : clean-GPSMaster
+clean-GPSMaster :
+	$(MAKE) --directory=@MODDIR@/.. clean

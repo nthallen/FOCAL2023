@@ -1,0 +1,45 @@
+Input "TMbase.tbl";
+
+GPS_pos {
+  HBox { +-; "GPS Position"; -+ };
+  Lat: (GPS_Lat_deg,4) deg HBox{ (GPS_Lat_min,7); "'" } (GPS_Lat_ord,1);
+  Lon: (GPS_Lon_deg,4) deg HBox{ (GPS_Lon_min,7); "'" } (GPS_Lon_ord,1);
+}
+
+GPS_data {
+  HBox { +-; "GPS"; -+ };
+  Drift:  (GPS_TDrift,8) sec;
+  Alt:    (GPS_Alt,7)    m;
+  Speed:  (GPS_Speed,7)  "m/s";
+  Course: (GPS_Course,7) deg;
+}
+
+GPS_HK {
+  HBox { +-; "GPS HK"; -+ };
+  N_RMC:    (GPS_N_RMC,3);
+  N_GGA:    (GPS_N_GGA,3);
+  N_other:  (GPS_N_other,3);
+  N_errors: (GPS_N_errors,3);
+  N_Sats:   (GPS_N_Sats,3);
+  HDOP:     (GPS_HDOP,6);
+  Fix_Q:    (GPS_Fix_Q,3);
+  Nav_S:    (GPS_Nav_status,1);
+  MLF_dT:   (GPS_mlf_time,7) secs;
+  MLF_idx:  (GPS_mlf_idx,5);
+  Stale:     (GPS_stale,3);
+}
+
+@TBLNAME@ {
+  HBox {
+    |+;
+    {
+      [GPS_pos];
+      [GPS_data];
+      [GPS_HK];
+      +-+;
+      [TMbase_times];
+    };
+    |+;
+  };
+  -
+}

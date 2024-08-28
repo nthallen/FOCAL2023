@@ -1,0 +1,4 @@
+%{
+  #include "focalgps.h"
+  FOCAL_GPS_t FOCAL_GPS;
+%}

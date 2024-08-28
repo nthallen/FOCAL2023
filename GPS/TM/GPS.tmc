@@ -1,0 +1,120 @@
+%{
+  double GPS_msecs2secs(uint32_t msecs) {
+    double secs = msecs/1000.;
+    return secs;
+  }
+  double GPS_min2deg(int32_t min_em4) {
+    double deg = min_em4/600000.;
+    return deg;
+  }
+  const char *GPS_dates_text(uint8_t dn) {
+    static char dn_buf[3];
+    if (dn >= 100) return "**";
+    dn_buf[2] = '\0';
+    dn_buf[1] = dn%10 + '0';
+    dn_buf[0] = dn/10 + '0';
+    return dn_buf;
+  }
+  #define GPS_Nav_stat_text(x) ((x)?"V":"A")
+  
+  const char *GPS_ord_text(uint8_t ord) {
+    switch (ord) {
+      case 0: return "N";
+      case 1: return "S";
+      case 2: return "W";
+      case 3: return "E";
+      default: return "*";
+    }
+  }
+%}
+TM typedef double GPS_secs_UTC_t { text "%9.3lf"; }
+TM typedef double GPS_degmin_t { text "11.6lf"; }
+TM typedef int8_t GPS_deg_t { text "%4d"; }
+TM typedef double GPS_min_t { text "%7.2lf"; }
+TM typedef uint8_t GPS_ordinal_t { text "%1u" GPS_ord_text(); }
+TM typedef float GPS_Speed_t { text "%7.2f"; }
+TM typedef float GPS_Course_t { text "%7.2f"; }
+TM typedef uint8_t GPS_dates_t { text "%02u" GPS_dates_text(); }
+TM typedef uint8_t GPS_Nav_stat_t { text "%1u" GPS_Nav_stat_text(); }
+TM typedef uint16_t GPS_mlfidx_t { text "%5u"; }
+
+TM typedef float GPS_DOP_t { text "%6.2f"; }
+TM typedef float GPS_Alt_t { text "%7.1f"; }
+TM typedef int32_t GPS_dTime_t { text "%7.3lf"; }
+
+TM typedef uint8_t GPS_stale_t { text "%3u"; }
+
+TM typedef uint32_t GPS_msecs_UTC_t {
+  text "%9.3lf";
+  convert GPS_secs_UTC_t GPS_msecs2secs();
+}
+TM typedef int32_t GPS_min_em4_t {
+  text "%11.6lf";
+  convert GPS_degmin_t;
+}
+  Calibration (GPS_min_em4_t, GPS_degmin_t) {
+    0, 0, 600000, 1
+  }
+
+TM 1 Hz GPS_secs_UTC_t GPS_secs_UTC;
+TM 1 Hz GPS_degmin_t   GPS_Lat;
+TM 1 Hz GPS_degmin_t   GPS_Lon;
+TM 1 Hz GPS_Speed_t    GPS_Speed;
+TM 1 Hz GPS_Course_t   GPS_Course;
+TM 1 Hz GPS_dates_t GPS_DD;
+TM 1 Hz GPS_dates_t GPS_MM;
+TM 1 Hz GPS_dates_t GPS_YY;
+TM 1 Hz GPS_Nav_stat_t GPS_Nav_status;
+TM 1 Hz GPS_stale_t GPS_N_RMC;
+
+TM 1 Hz GPS_stale_t GPS_Fix_Q;
+TM 1 Hz GPS_stale_t GPS_N_Sats;
+TM 1 Hz GPS_DOP_t GPS_HDOP;
+TM 1 Hz GPS_Alt_t GPS_Alt;
+TM 1 Hz GPS_stale_t GPS_N_GGA;
+
+TM 1 Hz GPS_stale_t GPS_N_other;
+TM 1 Hz GPS_stale_t GPS_N_errors;
+
+TM 1 Hz GPS_dTime_t GPS_mlf_time;
+TM 1 Hz GPS_mlfidx_t GPS_mlf_idx;
+TM 1 Hz GPS_stale_t   GPS_stale;
+
+
+TM "Receive" FOCAL_GPS 1;
+
+group FOCAL_GPS (GPS_secs_UTC, GPS_Lat, GPS_Lon,
+        GPS_Speed, GPS_Course, GPS_DD, GPS_MM, GPS_YY,
+        GPS_Nav_status, GPS_N_RMC,
+        GPS_Fix_Q, GPS_N_Sats, GPS_HDOP, GPS_Alt, GPS_N_GGA,
+        GPS_N_other,GPS_N_errors,
+        GPS_mlf_time, GPS_mlf_idx,
+        GPS_stale
+      )
+{
+  GPS_secs_UTC = FOCAL_GPS.msecs_UTC;
+  GPS_Lat = GPS_min2deg(FOCAL_GPS.Lat_min_em4);
+  GPS_Lon = GPS_min2deg(FOCAL_GPS.Lon_min_em4);
+  GPS_Speed = FOCAL_GPS.Speed;
+  GPS_Course = FOCAL_GPS.Course;
+  GPS_DD = FOCAL_GPS.DD;
+  GPS_MM = FOCAL_GPS.MM;
+  GPS_YY = FOCAL_GPS.YY;
+  GPS_Nav_status = FOCAL_GPS.Nav_status;
+  GPS_N_RMC = FOCAL_GPS.N_RMC;
+  
+  GPS_Fix_Q = FOCAL_GPS.Fix_Q;
+  GPS_N_Sats = FOCAL_GPS.N_Sats;
+  GPS_HDOP = FOCAL_GPS.HDOP;
+  GPS_Alt = FOCAL_GPS.Alt;
+  GPS_N_GGA = FOCAL_GPS.N_GGA;
+
+  GPS_N_other = FOCAL_GPS.N_other;
+  GPS_N_errors = FOCAL_GPS.N_errors;
+  
+  GPS_mlf_time = FOCAL_GPS.mlf_time;
+  GPS_mlf_idx = FOCAL_GPS.mlf_index;
+
+  GPS_stale = FOCAL_GPS_obj->Stale(255);
+  FOCAL_GPS_obj->synch();
+}

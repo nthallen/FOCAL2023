@@ -1,0 +1,25 @@
+ 1 GPS_TDrift  @Panel@GPS Drift %.3lf
+ 1 GPS_Lat     @Panel@GPS Lat   %11.6lf
+ 1 GPS_Lon     @Panel@GPS Lon   %11.6lf
+ 1 GPS_Alt     @Panel@GPS Alt
+ 1 GPS_Speed   @Panel@GPS Speed
+ 1 GPS_Course  @Panel@GPS Course
+
+ 1 GPS_N_RMC    @Panel@GPS_HK_N N_RMC
+ 1 GPS_N_GGA    @Panel@GPS_HK_N N_GGA
+ 1 GPS_N_other  @Panel@GPS_HK_N N_other
+ 1 GPS_N_errors @Panel@GPS_HK_N N_errors
+ 1 GPS_N_Sats   @Panel@GPS_HK_N N_Sats
+ 1 GPS_HDOP     @Panel@GPS_HK   HDOP
+ 1 GPS_Fix:GPS_Fix_Q:0        @Panel@GPS_HK Status %.0lf Fix
+ 1 GPS_warn:GPS_Nav_status:0  @Panel@GPS_HK Status %.0lf Warn
+ 1 GPS_stale    @Panel@GPS_HK   Stale
+
+ 1 GPS_mlf_time  @Panel@GPS_mlf dTime
+ 1 GPS_mlf_idx  @Panel@GPS_mlf  FileIdx
+
+ 1 GPS_DD       @Panel@GPS_DD Date %.0lf DD
+ 1 GPS_MM       @Panel@GPS_DD Date %.0lf MM
+ 1 GPS_YY       @Panel@GPS_DD Date %.0lf YY
+ 1 GPS_secs_UTC @Panel@GPD_DD Secs %.3lf
+
