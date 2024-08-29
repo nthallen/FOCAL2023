@@ -150,7 +150,7 @@ bool GPS::not_GPSTime(int32_t &msecs_UTC)
       not_float(sec) ||
       not_str(","))
     return true;
-  msecs_UTC = floor(sec*1000) + min*60. + hour*3600.;
+  msecs_UTC = floor(sec*1000) + min*60000 + hour*3600000;
   return false;
 }
 

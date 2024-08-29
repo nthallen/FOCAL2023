@@ -93,5 +93,7 @@ function dns {
 
   [ -e "$Wind_port" ] &&
   Launch      -          windmaster -p $Wind_port -c $(mlf_find Wind)
+  [ -e "$GPS_port" ] &&
+  Launch      -          focalgps -p $GPS_port -c $(mlf_find GPS)
 
   Launch      -TMC-      focalalgo -v

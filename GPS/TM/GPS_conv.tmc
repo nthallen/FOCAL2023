@@ -10,7 +10,7 @@
   #include <cmath>
   #include <time.h>
 
-  double calc_GPS_drift(double TMtime, double GPS_secs,
+  double calc_GPS_drift(double TMtime, int32_t GPS_msecs,
       uint8_t YY, uint8_t MM, uint8_t DD) {
     struct tm buft;
     time_t ltime;
@@ -18,16 +18,12 @@
     buft.tm_year = YY+100; // Years since 1900
     buft.tm_mon = MM-1;
     buft.tm_mday = DD;
-    int GPS_minutes = floor(GPS_secs/60);
-    double just_secs = GPS_secs - 60*GPS_minutes;
-    int GPS_hours = GPS_minutes/60;
-    GPS_minutes -= GPS_hours*60;
-    buft.tm_hour = GPS_hours;
-    buft.tm_min = GPS_minutes;
+    buft.tm_hour = 0;
+    buft.tm_min = 0;
     buft.tm_sec = 0;
     buft.tm_isdst = 0;
     ltime = mktime(&buft);
-    double GPS_time = ltime + just_secs;
+    double GPS_time = ltime + GPS_msecs/1000.;
     double GPS_TDrift = TMtime - GPS_time;
     return GPS_TDrift;
   }
@@ -38,7 +34,7 @@ TM typedef double GPS_TDrift_t { text "%8.3lf"; }
 
 GPS_TDrift_t GPS_TDrift; Invalidate GPS_TDrift;
 { GPS_TDrift =
-    calc_GPS_drift(dtime(), GPS_secs_UTC,
+    calc_GPS_drift(dtime(), GPS_msecs_UTC,
       GPS_YY, GPS_MM, GPS_DD);
   Validate GPS_TDrift;
 }
@@ -63,7 +59,7 @@ GPS_ordinal_t GPS_Lat_ord; Invalidate GPS_Lat_ord;
       GPS_Lat_Ord = 0; /* North */
     }
     GPS_Lat_deg = pLat/600000;
-    GPS_Lat_min = (GPS_Lat - GPS_Lat_deg*600000)/10000.;
+    GPS_Lat_min = (pLat - GPS_Lat_deg*600000)/10000.;
   }
   Validate GPS_Lat;
   Validate GPS_Lat_deg;
@@ -84,14 +80,14 @@ GPS_ordinal_t GPS_Lon_ord; Invalidate GPS_Lon_ord;
   } else {
     GPS_Lon = GPS_Lon_min_em4/600000.;
     if (GPS_Lon < 0) {
-      pLon = -GPS_Lon;
+      pLon = -GPS_Lon_min_em4;
       GPS_Lon_Ord = 3; /* East */
     } else {
-      pLon = GPS_Lon;
+      pLon = GPS_Lon_min_em4;
       GPS_Lon_Ord = 2; /* West */
     }
     GPS_Lon_deg = pLon/600000;
-    GPS_Lon_min = (GPS_Lon - GPS_Lon_deg*600000)/10000.;
+    GPS_Lon_min = (pLon - GPS_Lon_deg*600000)/10000.;
   }
   Validate GPS_Lon;
   Validate GPS_Lon_deg;

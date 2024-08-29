@@ -41,3 +41,5 @@ focaldisp : digio_conv.tmc $extbase \
 focaljsonext : digio_conv.tmc $extbase $genuibase
 focalalgo : focal.tma
 doit : focal.doit
+%%
+CXXFLAGS=-g

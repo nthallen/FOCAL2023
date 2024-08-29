@@ -18,10 +18,12 @@
  1 GPS_mlf_time  @Panel@GPS_mlf dTime
  1 GPS_mlf_idx  @Panel@GPS_mlf  FileIdx
 
+@DBG@ 1 GPS_msecs_UTC @Panel@GPS_Time msecs_UTC %.0lf
+@DBG@ 1 GPS_TDrift    @Panel@GPS_Time Drift %.3lf
+
 @DBG@ 1 GPS_DD       @Panel@GPS_DD Date %.0lf DD
 @DBG@ 1 GPS_MM       @Panel@GPS_DD Date %.0lf MM
 @DBG@ 1 GPS_YY       @Panel@GPS_DD Date %.0lf YY
-@DBG@ 1 GPS_secs_UTC @Panel@GPS_DD Secs %.3lf
 
 @DBG@ 1 GPS_Lat      @Panel@GPS_Lat dbl %.6lf
 @DBG@ 1 GPS_Lat_min_em4 @Panel@GPS_Lat min_em4 %.0lf

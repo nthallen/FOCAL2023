@@ -27,7 +27,8 @@
     }
   }
 %}
-TM typedef double GPS_secs_UTC_t { text "%9.3lf"; }
+TM typedef int32_t GPS_msecs_UTC_t { text "%lld"; }
+/* TM typedef double GPS_secs_UTC_t { text "%9.3lf"; } */
 TM typedef double GPS_degmin_t { text "11.6lf"; }
 TM typedef int16_t GPS_deg_t { text "%3d"; }
 TM typedef double GPS_min_t { text "%7.4lf"; }
@@ -44,15 +45,11 @@ TM typedef int32_t GPS_dTime_t { text "%7.3lf"; }
 
 TM typedef uint8_t GPS_stale_t { text "%3u"; }
 
-TM typedef uint32_t GPS_msecs_UTC_t {
-  text "%9.3lf";
-  convert GPS_secs_UTC_t GPS_msecs2secs();
-}
 TM typedef int32_t GPS_min_em4_t {
   text "%11d";
 }
 
-TM 1 Hz GPS_secs_UTC_t GPS_secs_UTC;
+TM 1 Hz GPS_msecs_UTC_t GPS_msecs_UTC;
 TM 1 Hz GPS_min_em4_t  GPS_Lat_min_em4;
 TM 1 Hz GPS_min_em4_t  GPS_Lon_min_em4;
 TM 1 Hz GPS_Speed_t    GPS_Speed;
@@ -79,7 +76,7 @@ TM 1 Hz GPS_stale_t    GPS_stale;
 
 TM "Receive" FOCAL_GPS 1;
 
-group FOCAL_GPS (GPS_secs_UTC,
+group FOCAL_GPS (GPS_msecs_UTC,
         GPS_Lat_min_em4, GPS_Lon_min_em4,
         GPS_Speed, GPS_Course, GPS_DD, GPS_MM, GPS_YY,
         GPS_Nav_status, GPS_N_RMC,
@@ -89,7 +86,7 @@ group FOCAL_GPS (GPS_secs_UTC,
         GPS_stale
       )
 {
-  GPS_secs_UTC = FOCAL_GPS.msecs_UTC;
+  GPS_msecs_UTC = FOCAL_GPS.msecs_UTC;
   GPS_Lat_min_em4 = FOCAL_GPS.Lat_min_em4;
   GPS_Lon_min_em4 = FOCAL_GPS.Lon_min_em4;
   GPS_Speed = FOCAL_GPS.Speed;
