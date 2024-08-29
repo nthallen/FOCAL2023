@@ -79,6 +79,8 @@ Wind.genui
 Wind.tbl
 Wind.tmc
 Wind_col.tmc
+GPS.genui
+GPS.tbl
 focalcmd.cc
 focalcmd.dat
 focalcmd.h
@@ -100,6 +102,7 @@ GDStblnc.tmc
 GDS_COEtblnc.tmc
 GDS_Baytblnc.tmc
 Windtblnc.tmc
+GPStblnc.tmc
 focaldispnc.cc
 focaldispncoui.cc
 focaldispnc.o
@@ -142,6 +145,7 @@ GDStblnc.tmc.dep
 GDS_COEtblnc.tmc.dep
 GDS_Baytblnc.tmc.dep
 Windtblnc.tmc.dep
+GPStblnc.tmc.dep
 *.err
 freemem.tmc
 TMbase.genui
@@ -216,6 +220,8 @@ Wind.genui
 Wind.tbl
 Wind.tmc
 Wind_col.tmc
+GPS.genui
+GPS.tbl
 Makefile
 *.o
 *.exe

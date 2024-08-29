@@ -105,7 +105,7 @@ bool GPS::protocol_input()
             report_ok(0);
           }
         } else if (!strcmp(KW,"GNGGA")) {
-          uint8_t Fix_Q, NSats;
+          uint8_t Fix_Q, N_Sats;
           float HDOP, Alt;
           if (not_found(',') || // skip time
               not_found(',') || // Lat
@@ -113,13 +113,13 @@ bool GPS::protocol_input()
               not_found(',') || // Lon
               not_found(',') || // Lon ordinal
               not_uint8(Fix_Q) || not_str(",") ||
-              not_uint8(NSats) || not_str(",") ||
+              not_uint8(N_Sats) || not_str(",") ||
               not_nfloat(&HDOP) || not_str(",") ||
               not_nfloat(&Alt) || not_str(",")) {
             ++FOCAL_GPS.N_errors;
           } else {
             FOCAL_GPS.Fix_Q = Fix_Q;
-            FOCAL_GPS.NSats = NSats;
+            FOCAL_GPS.N_Sats = N_Sats;
             FOCAL_GPS.HDOP = HDOP;
             FOCAL_GPS.Alt = Alt;
             ++FOCAL_GPS.N_GGA;
