@@ -19,4 +19,4 @@
 <include> msg oui
 <preceed> msg oui
 <defs>
-  DAS_IO::AppID_t DAS_IO::AppID("GPS", "FOCAL GPS Driver", "V1.0");
+  DAS_IO::AppID_t DAS_IO::AppID("FOCAL_GPS", "FOCAL GPS Driver", "V1.0");

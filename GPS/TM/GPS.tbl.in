@@ -2,8 +2,8 @@ Input "TMbase.tbl";
 
 GPS_pos {
   HBox { +-; "GPS Position"; -+ };
-  Lat: (GPS_Lat_deg,4) deg HBox{ (GPS_Lat_min,7); "'" } (GPS_Lat_ord,1);
-  Lon: (GPS_Lon_deg,4) deg HBox{ (GPS_Lon_min,7); "'" } (GPS_Lon_ord,1);
+  Lat: (GPS_Lat_deg,3) deg HBox{ (GPS_Lat_min,7); "'" } (GPS_Lat_ord,1);
+  Lon: (GPS_Lon_deg,3) deg HBox{ (GPS_Lon_min,7); "'" } (GPS_Lon_ord,1);
 }
 
 GPS_data {

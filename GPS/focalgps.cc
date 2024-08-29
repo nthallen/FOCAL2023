@@ -30,6 +30,7 @@ GPS::GPS() :
   FileTstamp.tv_sec = FileTstamp.tv_nsec = 0;
   flags |= gflag(0);
   setup(9600,8,'n',1,-1,0);
+  flush_input();
 }
 
 bool GPS::protocol_input()
@@ -39,7 +40,7 @@ bool GPS::protocol_input()
   uint16_t cksum;
   unsigned parsed = 0;
   bool no_KW;
-  char KW[31], Nav_stat[31], RMC_Mode[31];
+  char KW[31], Nav_stat[31];
   while (nc > cp) {
     if (not_found('$')) {
       parsed = nc;
@@ -67,19 +68,23 @@ bool GPS::protocol_input()
         cp = parsed_saved + 7;
         if (!strcmp(KW,"GNRMC")) {
           int32_t msecs_UTC;
-          double Lat, Lon;
+          int32_t Lat_min_em4, Lon_min_em4;
           float Speed, Course;
           int YY, MM, DD;
-          if (not_GPSTime(msecs_UTC) || not_str(",") ||
+          if (not_GPSTime(msecs_UTC) ||
               not_KW(Nav_stat) || // Must be either 'A' or 'V'
-              not_GPSLat(Lat) ||
-              not_GPSLon(Lon) ||
+              not_GPSLat(Lat_min_em4) ||
+              not_GPSLon(Lon_min_em4) ||
               not_float(Speed) || not_str(",") ||
               not_float(Course) || not_str(",") ||
               not_ndigits(2,DD) ||
               not_ndigits(2,MM) ||
               not_ndigits(2,YY) || not_str(",") ||
-              not_KW(RMC_Mode) || not_str("*")
+              // skip magnetic deviation
+              not_found(',',true) || not_found(',',true)
+              // Can't use not_KW() here because no comma.
+              // We'll just skip it.
+              // || not_KW(RMC_Mode)
               ) {
             report_err("%s: Error parsing GNRMC", iname);
             ++FOCAL_GPS.N_errors;
@@ -90,12 +95,8 @@ bool GPS::protocol_input()
               case 'V': FOCAL_GPS.Nav_status = 1; break;
               default:  FOCAL_GPS.Nav_status = 2; break;
             }
-            FOCAL_GPS.Lat_min_em4 =
-              (Lat>0) ? floor(Lat*600000.)
-                      :  ceil(Lat*600000.);
-            FOCAL_GPS.Lon_min_em4 =
-              (Lon>0) ? floor(Lon*600000.)
-                      :  ceil(Lon*600000.);
+            FOCAL_GPS.Lat_min_em4 = Lat_min_em4;
+            FOCAL_GPS.Lon_min_em4 = Lon_min_em4;
             FOCAL_GPS.Speed = Speed;
             FOCAL_GPS.Course = Course;
             FOCAL_GPS.DD = DD;
@@ -115,7 +116,7 @@ bool GPS::protocol_input()
               not_uint8(Fix_Q) || not_str(",") ||
               not_uint8(N_Sats) || not_str(",") ||
               not_nfloat(&HDOP) || not_str(",") ||
-              not_nfloat(&Alt) || not_str(",")) {
+              not_nfloat(&Alt,999999.) || not_str(",")) {
             ++FOCAL_GPS.N_errors;
           } else {
             FOCAL_GPS.Fix_Q = Fix_Q;
@@ -153,26 +154,29 @@ bool GPS::not_GPSTime(int32_t &msecs_UTC)
   return false;
 }
 
-bool GPS::not_GPSLatLon(double &deg, int n_digits_deg, const char *ordinals)
+bool GPS::not_GPSLatLon(int32_t &min_em4, int n_digits_deg, const char *ordinals)
 {
   int whole_deg;
-  double minutes;
+  double deg, minutes;
+  
   if (buf[cp] == ',' && buf[cp+1] == ',')
   {
-    deg = 9999;
+    cp += 2;
+    min_em4 = 1999*600000;
     return false;
   }
   if (not_ndigits(n_digits_deg, whole_deg) ||
       not_double(minutes) || not_str(","))
     return true;
   deg = whole_deg + minutes/60.;
+  min_em4 = floor(deg*600000.);
   if (buf[cp] == ordinals[0] && buf[cp+1] == ',') {
     cp += 2;
     return false;
   }
   if (buf[cp] == ordinals[1] && buf[cp+1] == ',') {
     cp += 2;
-    deg = -deg;
+    min_em4 = -min_em4;
     return false;
   }
   return true; // mismatched ordinal?
@@ -285,7 +289,7 @@ int main(int argc, char **argv) {
   if (!GPS::port)
     msg(MSG_FATAL,
       "Must specify GPS serial port with -p option");
-  AppID.new_name(GPS::mlf_base);
+  // AppID.new_name(GPS::mlf_base);
   AppID.report_startup();
   {
     Loop ELoop;

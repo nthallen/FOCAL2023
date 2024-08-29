@@ -1,5 +1,6 @@
-Moduledef GPS [ Panel= TBLNAME= ] {
+Moduledef GPS [ Panel= TBLNAME= DBG=# ] {
   Panel definition must include a trailing colon
+  Define DBG= in order to get extra debugging vars and graphs
 }
 
 tmcbase = GPS.tmc

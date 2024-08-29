@@ -1,6 +1,6 @@
  1 GPS_TDrift  @Panel@GPS Drift %.3lf
- 1 GPS_Lat     @Panel@GPS Lat   %11.6lf
- 1 GPS_Lon     @Panel@GPS Lon   %11.6lf
+ 1 GPS_Lat     @Panel@GPS Lat   %.6lf
+ 1 GPS_Lon     @Panel@GPS Lon   %.6lf
  1 GPS_Alt     @Panel@GPS Alt
  1 GPS_Speed   @Panel@GPS Speed
  1 GPS_Course  @Panel@GPS Course
@@ -18,8 +18,19 @@
  1 GPS_mlf_time  @Panel@GPS_mlf dTime
  1 GPS_mlf_idx  @Panel@GPS_mlf  FileIdx
 
- 1 GPS_DD       @Panel@GPS_DD Date %.0lf DD
- 1 GPS_MM       @Panel@GPS_DD Date %.0lf MM
- 1 GPS_YY       @Panel@GPS_DD Date %.0lf YY
- 1 GPS_secs_UTC @Panel@GPD_DD Secs %.3lf
+@DBG@ 1 GPS_DD       @Panel@GPS_DD Date %.0lf DD
+@DBG@ 1 GPS_MM       @Panel@GPS_DD Date %.0lf MM
+@DBG@ 1 GPS_YY       @Panel@GPS_DD Date %.0lf YY
+@DBG@ 1 GPS_secs_UTC @Panel@GPS_DD Secs %.3lf
 
+@DBG@ 1 GPS_Lat      @Panel@GPS_Lat dbl %.6lf
+@DBG@ 1 GPS_Lat_min_em4 @Panel@GPS_Lat min_em4 %.0lf
+@DBG@ 1 GPS_Lat_deg @Panel@GPS_Lat deg     %.0lf
+@DBG@ 1 GPS_Lat_min @Panel@GPS_Lat min     %.4lf
+@DBG@ 1 GPS_Lat_ord @Panel@GPS_Lat ord     %.0lf
+
+@DBG@ 1 GPS_Lon      @Panel@GPS_Lon dbl %.6lf
+@DBG@ 1 GPS_Lon_min_em4 @Panel@GPS_Lon min_em4 %.0lf
+@DBG@ 1 GPS_Lon_deg @Panel@GPS_Lon deg     %.0lf
+@DBG@ 1 GPS_Lon_min @Panel@GPS_Lon min     %.4lf
+@DBG@ 1 GPS_Lon_ord @Panel@GPS_Lon ord     %.0lf

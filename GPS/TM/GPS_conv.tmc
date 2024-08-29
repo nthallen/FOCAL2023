@@ -43,37 +43,57 @@ GPS_TDrift_t GPS_TDrift; Invalidate GPS_TDrift;
   Validate GPS_TDrift;
 }
 
+GPS_degmin_t GPS_Lat; Invalidate GPS_Lat;
 GPS_deg_t GPS_Lat_deg; Invalidate GPS_Lat_deg;
 GPS_min_t GPS_Lat_min; Invalidate GPS_Lat_min;
 GPS_ordinal_t GPS_Lat_ord; Invalidate GPS_Lat_ord;
 { int32_t pLat;
-  if (GPS_Lat < 0) {
-    pLat = -GPS_Lat;
-    GPS_Lat_Ord = 1; /* South */
+  if (GPS_Lat_min_em4 > 1990*600000) {
+    GPS_Lat = 9999.;
+    GPS_Lat_deg = 9999;
+    GPS_Lat_min = 9999.;
+    GPS_Lat_Ord = 5;
   } else {
-    pLat = GPS_Lat;
-    GPS_Lat_Ord = 0; /* North */
+    GPS_Lat = GPS_Lat_min_em4/600000.;
+    if (GPS_Lat_min_em4 < 0) {
+      pLat = -GPS_Lat_min_em4;
+      GPS_Lat_Ord = 1; /* South */
+    } else {
+      pLat = GPS_Lat_min_em4;
+      GPS_Lat_Ord = 0; /* North */
+    }
+    GPS_Lat_deg = pLat/600000;
+    GPS_Lat_min = (GPS_Lat - GPS_Lat_deg*600000)/10000.;
   }
-  GPS_Lat_deg = pLat/600000;
-  GPS_Lat_min = (GPS_Lat - GPS_Lat_deg*600000)/10000.;
+  Validate GPS_Lat;
   Validate GPS_Lat_deg;
   Validate GPS_Lat_min;
   Validate GPS_Lat_ord;
 }
 
+GPS_degmin_t GPS_Lon; Invalidate GPS_Lon;
 GPS_deg_t GPS_Lon_deg; Invalidate GPS_Lon_deg;
 GPS_min_t GPS_Lon_min; Invalidate GPS_Lon_min;
 GPS_ordinal_t GPS_Lon_ord; Invalidate GPS_Lon_ord;
 { int32_t pLon;
-  if (GPS_Lon < 0) {
-    pLon = -GPS_Lon;
-    GPS_Lon_Ord = 3; /* East */
+  if (GPS_Lon_min_em4 > 1990*600000) {
+    GPS_Lon = 9999.;
+    GPS_Lon_deg = 9999;
+    GPS_Lon_min = 9999.;
+    GPS_Lon_Ord = 5;
   } else {
-    pLon = GPS_Lon;
-    GPS_Lon_Ord = 2; /* West */
+    GPS_Lon = GPS_Lon_min_em4/600000.;
+    if (GPS_Lon < 0) {
+      pLon = -GPS_Lon;
+      GPS_Lon_Ord = 3; /* East */
+    } else {
+      pLon = GPS_Lon;
+      GPS_Lon_Ord = 2; /* West */
+    }
+    GPS_Lon_deg = pLon/600000;
+    GPS_Lon_min = (GPS_Lon - GPS_Lon_deg*600000)/10000.;
   }
-  GPS_Lon_deg = pLon/600000;
-  GPS_Lon_min = (GPS_Lon - GPS_Lon_deg*600000)/10000.;
+  Validate GPS_Lon;
   Validate GPS_Lon_deg;
   Validate GPS_Lon_min;
   Validate GPS_Lon_ord;

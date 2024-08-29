@@ -47,24 +47,24 @@ class GPS : public Serial
      *
      * On success, cp is positioned after the comma following the ordinal letter.
      */
-    bool not_GPSLatLon(double &deg, int n_digits_deg, const char *ordinals);
+    bool not_GPSLatLon(int32_t &min_em4, int n_digits_deg, const char *ordinals);
 
     /**
      * @param deg On success records degrees of North Latitude
      * @return false on success
      */
-    inline bool not_GPSLat(double &deg)
+    inline bool not_GPSLat(int32_t &min_em4)
     {
-      return not_GPSLatLon(deg, 2, "NS");
+      return not_GPSLatLon(min_em4, 2, "NS");
     }
 
     /**
      * @param deg On success records degress of West Longitude
      * @return false on success
      */
-    inline bool not_GPSLon(double &deg)
+    inline bool not_GPSLon(int32_t &min_em4)
     {
-      return not_GPSLatLon(deg, 3, "WE"); 
+      return not_GPSLatLon(min_em4, 3, "WE"); 
     }
     
     mlf_def_t *mlf;
