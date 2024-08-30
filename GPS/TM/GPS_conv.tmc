@@ -9,6 +9,7 @@
    */
   #include <cmath>
   #include <time.h>
+  #include <stdlib.h>
 
   double calc_GPS_drift(double TMtime, int32_t GPS_msecs,
       uint8_t YY, uint8_t MM, uint8_t DD) {
@@ -29,6 +30,9 @@
   }
   
 %}
+/* Force UTC for mktime() */
+TM INITFUNC setenv("TZ", "UTC0", 1);
+
 /* Drift is defined as TM_time - GPS_time */
 TM typedef double GPS_TDrift_t { text "%8.3lf"; }
 

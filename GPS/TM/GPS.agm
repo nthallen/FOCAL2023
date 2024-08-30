@@ -11,7 +11,9 @@ genuibase = GPS.genui:GPS.genui.in
 IGNORE = GPS.genui GPS.tbl
 OBJ = GPS.genui GPS.tbl
 DISTRIB = @MODDIR@/../focalgps
-CPPFLAGS = -I @MODDIR@/..
+
+# Need _DEFAULT_SOURCE for setenv(), which we need for mktime()
+CPPFLAGS = -I @MODDIR@/.. -D_DEFAULT_SOURCE
 %%
 .PHONY : clean-GPS @MODDIR@/../focalgps
 @MODDIR@/../focalgps :
