@@ -1,8 +1,8 @@
-function HCIeng2PT
+function FOCALeng2PT
 %This is a customized eng to PT file conversion program for HCI.
 %This creates the PT.mat file required by the ICOSfit programs.
 cfg = load_ICOSfit_cfg;
-runs = ne_load_runsdir('HCI_Data_Dir');
+runs = ne_load_runsdir('FOCAL_DATA_DIR');
 run = getrun(1);
 E = load_eng('focaleng_1.mat', runs, run);
 %E10 = load_eng('HCIeng_10.mat', runs, run);
@@ -14,9 +14,8 @@ T1 = E.Tfocaleng_1;
 
 if strcmp(cfg.ScanDir,'SSP_C')
     PT.TPT = T1;
-    PT.CellP = E.M_AbsP_P; %cell pressure (in Torr) to use for fit
-    % PT.Tavg = 273.15 + (E10.CCel1T + E10.CCel2T)/2; %gas temp (in K) to use for fit
-     PT.Tavg = 273.15 + E.CH4_SamInT; %gas temp (in K) to use for fit
+    PT.CellP = E.C_AbsP_P; %cell pressure (in Torr) to use for fit
+    PT.Tavg = 273.15 + E.CO2_SamInT; %gas temp (in K) to use for fit
       PT.ScanNum = E.SSP_C_Num;
     PT.QCLI_Wave = E.QCLI_C_Wave; %for example QCLI_C_Wave
 elseif strcmp(cfg.ScanDir,'SSP_M') || strcmp(cfg.ScanDir,'SSP_Mo')
