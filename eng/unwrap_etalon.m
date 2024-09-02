@@ -1,15 +1,31 @@
-function unwrap_etalon(ibase,obase)
+function unwrap_etalon(ibase,obase,invert,scannums)
 % unwrap_scans([ibase[,obase]]);
 % This program is useful if spectra are inverted. It is better to fix it in hardware. 
 % Should be customized for each axis and probably a specific version should be made 
 % and copied into local directories.
+% If invert is present and non-zero, the etalon will be inverted. If it is
+% not present, no inversion will be performed.
+% If scannums is present, only those scans will be unwrapped. If scannums
+% is omitted, all scans will be unwrapped.
 if nargin < 1 || isempty(ibase)
    ibase = find_scans_dir;
 end
 if nargin < 2 || isempty(obase)
    obase = [ ibase 'o' ];
 end
-[wvs,ranges] = waves_used;
+if nargin < 3
+  invert = 0;
+end
+if nargin < 4 || isempty(scannums)
+  [wvs,ranges] = waves_used;
+else
+  [wvs,ranges] = waves_used(scannums);
+end
+if invert
+  invertx = -1;
+else
+  invertx = 1;
+end
 for wvsi = 1:length(ranges)
   wv = wvs(wvsi);
   if wv.ISICOS
@@ -26,7 +42,7 @@ for wvsi = 1:length(ranges)
           warning('File not found: %d => %s', scan, ibase);
         else
           fo = fi;
-          fo(:,2) = 2*(fi(:,2) > wrap)*wrap - fi(:,2);
+          fo(:,2) = invertx*(fi(:,2) - 2*(fi(:,2) > wrap)*wrap);
           po = mlf_path(obase,scan);
           mlf_mkdir(obase,scan);
           writebin( po, fo, hdr );
