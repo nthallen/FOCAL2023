@@ -10,7 +10,7 @@ GPS_data {
   HBox { +-; "GPS"; -+ };
   Drift:  (GPS_TDrift,8) sec;
   Alt:    (GPS_Alt,7)    m;
-  Speed:  (GPS_Speed,7)  "m/s";
+  Speed:  (GPS_Speed,7)  "kts";
   Course: (GPS_Course,7) deg;
 }
 
