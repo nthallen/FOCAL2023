@@ -1,5 +1,5 @@
 function unwrap_etalon(ibase,obase,invert,scannums)
-% unwrap_scans([ibase[,obase]]);
+% unwrap_etalon([ibase[,obase[,invert[,scannums]]]]);
 % This program is useful if spectra are inverted. It is better to fix it in hardware. 
 % Should be customized for each axis and probably a specific version should be made 
 % and copied into local directories.
@@ -30,7 +30,6 @@ for wvsi = 1:length(ranges)
   wv = wvs(wvsi);
   if wv.ISICOS
     %ZR = 5:wv.TzSamples;
-    wrap = (2^31)/(wv.NAverage*wv.NCoadd);
     for rngi = 1:size(ranges(wvsi).ranges,1)
       range = ranges(wvsi).ranges(rngi,:);
       scans = range(1):range(2);
@@ -41,6 +40,7 @@ for wvsi = 1:length(ranges)
         if isempty(fi)
           warning('File not found: %d => %s', scan, ibase);
         else
+          wrap = (2^31)/((hdr.NAvg+1)*hdr.NCoadd);
           fo = fi;
           fo(:,2) = invertx*(fi(:,2) - 2*(fi(:,2) > wrap)*wrap);
           po = mlf_path(obase,scan);
