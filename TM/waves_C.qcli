@@ -5,25 +5,18 @@ QCLIConfig StandardxP33;
 Digitizer SSP;
 Prefix QCLI_C;
 
-ICOS Waveform M3Db_600Hz {
-  SampleRate = 100 MHz/84;
-  Ncoadd = 560;
-  Tz = 5%;
-  Ramp from 600 mA to 730 mA in 1.5 msec;
-}
-
 ICOS Waveform C2Cd_800Hz {
   SampleRate = 100 MHz/56;
-  Ncoadd = 799;
+  Ncoadd = 763;
   Tz = 10%;
-  Ramp from 700 mA to 850 mA in 1 msec;
+  Ramp from 700 mA to 830 mA in 1 msec;
 }
 
 ICOS Waveform C2Cd_800Hz10Hz {
   SampleRate = 100 MHz/56;
-  Ncoadd = 80;
+  Ncoadd = 76;
   Tz = 10%;
-  Ramp from 700 mA to 850 mA in 1 msec;
+  Ramp from 700 mA to 830 mA in 1 msec;
 }
 
 ICOS Waveform C1Dd_800Hz {
