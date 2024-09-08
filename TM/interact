@@ -17,9 +17,11 @@
 # Gil Anemometer $Wind_port
 
 Wind_port=/dev/ttyS1
+# GPS_port should be determined by usb_enum
+GPS_port=/dev/ttyS24
 
-/usr/local/libexec/usb_enum >>usb_enum.log
-. ./usb_enum.log
+#/usr/local/libexec/usb_enum >>usb_enum.log
+#. ./usb_enum.log
 
 function dns {
   msgf 0 "`date +%T` Suppressing: $*"

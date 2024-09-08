@@ -1,0 +1,9 @@
+# ICMtest.tbl
+Input "TMbase.tbl";
+Input "ICM20948.tbl";
+
+{ HBox {
+    |+; [ICM20948]; |+; [ICM20948_Peaks_0]; |+; [TMbaseB]; |+;
+  };
+  -;
+}

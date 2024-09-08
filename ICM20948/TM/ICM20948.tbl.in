@@ -1,0 +1,25 @@
+ICM20948 {
+  HBox { +-; ICM20948; -+ };
+  HBox {
+    {
+      Max:   (ICM_max_g,7) g;
+      Rate:    (ICM_sps,5) Hz;
+      Rem0:   (ICM_rem0,5);
+      Rem1:   (ICM_rem1,5);
+    }; |; {
+      msecs: (ICM_msecs,5) msecs;
+      MLF:     (ICM_mlf,5);
+      Mode: HBox{(ICM_nack,1); (ICM_mode,3)};
+      Scale:   (ICM_fsc,7) g;
+      Stale: (ICM_stale,3);
+    }
+  }
+}
+
+ICM20948_Peaks_0 {
+@PKC@  HBox { +-; "ICM20948 Peaks"; -+ };
+@PKC@  >Freq<                 >Amp<;
+@PKC@  (ICM_peak_f_0_0,5) (ICM_peak_amp_0_0,5);
+@PKC@  (ICM_peak_f_0_1,5) (ICM_peak_amp_0_1,5);
+@PKC@  (ICM_peak_f_0_2,5) (ICM_peak_amp_0_2,5);
+}

@@ -1,0 +1,31 @@
+ModuleDef ICM20948 [ Panel= HKPanel= PK0= PK1= PKC= ] {
+  ICM20948/uDACS16 Vibration Sensor Driver
+}
+
+colbase = ICM20948_col.tmc
+cmdbase = ICM20948.cmd
+extbase = ICM20948_conv.tmc
+
+mode (default) {
+tmcbase = ICM20948.tmc:ICM20948.tmc.in
+genuibase = ICM20948.genui:ICM20948.genui.in
+- : ICM20948.tbl:ICM20948.tbl.in
+}
+
+mode (nopeaks) [ PK0=/* PK1=*/ PKC=# ] {
+tmcbase = ICM20948.tmc:ICM20948.tmc.in
+genuibase = ICM20948.genui:ICM20948.genui.in
+- : ICM20948.tbl:ICM20948.tbl.in
+}
+
+DISTRIB = @MODDIR@/../ICM20948
+CPPFLAGS = -I @MODDIR@/..
+IGNORE = ICM20948.tmc ICM20948.tbl ICM20948.genui
+OBJ = ICM20948.tmc ICM20948.tbl ICM20948.genui
+%%
+.PHONY : clean-ICM20948 @MODDIR@/../ICM20948
+@MODDIR@/../ICM20948 :
+	$(MAKE) --directory=@MODDIR@/..
+clean-dist : clean-ICM20948
+clean-ICM20948 :
+	$(MAKE) --directory=@MODDIR@/.. clean
