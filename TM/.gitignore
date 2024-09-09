@@ -98,8 +98,7 @@ uDACStblnc.tmc
 MEtblnc.tmc
 alicattblnc.tmc
 GDSestblnc.tmc
-Windtblnc.tmc
-GPStblnc.tmc
+Wind_GPS_Acceltblnc.tmc
 focaldispnc.cc
 focaldispncoui.cc
 focaldispnc.o
@@ -138,8 +137,7 @@ uDACStblnc.tmc.dep
 MEtblnc.tmc.dep
 alicattblnc.tmc.dep
 GDSestblnc.tmc.dep
-Windtblnc.tmc.dep
-GPStblnc.tmc.dep
+Wind_GPS_Acceltblnc.tmc.dep
 *.err
 freemem.tmc
 TMbase.genui

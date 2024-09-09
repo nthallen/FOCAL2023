@@ -1,0 +1,27 @@
+Input "Wind.tbl";
+Input "GPS.tbl";
+Input "TMbase.tbl";
+
+{
+  HBox {
+    |+;
+    {
+      HBox {
+        {
+          [Wind_data];
+          [Wind_HK];
+        };
+        |+;
+        {
+          [GPS_pos];
+          [GPS_data];
+          [GPS_HK];
+        };
+      };
+      +-+;
+      [TMbase_htimes];
+    };
+    |+;
+  };
+  -
+}
