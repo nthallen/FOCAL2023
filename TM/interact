@@ -20,8 +20,8 @@
 Wind_port=/dev/ttyS1
 Accel_port=/dev/ttyS2
 
-#/usr/local/libexec/usb_enum >>usb_enum.log
-#. ./usb_enum.log
+/usr/local/libexec/usb_enum >>usb_enum.log
+. ./usb_enum.log
 
 function dns {
   msgf 0 "`date +%T` Suppressing: $*"
