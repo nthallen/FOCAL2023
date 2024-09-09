@@ -1,16 +1,30 @@
 # ME.tbl
-Input "ME_Bay.tbl";
-Input "ME_CO2.tbl";
-Input "ME_CH4.tbl";
+#Input "ME_Bay.tbl";
+#Input "ME_CO2.tbl";
+#Input "ME_CH4.tbl";
 Input "TMbase.tbl";
 
-{ HBox { |+; {
-    [ME_Bay];
-    [ME_CO2];
-    [ME_CH4];
-    +-+;
-    [TMbase_htimes];
-    }; |+;
+ME {
+  HBox { +-; Title: "Temperature Control"; -+ };
+  ""         >Status<             >Drv<            >Stl<            >Sink<              >Set<
+    >T<          >V<                       >A<;
+  Fwd_Gas: (Fwd_Gas_DevStatus,7) (ME_Bay_Stale,3) (Fwd_Gas_Stale,3) (Fwd_Gas_Sink_T,7) (Fwd_Gas_Set_T,7)
+   (Fwd_Gas_T,7)(Fwd_Gas_OutputVoltage,7) (Fwd_Gas_OutputCurrent,7);
+  CO2_QCL: (CO2_QCL_DevStatus,7) (ME_CO2_Stale,3) (CO2_QCL_Stale,3) (CO2_QCL_Sink_T,7) (CO2_QCL_Set_T,7)
+   (CO2_QCL_T,7)(CO2_QCL_OutputVoltage,7) (CO2_QCL_OutputCurrent,7);
+  CH4_QCL: (CH4_QCL_DevStatus,7) (ME_CH4_Stale,3) (CH4_QCL_Stale,3) (CH4_QCL_Sink_T,7) (CH4_QCL_Set_T,7)
+   (CH4_QCL_T,7)(CH4_QCL_OutputVoltage,7) (CH4_QCL_OutputCurrent,7);
+}
+
+{
+  HBox {
+    |+;
+    {
+      [ME];
+      +-+;
+      [TMbase_htimes];
+    };
+    |+;
   };
-  -
+  -;
 }
