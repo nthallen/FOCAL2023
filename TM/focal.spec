@@ -24,8 +24,9 @@ Module GDS Panel=GDS: SVC=GDS TBLNAME=GDS
 Module GDS Panel=COE: SVC=GDS_COE SBMODE=col mode=col TBLNAME=GDS_COE
 # Module GDS Panel=MOE: SVC=GDS_MOE SBMODE=col mode=col
 Module GDS Panel=Bay: SVC=GDS_Bay TBLNAME=GDS_Bay
-Module WindMaster Panel=Wind: SVC=Wind TBLNAME=Wind
-Module GPS Panel=GPS: TBLNAME=GPS
+Module WindMaster Panel=Wind_GPS: SVC=Wind TBLNAME=Wind
+Module GPS Panel=Wind_GPS: TBLNAME=GPS
+Module ICM20948 Panel=Wind_GPS: HKPanel=Wind_GPS: mode=nopeaks
 
 IGNORE = Makefile "*.o" "*.exe" "*.stackdump"
 DISTRIB = services interact runfile.flight

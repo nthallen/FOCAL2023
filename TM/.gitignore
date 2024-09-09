@@ -81,6 +81,9 @@ Wind.tmc
 Wind_col.tmc
 GPS.genui
 GPS.tbl
+ICM20948.tmc
+ICM20948.tbl
+ICM20948.genui
 focalcmd.cc
 focalcmd.dat
 focalcmd.h
@@ -214,6 +217,9 @@ Wind.tmc
 Wind_col.tmc
 GPS.genui
 GPS.tbl
+ICM20948.tmc
+ICM20948.tbl
+ICM20948.genui
 Makefile
 *.o
 *.exe

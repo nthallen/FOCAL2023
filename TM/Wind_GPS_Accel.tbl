@@ -1,5 +1,6 @@
 Input "Wind.tbl";
 Input "GPS.tbl";
+Input "ICM20948.tbl";
 Input "TMbase.tbl";
 
 {
@@ -17,6 +18,8 @@ Input "TMbase.tbl";
           [GPS_data];
           [GPS_HK];
         };
+        |+;
+        [ICM20948_ver];
       };
       +-+;
       [TMbase_htimes];
