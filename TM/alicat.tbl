@@ -1,6 +1,7 @@
-Input "CPC.tbl";
-Input "MPC.tbl";
+# Input "CPC.tbl";
+# Input "MPC.tbl";
 Input "GD.tbl";
+Input "TMbase.tbl";
 
 # { HBox {
     # |+;
@@ -14,8 +15,40 @@ Input "GD.tbl";
   # -
 # }
 
-{ HBox { |+; [CPC_Ps]; |+; [CPC_Phk]; |+ };
-  HBox { |+; [MPC_Ps]; |+; [MPC_Phk]; |+ };
-  HBox { |+; [GD_flows]; |+; [GD_hk]; |+ };
+#{ HBox { |+; [CPC_Ps]; |+; [CPC_Phk]; |+ };
+#  HBox { |+; [MPC_Ps]; |+; [MPC_Phk]; |+ };
+#  HBox { |+; [GD_flows]; |+; [GD_hk]; |+ };
+#  -;
+#}
+
+PC {
+  HBox { +-; Title: "Pressure Control"; -+ };
+  {
+    ""        >Set<           >Pres<       ""   >Status<           >Stale<;
+    C_AbsP:  (C_AbsP_Set,7)  (C_AbsP_P,7)  Torr (C_AbsP_Status,4)  (C_AbsP_Stale,3);
+    C_DiffP: (C_DiffP_Set,7) (C_DiffP_P,7) Torr (C_DiffP_Status,4) (C_DiffP_Stale,3);
+    M_AbsP:  (M_AbsP_Set,7)  (M_AbsP_P,7)  Torr (M_AbsP_Status,4)  (M_AbsP_Stale,3);
+  };
+  HGlue 0+1 CPC_Stale: (CPC_Stale,3) HGlue 0+1 MPC_Stale:  (CPC_Stale,3);
+}
+
+GD_Flow {
+  HBox { +-; Title: "GD Flow"; -+ };
+  ""    >Set<        >Flow<         ""   >Drv<;
+  Cal: (Cal_Set,7) (Cal_MassFlow,7) slm  (GD_Stale,3);
+}
+
+{
+  HBox {
+    |+;
+    {
+      [PC];
+      [GD_Flow];
+      [GD_hk];
+      +-+;
+      [TMbase_htimes];
+    };
+    |+
+  };
   -;
 }
