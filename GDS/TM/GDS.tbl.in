@@ -34,18 +34,27 @@ GDS_MS8607 {
   RH: (GDS_RH, 6) "%";
 }
 
-@TBLNAME@ {
+GDS_Raw {
   HBox {
-    |+;
     {
       [MSP];
       [GDS_Pump_T];
     }; |+;
-    [ GDS_MS8607 ]; |+;
-    {
+    { [ GDS_MS8607 ];
       [GDS_Rovers];
+    };
+  };
+}
+
+@TBLNAME@ {
+  HBox {
+    |+;
+    {
+      [GDS_Raw];
+      -;
       [TMbase_times];
-    }; |+;
+    };
+    |+
   };
   -;
 }

@@ -18,12 +18,12 @@ Module alicat mode=ignore name=CPC src=CPC.txt Panel=HK:
 Module alicat mode=ignore name=MPC src=MPC.txt Panel=HK:
 Module alicat mode=ignore name=GD  src=GD.txt Panel=HK:
 
-Module uDACS mode=COE Panel=COE:
-Module uDACS mode=MOE Panel=MOE:
-Module GDS Panel=GDS: SVC=GDS
-Module GDS Panel=COE: SVC=GDS_COE SBMODE=col mode=col
+Module uDACS mode=COE Panel=COE: TBLNAME=CH4_default
+Module uDACS mode=MOE Panel=MOE: TBLNAME=CH4_default
+Module GDS Panel=GDS: SVC=GDS TBLNAME=GDS
+Module GDS Panel=COE: SVC=GDS_COE SBMODE=col mode=col TBLNAME=GDS_COE
 # Module GDS Panel=MOE: SVC=GDS_MOE SBMODE=col mode=col
-Module GDS Panel=Bay: SVC=GDS_Bay
+Module GDS Panel=Bay: SVC=GDS_Bay TBLNAME=GDS_Bay
 Module WindMaster Panel=Wind: SVC=Wind
 Module GPS Panel=GPS:
 
@@ -35,9 +35,8 @@ IDISTRIB = doit
 focalclt : -lsubbuspp
 focalsrvr : -lsubbuspp
 focaldisp : digio_conv.tmc $extbase \
-            focal.tbl uD_COE.tbl uD_MOE.tbl ME.tbl \
-            alicat.tbl GDS.tbl GDS_COE.tbl \
-            GDS_Bay.tbl Wind.tbl GPS.tbl
+            focal.tbl uDACS.tbl ME.tbl \
+            alicat.tbl GDSes.tbl Wind.tbl GPS.tbl
 focaljsonext : digio_conv.tmc $extbase $genuibase
 focalalgo : focal.tma
 doit : focal.doit

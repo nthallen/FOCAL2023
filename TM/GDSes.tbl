@@ -1,0 +1,23 @@
+Input "GDS.tbl";
+Input "GDS_COE.tbl";
+Input "GDS_Bay.tbl";
+
+GDSes {
+  [GDS_Raw];
+  HBox {
+    [COE_Raw]; |+;
+    [Bay_Raw]
+  };
+}
+
+{ 
+  HBox {
+    |+;
+    { [GDSes];
+      -;
+      [TMbase_htimes];
+    };
+    |+;
+  };
+  -;
+}
