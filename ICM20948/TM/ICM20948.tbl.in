@@ -1,19 +1,32 @@
-ICM20948 {
+ICM20948_a {
+  Max:    (ICM_max_g,7) g;
+  Scale:  (ICM_fsc,3)   g;
+  Mode:   HBox{"   "; (ICM_nack,1); (ICM_mode,3)};
+  Rate:   (ICM_sps,5)   Hz;
+  MLF:    (ICM_mlf,5);
+}
+
+ICM20948_b {
+  msecs:  (ICM_msecs,5) ms;
+  Rem0:   (ICM_rem0,5);
+  Rem1:   (ICM_rem1,5);
+  Stale:  (ICM_stale,3);
+}
+
+ICM20948_hor {
   HBox { +-; ICM20948; -+ };
   HBox {
-    {
-      Max:   (ICM_max_g,7) g;
-      Rate:    (ICM_sps,5) Hz;
-      Rem0:   (ICM_rem0,5);
-      Rem1:   (ICM_rem1,5);
-    }; |; {
-      msecs: (ICM_msecs,5) msecs;
-      MLF:     (ICM_mlf,5);
-      Mode: HBox{(ICM_nack,1); (ICM_mode,3)};
-      Scale:   (ICM_fsc,7) g;
-      Stale: (ICM_stale,3);
-    }
+    [ICM20948_a];
+    |;
+    [ICM20948_b];
   }
+}
+
+ICM20948_ver {
+  HBox { +-; ICM20948; -+ };
+  [ICM20948_a];
+  -;
+  [ICM20948_b];
 }
 
 ICM20948_Peaks_0 {
