@@ -66,12 +66,16 @@ bool Wind::protocol_input()
           iname, new_cs, parsed_saved, cp-parsed_saved-6);
         ++N_errors;
       } else {
-        sum.U += U;
-        sum.V += V;
-        sum.W += W;
-        sum.SoS += SoS;
-        sum.SonicTemp += SonicTemp;
-        ++N_samples;
+        if (U < 998. && V < 998. && W < 998) {
+          sum.U += U;
+          sum.V += V;
+          sum.W += W;
+          sum.SoS += SoS;
+          sum.SonicTemp += SonicTemp;
+          ++N_samples;
+        } else {
+          ++N_errors;
+        }
         report_ok(0);
       }
     }
@@ -98,6 +102,12 @@ bool Wind::tm_sync()
     WindMaster.W = sum.W/N_samples;
     WindMaster.SoS = sum.SoS/N_samples;
     WindMaster.SonicTemp = sum.SonicTemp/N_samples;
+  } else {
+    WindMaster.U = 99999.;
+    WindMaster.V = 99999.;
+    WindMaster.W = 99999.;
+    WindMaster.SoS = 99999.;
+    WindMaster.SonicTemp = 99999.;
   }
   WindMaster.mlf_index = mlf->index;
   WindMaster.N_samples = N_samples;
