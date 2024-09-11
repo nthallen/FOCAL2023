@@ -62,7 +62,6 @@ GD_col.tmc
 GD.cmd
 GD.genui
 GD.tbl
-uDACS.tbl
 uD_COE_conv.tmc
 uDACS_C02.genui
 uD_COE.tbl
@@ -195,7 +194,6 @@ GD_col.tmc
 GD.cmd
 GD.genui
 GD.tbl
-uDACS.tbl
 uD_COE_conv.tmc
 uD_COE.genui
 uD_COE.tbl

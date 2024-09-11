@@ -6,8 +6,6 @@ tmcbase = uDACS.tmc
 cmdbase = uDACS.cmd
 cmdbase = uDACS_cmd.oui
 colbase = uDACS_col.tmc
-IGNORE = uDACS.tbl
-OBJ = uDACS.tbl
 
 mode (default,COE) {
   tmcbase = uD_COE.tmc
