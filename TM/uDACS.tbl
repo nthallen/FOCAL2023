@@ -1,0 +1,16 @@
+Input "uD_COE.tbl";
+Input "uD_MOE.tbl";
+Input "TMbase.tbl";
+
+{
+  HBox {
+    |+;
+    {
+      HBox { [CO2_uDACS]; |+; [CH4_uDACS] };
+      -;
+      [TMbase_htimes];
+    };
+    |+
+  };
+  -;
+}
