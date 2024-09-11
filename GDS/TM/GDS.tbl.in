@@ -6,8 +6,9 @@ MSP {
   Cal_Hi:  (GDS_Cal_Hi,3)  (Cal_Hi_HP,6) (Cal_Hi_LP,7) psi;
   Cal_Lo:  (GDS_Cal_Lo,3)  (Cal_Lo_HP,6) (Cal_Lo_LP,7) psi;
   Cal_Ref: (GDS_Cal_Ref,3) (Ref_HP,6)    (Ref_LP,7)    psi;
-  Spare:   (GDS_Cal_Spr,3);
-  Ref:     (GDS_CO2_Ref,3)
+  { "Spare:  " (GDS_Cal_Spr,3) HBox { -; "Cal Gas Inlet"; - };
+    Ref:       (GDS_CO2_Ref,3) >{ CO2: (CO2_CAL_Gas_Inlet,3) CH4: (CO2_CAL_Gas_Inlet,3) }<;
+  }
 }
 
 GDS_Rovers {
