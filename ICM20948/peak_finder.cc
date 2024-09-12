@@ -1,8 +1,8 @@
 /* peak_finder.cc */
-#include "peak_finder.h"
 #include "ICM20948.h"
 
 #if N_ICM20948_PEAKS > 0
+#include "peak_finder.h"
 
 peak_finder::peak_finder(int n_raw, int max_peaks)
   : Lin(n_raw),
