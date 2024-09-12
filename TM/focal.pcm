@@ -6,9 +6,9 @@ Effective Frame Dimensions:
   10 Rows 64 Columns
   10 rows/sec
   5120 bits/sec
-  Data:  4776 bits/sec  93 %
+  Data:  4784 bits/sec  93 %
   Synch: 320 bits/sec  6 %
-  Empty: 24 bits/sec  0 %
+  Empty: 16 bits/sec  0 %
 -------End of Frame Statistics-----
 
 
@@ -267,5 +267,6 @@ Effective Frame Dimensions:
 1/1 Hz 1 bytes Datum IOSwS (10,9,56,1)
 1/1 Hz 1 bytes Datum SSP_C_Status (10,9,57,1)
 1/1 Hz 1 bytes Datum SSP_M_Status (10,9,58,1)
+1/1 Hz 1 bytes Datum SWStat (10,9,59,1)
 -------End of PCM Definition-------
 

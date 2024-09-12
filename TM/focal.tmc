@@ -1,3 +1,4 @@
 /* focal.tmc */
 TM typedef uint16_t UINT { text "%5u"; }
 TM 1 Hz UINT MFCtr, Synch;
+TM typedef uint8_t SWStat_t { text "%3u"; }

@@ -1,4 +1,61 @@
 State Init {
-  > Telemetry Start
+      > Telemetry Start
+  +3  > meerstetter ch4 QCL TEC enable
+  +3  > meerstetter co2 QCL TEC enable
+  +3  > meerstetter forward Gas Heat enable
+  # Startup Pumps
+  # Open exhaust valves
+  # Hold until cell pressures get down below 10 Torr
+  # Hold until QCL temps are low enough
+  # Startup Lasers
+} 
+
+State Flows_Start {
+          > CH4 Absolute Pressure Pressure SetPoint 60 Torr
+          > CO2 Absolute Pressure Pressure SetPoint 60 Torr
+          > Gas Deck Cal_Ref On
+          Validate Wait_for_Cal;
 }
 
+State Wait_for_Cal {
+      Hold until (SWStat == SWS_TIME_WARP) or 30:00;
+  +1  Validate CH4_Cal;
+}
+
+State CH4_Cal {
+        > Bay CH4_Cal_Gas_Inlet On
+        > Gas Deck Cal_Ref Off
+        > Gas Deck Cal_Hi On
+    +30 > Gas Deck Cal_Hi Off
+        > Gas Deck Cal_Lo On
+    +30 > Gas Deck Cal_Lo Off
+        > Gas Deck Cal_Ref On
+    +30 > Bay CH4_Cal_Gas_Inlet Off
+        Validate CO2_Cal;
+}
+
+State CO2_Cal {
+        > Bay CO2_Cal_Gas_Inlet On
+        > Gas Deck Cal_Ref Off
+        > Gas Deck Cal_Hi On
+    +30 > Gas Deck Cal_Hi Off
+        > Gas Deck Cal_Lo On
+    +30 > Gas Deck Cal_Lo Off
+        > Gas Deck Cal_Ref On
+    +30 > Bay CO2_Cal_Gas_Inlet Off
+        Validate Zeros;
+}
+
+State Zeros {
+          > CH4 Absolute Pressure Pressure SetPoint 0 Torr
+          > CO2 Absolute Pressure Pressure SetPoint 0 Torr
+      +30 > CH4 Absolute Pressure Pressure SetPoint 60 Torr
+          > CO2 Absolute Pressure Pressure SetPoint 60 Torr
+      +30 > CH4 Absolute Pressure Pressure SetPoint 0 Torr
+          > CO2 Absolute Pressure Pressure SetPoint 0 Torr
+      +30 Validate Flows_Start;
+}
+
+State Shutdown {
+  +10 > Quit
+}
