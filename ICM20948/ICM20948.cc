@@ -7,7 +7,9 @@
 #include "oui.h"
 #include "subbuspp.h"
 #include "nl.h"
+#if N_ICM20948_PEAKS > 0
 #include "peak_finder.h"
+#endif
 
 using namespace DAS_IO;
 
