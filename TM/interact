@@ -73,8 +73,8 @@ function dns {
   if [ -e "$GDS_Bay_port" ]; then POK=''; else POK=dns; fi
   $POK Launch      GDS_Bay  subbusd_serusb -q -p $GDS_Bay_port -s GDS_Bay -n GDS_Bay
 
-  if [ -c "$Accel_port" ] &&
-  Launch      -      subbusd_serusb -q -p $Accel_port -s Accel -b 19200
+  if [ -c "$Accel_port" ]; then POK=''; else POK=dns; fi
+  $POK Launch        -      subbusd_serusb -q -p $Accel_port -s Accel -b 19200
 
   Launch      tm_gen     focalcol
   Launch      cmd        focalsrvr -H srvr: -S:
