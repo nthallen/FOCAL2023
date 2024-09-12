@@ -1,0 +1,6 @@
+SW_Variable: <uint8_t,SWStat_t> SWStat SW Status
+
+SWS_CAL_START        10 Calibration Start:        Validate CH4_Cal; break;
+
+SWS_TIME_WARP       253 Time Warp:                break;
+SWS_SHUTDOWN        255 Shutdown:            Validate Shutdown; break;

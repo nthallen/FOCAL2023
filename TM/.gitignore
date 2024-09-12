@@ -83,6 +83,10 @@ GPS.tbl
 ICM20948.tmc
 ICM20948.tbl
 ICM20948.genui
+SWData.cmd
+SWData.h
+SWData.tmc
+SWData_col.tmc
 focalcmd.cc
 focalcmd.dat
 focalcmd.h
@@ -112,6 +116,7 @@ focaljsonext.cc
 focaljsonextoui.cc
 focaljsonext.o
 focaljsonextoui.o
+focalalgosws.tma
 focalalgoa.tmc
 focalalgo.cc
 focalalgooui.cc
@@ -222,6 +227,10 @@ Makefile
 *.o
 *.exe
 *.stackdump
+SWData.cmd
+SWData.h
+SWData.tmc
+SWData_col.tmc
 focalcltnc
 focalsrvr
 focaldispnc

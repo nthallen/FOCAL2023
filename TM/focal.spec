@@ -4,8 +4,9 @@ tmcbase = focal.tmc
 tmcbase = digio.tmc
 cmdbase = dccc.cmd
 genuibase = focal.genui
+swsbase = focal.sws
 
-Module TMbase mode=ignore Panel=HK:
+Module TMbase mode=ignore Panel=HK: SWSnot=
 Module QCLI mode=baseignore
 Module QCLI mode=noiseignore SUFFIX=_C ADDR=0x1010 ACQCFG=ABC3R RESET= SSPRATE=1 Panel=QCLI:
 Module QCLI mode=noiseignore SUFFIX=_M ADDR=0x1000 ACQCFG=AB3R  RESET= SSPRATE=1 Panel=QCLI: CMDTYPE=#
@@ -29,6 +30,8 @@ Module GPS Panel=Wind_GPS: TBLNAME=GPS
 Module ICM20948 Panel=Wind_GPS: HKPanel=Wind_GPS: mode=nopeaks
 
 IGNORE = Makefile "*.o" "*.exe" "*.stackdump"
+IGNORE = SWData.cmd SWData.h SWData.tmc SWData_col.tmc
+OBJ = SWData.cmd SWData.h SWData.tmc SWData_col.tmc
 DISTRIB = services interact runfile.flight
 DISTRIB = dccc.dccc USB.id
 IDISTRIB = doit
@@ -39,7 +42,7 @@ focaldisp : digio_conv.tmc $extbase \
             focal.tbl uDACS.tbl ME.tbl \
             alicat.tbl GDSes.tbl Wind_GPS_Accel.tbl
 focaljsonext : digio_conv.tmc $extbase $genuibase
-focalalgo : focal.tma
+focalalgo : focal.tma focal.sws
 doit : focal.doit
 %%
 CXXFLAGS=-g
