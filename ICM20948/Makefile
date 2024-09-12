@@ -1,7 +1,8 @@
 include /usr/local/share/monarch/appgen.mk
 
 CXXFLAGS+=-g -Wall -std=c++11
-LDFLAGS=$(AG_LDFLAGS) -ldasio -lnl -lsubbuspp -lpthread -lfftw3
+LDFLAGS=$(AG_LDFLAGS) -ldasio -lnl -lsubbuspp -lpthread
+# -lfftw3 if we need peakfinder
 
 .PHONY : all
 all : ICM20948
