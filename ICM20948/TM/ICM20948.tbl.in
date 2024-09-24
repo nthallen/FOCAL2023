@@ -1,5 +1,8 @@
 ICM20948_a {
   Max:    (ICM_max_g,7) g;
+  " x:"   (ICM_max_accel_x,7) g;
+  " y:"   (ICM_max_accel_y,7) g;
+  " z:"   (ICM_max_accel_z,7) g;
   Scale:  (ICM_fsc,3)   g;
   Mode:   HBox{"   "; (ICM_nack,1); (ICM_mode,3)};
   Rate:   (ICM_sps,5)   Hz;

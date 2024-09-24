@@ -18,3 +18,18 @@ ICM_g ICM_max_g; Invalidate ICM_max_g;
   ICM_max_g = (sum==0) ? 9999.0 : sqrt(sum)*convert(ICM_fsc)/32768;
   Validate ICM_max_g;
 }
+
+ICM_g ICM_max_accel_x; Invalidate ICM_max_accel_x;
+{ ICM_max_accel_x = (ICM_max_accel[0]/32768.)*convert(ICM_fsc);
+  Validate ICM_max_accel_x;
+}
+
+ICM_g ICM_max_accel_y; Invalidate ICM_max_accel_y;
+{ ICM_max_accel_y = (ICM_max_accel[1]/32768.)*convert(ICM_fsc);
+  Validate ICM_max_accel_y;
+}
+
+ICM_g ICM_max_accel_z; Invalidate ICM_max_accel_z;
+{ ICM_max_accel_z = (ICM_max_accel[2]/32768.)*convert(ICM_fsc);
+  Validate ICM_max_accel_z;
+}

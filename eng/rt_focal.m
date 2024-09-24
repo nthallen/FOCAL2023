@@ -240,7 +240,7 @@ dfs.plot('wind_gps_gps_mlf', 'label', 'GPS mlf', 'plots', {'wind_gps_gps_mlft','
 dfs.plot('wind_gps_gps_mlft','label','d Time','vars',{'GPS_mlf_time'});
 dfs.plot('wind_gps_gps_mlffi','label','File Idx','vars',{'GPS_mlf_idx'});
 dfs.plot('wgpsicm', 'label', 'ICM', 'plots', {'wgpsicmm','wgpsicmr'});
-dfs.plot('wgpsicmm','label','Max','vars',{'ICM_max_g'});
+dfs.plot('wgpsicmm','label','Max','vars',{'ICM_max_g','ICM_max_accel_x','ICM_max_accel_y','ICM_max_accel_z'});
 dfs.plot('wgpsicmr','label','Rate','vars',{'ICM_sps'});
 dfs.end_col;
 dfs.start_col;
