@@ -13,7 +13,7 @@ State Init {
 State Flows_Start {
           > CH4 Absolute Pressure Pressure SetPoint 60 Torr
           > CO2 Absolute Pressure Pressure SetPoint 60 Torr
-          > Gas Deck Cal_Ref On
+          > Gas Deck CO2_Ref On
           Validate Wait_for_Cal;
 }
 
@@ -24,36 +24,36 @@ State Wait_for_Cal {
 
 State CH4_Cal {
         > Bay CH4_Cal_Gas_Inlet On
-        > Gas Deck Cal_Ref Off
         > Gas Deck Cal_Hi On
     +30 > Gas Deck Cal_Hi Off
         > Gas Deck Cal_Lo On
     +30 > Gas Deck Cal_Lo Off
         > Gas Deck Cal_Ref On
-    +30 > Bay CH4_Cal_Gas_Inlet Off
+    +30	> Gas Deck Cal_Ref Off
+        > Bay CH4_Cal_Gas_Inlet Off
         Validate CO2_Cal;
 }
 
 State CO2_Cal {
         > Bay CO2_Cal_Gas_Inlet On
-        > Gas Deck Cal_Ref Off
         > Gas Deck Cal_Hi On
     +30 > Gas Deck Cal_Hi Off
         > Gas Deck Cal_Lo On
     +30 > Gas Deck Cal_Lo Off
         > Gas Deck Cal_Ref On
-    +30 > Bay CO2_Cal_Gas_Inlet Off
+    +30 > Gas Deck Cal_Ref Off
+        > Bay CO2_Cal_Gas_Inlet Off
         Validate Zeros;
 }
 
 State Zeros {
           > CH4 Absolute Pressure Pressure SetPoint 0 Torr
           > CO2 Absolute Pressure Pressure SetPoint 0 Torr
-      +30 > CH4 Absolute Pressure Pressure SetPoint 60 Torr
+      +20 > CH4 Absolute Pressure Pressure SetPoint 60 Torr
           > CO2 Absolute Pressure Pressure SetPoint 60 Torr
-      +30 > CH4 Absolute Pressure Pressure SetPoint 0 Torr
+      +10 > CH4 Absolute Pressure Pressure SetPoint 0 Torr
           > CO2 Absolute Pressure Pressure SetPoint 0 Torr
-      +30 Validate Flows_Start;
+      +10 Validate Flows_Start;
 }
 
 State Shutdown {
